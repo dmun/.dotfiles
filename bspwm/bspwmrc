@@ -23,6 +23,6 @@ bspc rule -a Screenkey manage=off
 bspc rule -a Gpick state=floating
 
 xset r rate 250
-feh --bg-fill ~/.config/bspwm/48f8117b2e19755fa107ac47b15d614f.jpg
-picom --experimental-backends
+feh --bg-fill ~/.config/bspwm/background.jpg
+# picom --experimental-backends
 /home/david/.config/polybar/launch.sh
