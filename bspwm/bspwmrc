@@ -24,5 +24,6 @@ bspc rule -a Gpick state=floating
 
 xset r rate 250
 feh --bg-fill ~/.config/bspwm/background.jpg
+pulseaudio
 # picom --experimental-backends
 /home/david/.config/polybar/launch.sh
