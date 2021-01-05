@@ -7,7 +7,7 @@ Running `./setup.sh` will create links in the designated directories to the conf
 Follow the steps to use the dotfiles.
 ### Packages
 ```
-sudo apt install bspwm neofetch neovim polybar pulseaudio
+sudo apt install bspwm neofetch neovim polybar pulseaudio feh
 ```
 
 ### Vim-plug
