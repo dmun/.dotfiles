@@ -1,45 +1,46 @@
 * {
-  background-color: #22252b;
-  border-color: #2e343f;
+  background-color: #222222;
+  border-color: #343434;
   text-color: #ffffff;
   spacing: 0;
-  width: 512px;
+  width: 512;
   font: "SF Pro Display 14";
 }
 
 inputbar {
-  border: 0 0 1px 0;
+  border: 0 0 1 0;
   children: [prompt,entry];
 }
 
 prompt {
-  padding: 16px;
-  border: 0 1px 0 0;
+  padding: 16;
+  border: 0 1 0 0;
+  font: "SF Pro Display 18";
 }
 
 textbox {
   background-color: #2e343f;
-  border: 0 0 1px 0;
-  border-color: #282C33;
-  padding: 8px 16px;
+  padding: 8 16;
 }
 
 entry {
-  padding: 16px;
+  padding: 16;
+  font: "SF Pro Display 18";
+  border: 0 0 0 0;
 }
 
 listview {
   cycle: false;
-  margin: 0 0 -1px 0;
+  margin: 0 0 0 0;
   scrollbar: false;
   lines: 4;
+  border: 0;
 }
 
 element {
-  border: 0 0 2px 0;
-  padding: 16px;
+  padding: 12;
 }
 
 element selected {
-  background-color: #2e343f;
+  background-color: #343434;
 }
