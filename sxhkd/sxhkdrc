@@ -16,7 +16,7 @@ super + Escape
 
 # open pulsemixer
 super + u
-    alacritty -e bash -c "bspc node -t floating && pulsemixer"
+    alacritty -e bash -c "bspc node -t floating -z left 100 0 -z top 0 200 -v -50 -100 && pulsemixer"
 
 #
 # bspwm hotkeys
