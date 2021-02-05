@@ -10,7 +10,7 @@ set nowrap
 
 " Color settings
 syntax on
-colorscheme palenight
+colorscheme purify
 set background=dark
 
 if (has("nvim"))
