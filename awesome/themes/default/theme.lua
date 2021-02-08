@@ -11,23 +11,25 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "sans 8"
+theme.font          = "Product Sans 9"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
+theme.bg_normal     = "#171619"
+theme.bg_focus      = "#22242b"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
+theme.systray_icon_spacing = 10
+theme.taglist_bg    = "#000000"
 
-theme.fg_normal     = "#aaaaaa"
+theme.fg_normal     = "#ffffff"
 theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(1)
-theme.border_normal = "#1C1C1C"
-theme.border_focus  = "#2C2C2C"
+theme.useless_gap   = dpi(3)
+theme.border_width  = 2
+theme.border_normal = "#2C2C2C"
+theme.border_focus  = "#3C3C3C"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -97,7 +99,7 @@ theme.titlebar_maximized_button_focus_inactive  = themes_path.."default/titlebar
 theme.titlebar_maximized_button_normal_active = themes_path.."default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = themes_path.."default/background.png"
+theme.wallpaper = themes_path.."default/background.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"

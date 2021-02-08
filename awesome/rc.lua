@@ -3,8 +3,7 @@
 pcall(require, "luarocks.loader")
 
 -- Standard awesome library
-local gears = require("gears")
-local awful = require("awful")
+local gears = require("gears") local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
@@ -14,6 +13,11 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
+-- local helpers = require("helpers")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -49,7 +53,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
+beautiful.init(theme_path)
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -207,38 +213,117 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
+        -- style = {
+        --     shape = gears.shape.rounded_rect
+        -- },
+        layout = {
+            spacing = 0,
+            layout = wibox.layout.fixed.horizontal
+        },
+        widget_template = {
+            {
+                {
+                    id = 'text_role',
+                    widget = wibox.widget.textbox
+                },
+                left = 12,
+                right = 12,
+                -- margins = 7,
+                widget = wibox.container.margin
+            },
+            shape = gears.shape.rounded_rect,
+            id = 'background_role',
+            widget = wibox.container.background
+        },
         buttons = taglist_buttons
     }
+
+    beautiful.tasklist_disable_task_name = true
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        buttons = tasklist_buttons,
+        -- style  = {
+        --     shape = gears.shape.rounded_rect,
+        -- },
+        layout = {
+            spacing = 10,
+            layout = wibox.layout.fixed.horizontal
+        },
+        widget_template = {
+            {
+                id = 'icon_role',
+                widget = wibox.widget.imagebox,
+            },
+            layout = wibox.layout.fixed.horizontal
+        },
+        margins = 10,
+        widget = wibox.container.margin,
+        placement = awful.placement.centered
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(24) })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-            s.mytaglist,
+            {
+                mylauncher,
+                margins = 0,
+                widget = wibox.container.margin
+            },
+            {
+                {
+                    s.mytaglist,
+                    -- shape = gears.shape.rounded_rect,
+                    -- bg = '#000000',
+                    widget = wibox.container.background
+                },
+                margins = 0,
+                widget = wibox.container.margin
+            },
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
+        {
+            layout = wibox.layout.align.horizontal,
+            -- s.mytasklist,
+        },
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
-            wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
-        },
+            {
+                {
+                    wibox.widget.systray(),
+                    widget = wibox.container.background
+                },
+                left = 10,
+                right = 10,
+                margins = 3,
+                widget = wibox.container.margin
+            },
+            {
+                {
+                    mytextclock,
+                    widget = wibox.container.background
+                },
+                left = 10,
+                right = 10,
+                margins = 3,
+                widget = wibox.container.margin
+            },
+            {
+                s.mylayoutbox,
+                margins = 0,
+                widget = wibox.container.margin
+            }
+        }
     }
 end)
+
 -- }}}
 
 -- {{{ Mouse bindings
@@ -462,10 +547,6 @@ clientbuttons = gears.table.join(
 -- Set keys
 root.keys(globalkeys)
 -- }}}
-
-beautiful.border_width = 2
-beautiful.border_normal = '#1C1C1C'
-beautiful.border_focus = '#2C2C2C'
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
