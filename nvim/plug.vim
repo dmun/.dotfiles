@@ -9,4 +9,5 @@ call plug#begin('~/.config/nvim/autoload')
     Plug 'junegunn/fzf.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'dracula/vim', {'as': 'dracula'}
+    Plug 'sonph/onehalf', { 'rtp': 'vim' }
 call plug#end()
