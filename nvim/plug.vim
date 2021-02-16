@@ -7,6 +7,8 @@ call plug#begin('~/.config/nvim/autoload')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'mhinz/vim-startify'
     Plug 'vim-airline/vim-airline'
     Plug 'dracula/vim', {'as': 'dracula'}
     Plug 'sonph/onehalf', { 'rtp': 'vim' }
