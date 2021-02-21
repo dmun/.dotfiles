@@ -27,6 +27,7 @@ local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 local mybattery = require("widgets.battery")
+local mynetwork = require("widgets.network")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -275,11 +276,6 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             {
-                mylauncher,
-                margins = 0,
-                widget = wibox.container.margin
-            },
-            {
                 {
                     s.mytaglist,
                     -- shape = gears.shape.rounded_rect,
@@ -310,6 +306,16 @@ awful.screen.connect_for_each_screen(function(s)
             {
                 {
                     mybattery,
+                    widget = wibox.container.background
+                },
+                left = 10,
+                right = 10,
+                margins = 3,
+                widget = wibox.container.margin
+            },
+            {
+                {
+                    mynetwork,
                     widget = wibox.container.background
                 },
                 left = 10,

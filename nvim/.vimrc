@@ -10,7 +10,7 @@ set nowrap
 
 " Color settings
 syntax on
-colorscheme onedark
+colorscheme dracula
 set background=dark
 
 if (has("nvim"))
@@ -28,11 +28,16 @@ nnoremap <C-p> :GFiles<CR>
 nnoremap <TAB> :bnext<CR>
 nnoremap <S-TAB> :bprev<CR>
 
+" Window management
+nnoremap <M-j> <C-w>w
+nnoremap <M-k> <C-w>W
+nnoremap <M-q> <C-w>q
+
 " Resizing windows
-nnoremap <C-w><C-j> :resize +2<CR>
-nnoremap <C-w><C-k> :resize -2<CR>
-nnoremap <C-w><C-h> :vertical resize -2<CR>
-nnoremap <C-w><C-l> :vertical resize +2<CR>
+nnoremap <C-w><C-j> :resize +5<CR>
+nnoremap <C-w><C-k> :resize -5<CR>
+nnoremap <C-w><C-h> :vertical resize -5<CR>
+nnoremap <C-w><C-l> :vertical resize +5<CR>
 
 " Show the correct cursor for Vim modes (Windows Terminal)
 " let &t_SR.="\e[4 q"

@@ -115,7 +115,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PS1='\[\e[0;92m\]\u\[\e[0;92m\]@\[\e[0;92m\]\H\[\e[m\] \[\e[0;91m\]\s\[\e[m\] \[\e[0;93m\]\w\[\e[m\] \[\e[0;96m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\[\e[m\]\n\[\e[0m\]$\[\e[m\] \[\e0'
+# PS1='\[\e[0;92m\]\u\[\e[0;92m\]@\[\e[0;92m\]\H\[\e[m\] \[\e[0;91m\]\s\[\e[m\] \[\e[0;93m\]\w\[\e[m\] \[\e[0;96m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\[\e[m\]\n\[\e[0m\]$\[\e[m\] \[\e0'
+PS1='\[\e[0;92m\]\u \[\e[0m\]in \[\e[0;93m\]\W \[\e[0;96m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2)\n\[\e[0m\]→ \[\e[0m\]'
 source "$HOME/.cargo/env"
 
 set -o vi
