@@ -26,6 +26,8 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+local mybattery = require("widgets.battery")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -192,26 +194,6 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
-local battery = 50
-
-awful.spawn.easy_async_with_shell("sh -c 'echo /sys/class/power_supply/BAT?/capacity'", function (battery_file, _, __, exit_code)
-    if not (exit_code == 0) then
-        return
-    end
-
-    io.write("test")
-
-    awful.widget.watch("cat " .. battery_file, 5, function(_, capacity)
-        awesome.emit_signal("status::battery", tonumber(capacity))
-    end)
-end)
-
-awesome.emit_signal("status::battery", 90)
-
-awesome.connect_signal("status::battery", function(capacity)
-    battery = capacity
-end)
-
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
@@ -327,10 +309,7 @@ awful.screen.connect_for_each_screen(function(s)
             },
             {
                 {
-                    {
-                        markup = battery,
-                        widget = wibox.widget.textbox
-                    },
+                    mybattery,
                     widget = wibox.container.background
                 },
                 left = 10,
