@@ -13,4 +13,5 @@ call plug#begin('~/.config/nvim/autoload')
     Plug 'vim-airline/vim-airline'
     Plug 'dracula/vim', {'as': 'dracula'}
     Plug 'sonph/onehalf', { 'rtp': 'vim' }
+    Plug 'lilydjwg/colorizer'
 call plug#end()

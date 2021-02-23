@@ -10,7 +10,7 @@ set nowrap
 
 " Color settings
 syntax on
-colorscheme dracula
+colorscheme onedark
 set background=dark
 
 if (has("nvim"))
@@ -31,6 +31,8 @@ nnoremap <S-TAB> :bprev<CR>
 " Window management
 nnoremap <M-j> <C-w>w
 nnoremap <M-k> <C-w>W
+nnoremap <M-h> <C-w>h
+nnoremap <M-l> <C-w>l
 nnoremap <M-q> <C-w>q
 
 " Resizing windows
