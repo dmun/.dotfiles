@@ -219,9 +219,6 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
-        -- style = {
-        --     shape = gears.shape.rounded_rect
-        -- },
         layout = {
             spacing = 0,
             layout = wibox.layout.fixed.horizontal
@@ -237,7 +234,6 @@ awful.screen.connect_for_each_screen(function(s)
                 -- margins = 7,
                 widget = wibox.container.margin
             },
-            shape = gears.shape.rounded_rect,
             id = 'background_role',
             widget = wibox.container.background
         },
@@ -281,8 +277,6 @@ awful.screen.connect_for_each_screen(function(s)
             {
                 {
                     s.mytaglist,
-                    -- shape = gears.shape.rounded_rect,
-                    -- bg = '#000000',
                     widget = wibox.container.background
                 },
                 margins = 0,
@@ -297,40 +291,28 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             {
-                {
-                    wibox.widget.systray(),
-                    widget = wibox.container.background
-                },
+                wibox.widget.systray(),
                 left = 10,
                 right = 10,
                 margins = 4,
                 widget = wibox.container.margin
             },
             {
-                {
-                    mybattery,
-                    widget = wibox.container.background
-                },
+                mybattery,
                 left = 10,
                 right = 10,
                 margins = 3,
                 widget = wibox.container.margin
             },
             {
-                {
-                    mynetwork,
-                    widget = wibox.container.background
-                },
+                mynetwork,
                 left = 10,
                 right = 10,
                 margins = 3,
                 widget = wibox.container.margin
             },
             {
-                {
-                    mytextclock,
-                    widget = wibox.container.background
-                },
+                mytextclock,
                 left = 10,
                 right = 10,
                 margins = 3,

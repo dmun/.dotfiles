@@ -2,6 +2,7 @@
 -- Default awesome theme --
 ---------------------------
 
+local gears = require("gears")
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -19,6 +20,9 @@ theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 theme.systray_icon_spacing = 10
 theme.taglist_bg    = "#000000"
+-- theme.taglist_shape = function(cr, width, height)
+--     gears.shape.rounded_rect(cr, width, height, 5)
+-- end
 
 theme.fg_normal     = "#ffffff"
 theme.fg_focus      = "#ffffff"

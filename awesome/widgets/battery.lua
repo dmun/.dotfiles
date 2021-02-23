@@ -11,15 +11,15 @@ awesome.connect_signal("status::battery", function(capacity, charging)
     local text = capacity .. "% "
 
     if (capacity >= 99) then
-        text = text .. "    "
+        text = text .. ""
     elseif (capacity > 80) then
-        text = text .. "    "
+        text = text .. ""
     elseif (capacity > 50) then
-        text = text .. "    "
+        text = text .. ""
     elseif (capacity > 20) then
-        text = text .. "    "
+        text = text .. ""
     else
-        text = text .. "    "
+        text = text .. ""
     end
 
     mybattery.text = text
