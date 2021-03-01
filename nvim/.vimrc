@@ -10,23 +10,22 @@ set nowrap
 
 " Color settings
 syntax on
-colorscheme onedark
+set termguicolors
+colorscheme dark_plus
 set background=dark
 
 if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
-if (has("termguicolors"))
-    set termguicolors
-endif
-
 " CTRL-P to show files with fzf
 nnoremap <C-p> :GFiles<CR>
 
 " Navigating buffers with TAB and SHIFT-TAB
-nnoremap <TAB> :bnext<CR>
-nnoremap <S-TAB> :bprev<CR>
+" nnoremap <TAB> :bnext<CR>
+" nnoremap <S-TAB> :bprev<CR>
+nnoremap <TAB> :BufferNext<CR>
+nnoremap <S-TAB> :BufferPrevious<CR>
 
 " Window management
 nnoremap <M-j> <C-w>w
