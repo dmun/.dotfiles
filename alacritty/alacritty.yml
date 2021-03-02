@@ -1,7 +1,7 @@
 window:
   padding:
-    x: 10
-    y: 10
+    x: 5
+    y: 5
 
   dynamic_padding: false
 font:
@@ -11,13 +11,13 @@ colors:
   name: Default (dark)
   author: Chris Kempson
   primary:
-    background: "#1E1E1E"
+    background: "#1e1e1e"
     foreground: "#d0d0d0"
   cursor:
-    text: "#151515"
+    text: "#1e1e1e"
     cursor: "#d0d0d0"
   normal:
-    black: "#151515"
+    black: "#1e1e1e"
     red: "#ac4142"
     green: "#90a959"
     yellow: "#f4bf75"
