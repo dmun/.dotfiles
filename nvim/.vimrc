@@ -31,14 +31,14 @@ nnoremap <TAB> :BufferNext<CR>
 nnoremap <S-TAB> :BufferPrevious<CR>
 
 " Window management
-nnoremap <M-j> <C-w>w
-nnoremap <M-k> <C-w>W
-nnoremap <M-h> <C-w>h
-nnoremap <M-l> <C-w>l
-nnoremap <M-q> <C-w>q
+" nnoremap <M-j> <C-w>w
+" nnoremap <M-k> <C-w>W
+" nnoremap <M-h> <C-w>h
+" nnoremap <M-l> <C-w>l
+" nnoremap <M-q> <C-w>q
 
 " Resizing windows
-nnoremap <C-w><C-j> :resize +5<CR>
-nnoremap <C-w><C-k> :resize -5<CR>
-nnoremap <C-w><C-h> :vertical resize -5<CR>
-nnoremap <C-w><C-l> :vertical resize +5<CR>
+" nnoremap <C-w><C-j> :resize +5<CR>
+" nnoremap <C-w><C-k> :resize -5<CR>
+" nnoremap <C-w><C-h> :vertical resize -5<CR>
+" nnoremap <C-w><C-l> :vertical resize +5<CR>

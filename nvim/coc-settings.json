@@ -1,3 +1,5 @@
 {
-    "explorer.icon.enableNerdfont": true
+    "explorer.width": 30,
+    "explorer.icon.enableNerdfont": true,
+    "clangd.path": "/home/david/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd"
 }
