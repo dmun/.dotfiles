@@ -8,4 +8,6 @@ source $HOME/.config/nvim/.vimrc
 source $HOME/.config/nvim/plug_config/coc.vim
 source $HOME/.config/nvim/plug_config/airline.vim
 source $HOME/.config/nvim/plug_config/gitgutter.vim
+source $HOME/.config/nvim/plug_config/telescope.vim
+source $HOME/.config/nvim/plug_config/barbar.vim
 luafile $HOME/.config/nvim/plug_config/treesitter.lua
