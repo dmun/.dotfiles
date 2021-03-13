@@ -1,5 +1,6 @@
 call plug#begin('~/.config/nvim/autoload')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'jiangmiao/auto-pairs'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'

@@ -1,7 +1,7 @@
 " Barbar settings
-nnoremap <M-.> :BufferNext<CR>
-nnoremap <M-,> :BufferPrevious<CR>
-nnoremap <M-c> :BufferClose<CR>
+nnoremap <silent><M-.> :BufferNext<CR>
+nnoremap <silent><M-,> :BufferPrevious<CR>
+nnoremap <silent><M-c> :BufferClose<CR>
 
 " Navigate tabs with meta + number
 nnoremap <silent><M-1> :BufferGoto 1<CR>
