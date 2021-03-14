@@ -22,22 +22,22 @@ if (has("nvim"))
 endif
 
 " Navigating buffers
-nnoremap <M-.> :bnext<CR>
-nnoremap <M-,> :bprev<CR>
-nnoremap <M-c> :bd<CR>
+nnoremap <silent><M-.> :bnext<CR>
+nnoremap <silent><M-,> :bprev<CR>
+nnoremap <silent><M-c> :bd<CR>
 
 " Window management
-nnoremap <M-j> <C-w>w
-nnoremap <M-k> <C-w>W
-nnoremap <M-h> <C-w>h
-nnoremap <M-l> <C-w>l
+nnoremap <silent><M-j> <C-w>w
+nnoremap <silent><M-k> <C-w>W
+nnoremap <silent><M-h> <C-w>h
+nnoremap <silent><M-l> <C-w>l
 
-nnoremap <M-v> <C-w>v
-nnoremap <M-s> <C-w>s
-nnoremap <M-q> <C-w>q
+nnoremap <silent><M-v> <C-w>v
+nnoremap <silent><M-s> <C-w>s
+nnoremap <silent><M-q> <C-w>q
 
 " Resizing windows
-nnoremap <M-C-j> :resize +5<CR>
-nnoremap <M-C-k> :resize -5<CR>
-nnoremap <M-C-h> :vertical resize -5<CR>
-nnoremap <M-C-l> :vertical resize +5<CR>
+nnoremap <silent><M-C-j> :resize +10<CR>
+nnoremap <silent><M-C-k> :resize -10<CR>
+nnoremap <silent><M-C-h> :vertical resize -10<CR>
+nnoremap <silent><M-C-l> :vertical resize +10<CR>
