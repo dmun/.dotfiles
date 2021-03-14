@@ -7,6 +7,7 @@ set expandtab
 set number
 set showtabline=2
 set noshowmode
+set laststatus=0
 set nowrap
 set cursorline
 
