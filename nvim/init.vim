@@ -9,5 +9,5 @@ source $HOME/.config/nvim/plug_config/coc.vim
 source $HOME/.config/nvim/plug_config/airline.vim
 source $HOME/.config/nvim/plug_config/gitgutter.vim
 source $HOME/.config/nvim/plug_config/telescope.vim
-source $HOME/.config/nvim/plug_config/barbar.vim
+source $HOME/.config/nvim/plug_config/bufferline.vim
 luafile $HOME/.config/nvim/plug_config/treesitter.lua

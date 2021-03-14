@@ -8,10 +8,8 @@ call plug#begin('~/.config/nvim/autoload')
     Plug 'airblade/vim-gitgutter'
     Plug 'airblade/vim-rooter'
     Plug 'mhinz/vim-startify'
-    Plug 'vim-airline/vim-airline'
     Plug 'lilydjwg/colorizer'
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'romgrk/barbar.nvim'
-    Plug 'dunstontc/vim-vscode-theme'
+    Plug 'akinsho/nvim-bufferline.lua'
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
 call plug#end()
