@@ -10,6 +10,7 @@ set noshowmode
 set laststatus=0
 set nowrap
 set cursorline
+set mouse=a
 
 " Color settings
 syntax on
