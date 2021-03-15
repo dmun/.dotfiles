@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim/autoload')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'jiangmiao/auto-pairs'
+    Plug 'tpope/vim-surround'
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
@@ -10,6 +11,6 @@ call plug#begin('~/.config/nvim/autoload')
     Plug 'mhinz/vim-startify'
     Plug 'lilydjwg/colorizer'
     Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'akinsho/nvim-bufferline.lua'
+    Plug 'romgrk/barbar.nvim'
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
 call plug#end()

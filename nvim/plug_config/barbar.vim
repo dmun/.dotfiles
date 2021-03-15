@@ -2,6 +2,8 @@
 nnoremap <silent><M-.> :BufferNext<CR>
 nnoremap <silent><M-,> :BufferPrevious<CR>
 nnoremap <silent><M-c> :BufferClose<CR>
+nnoremap <silent><M->> :BufferMoveNext<CR>
+nnoremap <silent><M-<> :BufferMovePrevious<CR>
 
 " Navigate tabs with meta + number
 nnoremap <silent><M-1> :BufferGoto 1<CR>
