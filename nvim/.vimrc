@@ -22,6 +22,9 @@ if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
+" No highlight
+nnoremap <silent><leader>h :nohl<CR>
+
 " Navigating buffers
 nnoremap <silent><M-.> :bnext<CR>
 nnoremap <silent><M-,> :bprev<CR>
