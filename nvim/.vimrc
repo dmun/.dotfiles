@@ -18,10 +18,6 @@ set termguicolors
 colorscheme nvcode
 set background=dark
 
-if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-
 " No highlight
 nnoremap <silent><leader>h :nohl<CR>
 
@@ -35,13 +31,18 @@ nnoremap <silent><M-j> <C-w>w
 nnoremap <silent><M-k> <C-w>W
 nnoremap <silent><M-h> <C-w>h
 nnoremap <silent><M-l> <C-w>l
-
-nnoremap <silent><M-v> <C-w>v
-nnoremap <silent><M-s> <C-w>s
-nnoremap <silent><M-q> <C-w>q
+noremap <silent><M-v> <C-w>v
+noremap <silent><M-s> <C-w>s
+noremap <silent><M-q> <C-w>q
 
 " Resizing windows
 nnoremap <silent><M-C-j> :resize +5<CR>
 nnoremap <silent><M-C-k> :resize -5<CR>
 nnoremap <silent><M-C-h> :vertical resize -10<CR>
 nnoremap <silent><M-C-l> :vertical resize +10<CR>
+
+" Moving windows
+nnoremap <silent><M-J> <C-w>J
+nnoremap <silent><M-H> <C-w>H
+nnoremap <silent><M-K> <C-w>K
+nnoremap <silent><M-L> <C-w>L
