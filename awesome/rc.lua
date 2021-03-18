@@ -15,10 +15,6 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
--- DPI support
-local xresources = require("beautiful.xresources")
-local dpi = xresources.apply_dpi
-
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -26,10 +22,6 @@ require("awful.hotkeys_popup.keys")
 -- Load Debian menu entries
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
-
--- Widgets
-local mybattery = require("widgets.battery")
-local mynetwork = require("widgets.network")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -213,6 +205,9 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
+    awful.key({ "Mod1" }, "space", function () awful.spawn.with_shell("rofi -show drun") end,
+        { description = "run app launcher", group = "launcher" }),
+
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
@@ -359,6 +354,10 @@ awful.rules.rules = {
      }
     },
 
+    { rule_any = {
+        floating = true
+    }, properties = { placement = awful.placement.centered }},
+
     -- Floating clients.
     { rule_any = {
         instance = {
@@ -388,7 +387,7 @@ awful.rules.rules = {
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true }},
+      }, properties = { floating = true, placement = awful.placement.centered }},
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }

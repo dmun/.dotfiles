@@ -6,9 +6,12 @@ local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
+-- Widgets
+local mybattery = require("widgets.battery")
+local mynetwork = require("widgets.network")
 
 -- Create a textclock widget
-mytextclock = {
+local mytextclock = {
     format = "%a %d %b %H:%M  ",
     widget = wibox.widget.textclock
 }
