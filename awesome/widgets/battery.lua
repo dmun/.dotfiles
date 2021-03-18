@@ -22,6 +22,10 @@ awesome.connect_signal("status::battery", function(capacity, charging)
         text = text .. ""
     end
 
+    if (charging == true) then
+        text = text .. " "
+    end
+
     mybattery.text = text
 end)
 
