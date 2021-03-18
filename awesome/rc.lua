@@ -187,9 +187,9 @@ globalkeys = gears.table.join(
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey, "Control"   }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey,           }, "o", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
+    awful.key({ modkey, "Shift"   }, "o", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
     awful.key({ modkey, "Control" }, "n",
@@ -205,7 +205,10 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ "Mod1" }, "space", function () awful.spawn.with_shell("rofi -show drun") end,
+    awful.key({ modkey }, "space", function () awful.spawn.with_shell("rofi -show drun") end,
+        { description = "run app launcher", group = "launcher" }),
+
+    awful.key({ modkey, "Shift" }, "space", function () awful.spawn.with_shell("rofi -show run") end,
         { description = "run app launcher", group = "launcher" }),
 
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
@@ -227,7 +230,7 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-    awful.key({ modkey,           }, "f",
+    awful.key({ modkey, "Shift"}, "f",
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
@@ -250,7 +253,7 @@ clientkeys = gears.table.join(
             c.minimized = true
         end ,
         {description = "minimize", group = "client"}),
-    awful.key({ modkey,           }, "m",
+    awful.key({ modkey,           }, "f",
         function (c)
             c.maximized = not c.maximized
             c:raise()
@@ -354,9 +357,9 @@ awful.rules.rules = {
      }
     },
 
-    { rule_any = {
-        floating = true
-    }, properties = { placement = awful.placement.centered }},
+    -- { rule_any = {
+    --     floating = true
+    -- }, properties = { placement = awful.placement.centered }},
 
     -- Floating clients.
     { rule_any = {
@@ -467,5 +470,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart
 awful.spawn.with_shell("xset r rate 200 60")
 awful.spawn.with_shell("xrandr --output HDMI-1 --same-as eDP-1")
--- awful.spawn.with_shell("xmodmap .xmodmap")
--- awful.spawn.with_shell("picom")
+awful.spawn.with_shell("xmodmap .Xmodmap")
