@@ -1,0 +1,64 @@
+configuration {
+    display-drun: "";
+    display-run: "";
+    display-window: "";
+    show-icons: true;
+    icon-theme: "Papirus";
+}
+
+* {
+  fg: #fefefe;
+  fg-dark: #d0d0d0;
+  bg: #252525;
+  bg-dark: #1e1e1e;
+
+  fg-highlight: #ffffff;
+  bg-highlight: #0462dc;
+  grey: #3c3c3c;
+
+  text-color: @fg;
+  background-color: @bg;
+  border-color: @grey;
+
+  width: 720;
+  spacing: 0;
+
+  font: "SF Pro Display Medium 14";
+}
+
+window {
+  border: 2;
+  font: "SF Pro Display Medium 18";
+}
+
+inputbar {
+  border: 0 0 1 0;
+}
+
+prompt {
+  background-color: @bg-dark;
+  text-color: @fg-dark;
+  padding: 18 18 18 18;
+  border: 0 0 0 0;
+  font: "SF Pro Display 22";
+}
+
+entry {
+  background-color: @bg-dark;
+  padding: 18 0 18 0;
+  font: "SF Pro Display 22";
+}
+
+listview {
+  cycle: false;
+  lines: 8;
+}
+
+element {
+  padding: 12;
+}
+
+element selected {
+  background-color: @bg-highlight;
+  text-color: @fg-highlight;
+}
