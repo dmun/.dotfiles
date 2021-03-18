@@ -19,7 +19,7 @@ colorscheme nvcode
 set background=dark
 
 " No highlight
-nnoremap <silent><leader>h :nohl<CR>
+nnoremap <silent><leader>hl :nohl<CR>
 
 " Navigating buffers
 nnoremap <silent><M-.> :bnext<CR>
