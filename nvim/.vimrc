@@ -24,7 +24,7 @@ nnoremap <silent><leader>hl :nohl<CR>
 " Navigating buffers
 nnoremap <silent><M-.> :bnext<CR>
 nnoremap <silent><M-,> :bprev<CR>
-nnoremap <silent><M-c> :bd<CR>
+nnoremap <silent><M-w> :bd<CR>
 
 " Window management
 nnoremap <silent><M-j> <C-w>w
