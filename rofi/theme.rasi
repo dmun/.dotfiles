@@ -1,7 +1,7 @@
 configuration {
     display-drun: "";
     display-run: "";
-    display-window: "";
+    display-window: "缾";
     show-icons: true;
     icon-theme: "Papirus";
 }
