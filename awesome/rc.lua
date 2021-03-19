@@ -208,7 +208,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "space", function () awful.spawn.with_shell("rofi -show drun") end,
         { description = "run app launcher", group = "launcher" }),
 
-    awful.key({ modkey, "Shift" }, "space", function () awful.spawn.with_shell("rofi -show run") end,
+    awful.key({ modkey, "Control" }, "space", function () awful.spawn.with_shell("rofi -show run") end,
         { description = "run app launcher", group = "launcher" }),
 
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
@@ -238,7 +238,7 @@ clientkeys = gears.table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+    awful.key({ modkey, "Shift" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
