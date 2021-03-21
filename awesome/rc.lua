@@ -205,10 +205,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey }, "space", function () awful.spawn.with_shell("rofi -show drun") end,
-        { description = "run app launcher", group = "launcher" }),
-
-    awful.key({ modkey, "Control" }, "space", function () awful.spawn.with_shell("rofi -show run") end,
+    awful.key({ modkey }, "space", function () awful.spawn.with_shell("rofi -show") end,
         { description = "run app launcher", group = "launcher" }),
 
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
