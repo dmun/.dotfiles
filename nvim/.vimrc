@@ -26,7 +26,7 @@ nnoremap <silent><M-.> :bnext<CR>
 nnoremap <silent><M-,> :bprev<CR>
 nnoremap <silent><M-w> :bd<CR>
 
-" Open/close window
+" Split/close window
 noremap <silent><M-v> <C-w>v
 noremap <silent><M-s> <C-w>s
 noremap <silent><M-q> <C-w>q
