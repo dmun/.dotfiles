@@ -1,7 +1,7 @@
 " Barbar settings
 nnoremap <silent><M-.> :BufferNext<CR>
 nnoremap <silent><M-,> :BufferPrevious<CR>
-nnoremap <silent><M-c> :BufferClose<CR>
+nnoremap <silent><M-w> :BufferClose<CR>
 nnoremap <silent><M->> :BufferMoveNext<CR>
 nnoremap <silent><M-<> :BufferMovePrevious<CR>
 
