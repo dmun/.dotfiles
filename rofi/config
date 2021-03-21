@@ -1,0 +1,2 @@
+rofi.theme: ./spotlight.rasi
+rofi.modi: drun,run
