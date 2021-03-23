@@ -391,7 +391,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = false }
+      }, properties = { titlebars_enabled = true }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -399,6 +399,14 @@ awful.rules.rules = {
     --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
+local lgi = require("lgi")
+local cairo = lgi.cairo
+
+tag.connect_signal("request::select", function(c)
+    print("GAMER")
+end)
+
+local corner_radius = 18
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -407,6 +415,57 @@ client.connect_signal("manage", function (c)
     -- i.e. put it at the end of others instead of setting it master.
     -- if not awesome.startup then awful.client.setslave(c) end
 
+    c.arcs = {}
+    c.arcs[1] = function(cr, width, height)
+        gears.shape.arc(cr, width, height, 1, math.pi/2*2, math.pi/2*3, false, false)
+    end
+    c.arcs[2] = function(cr, width, height)
+        gears.shape.arc(cr, width, height, 1, math.pi/2*3, math.pi/2*4, false, false)
+    end
+    c.arcs[3] = function(cr, width, height)
+        gears.shape.arc(cr, width, height, 1, math.pi/2*0, math.pi/2*1, false, false)
+    end
+    c.arcs[4] = function(cr, width, height)
+        gears.shape.arc(cr, width, height, 1, math.pi/2*1, math.pi/2*2, false, false)
+    end
+
+    c.rounded_corner = {}
+
+    c.update_corners = function()
+        c.rounded_corner[1].x = c:geometry(nil)["x"] + 1
+        c.rounded_corner[1].y = c:geometry(nil)["y"] + 1
+        c.rounded_corner[2].x = c:geometry(nil)["x"] + c:geometry()["width"] - corner_radius + 1
+        c.rounded_corner[2].y = c:geometry(nil)["y"] + 1
+        c.rounded_corner[3].x = c:geometry(nil)["x"] + c:geometry()["width"] - corner_radius + 1
+        c.rounded_corner[3].y = c:geometry(nil)["y"] + c:geometry()["height"] - corner_radius + 1
+        c.rounded_corner[4].x = c:geometry(nil)["x"] + 1
+        c.rounded_corner[4].y = c:geometry(nil)["y"] + c:geometry()["height"] - corner_radius + 1
+    end
+
+    -- c.rounded_corner[1] = wibox({
+    --     shape = arcs[1],
+    --     bg = "#777777",
+    --     ontop = true,
+    --     visible = true,
+    --     width = 20,
+    --     height = 20
+    -- })
+    print(c.screen)
+
+    for i = 1, 4 do
+        c.rounded_corner[i] = wibox({
+            screen = c.screen,
+            shape = c.arcs[i],
+            bg = "#555555",
+            ontop = true,
+            visible = true,
+            width = corner_radius,
+            height = corner_radius
+        })
+    end
+
+    c:update_corners()
+
     if awesome.startup
       and not c.size_hints.user_position
       and not c.size_hints.program_position then
@@ -414,6 +473,14 @@ client.connect_signal("manage", function (c)
         awful.placement.no_offscreen(c)
     end
 end)
+
+client.connect_signal("property::position", function(c)
+    c:update_corners()
+end)
+
+-- client.connect_signal("property::size", function(c)
+--     c:update_corners()
+-- end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
@@ -429,30 +496,22 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
-        { -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
-        },
-        { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
+    positions = { "top", "right", "bottom", "left" }
+    for i = 1, 4 do
+        awful.titlebar(c, { position = positions[i], size = 1, bg_focus = "#555555", bg_normal = "#555555" }) : setup {
+            { -- Left
+                -- wibox.widget.imagebox(img, false, gears.shape.rounded_rect),
+                layout  = wibox.layout.fixed.horizontal
             },
-            buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
-        },
-        { -- Right
-            awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
-        },
-        layout = wibox.layout.align.horizontal
-    }
+            { -- Middle
+                layout  = wibox.layout.flex.horizontal
+            },
+            { -- Right
+                layout = wibox.layout.fixed.horizontal()
+            },
+            layout = wibox.layout.align.horizontal
+        }
+    end
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
@@ -460,7 +519,10 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("focus", function(c)
+    c.border_color = beautiful.border_focus
+    -- print(typeof(tag.clients()))
+end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
