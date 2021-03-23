@@ -155,3 +155,6 @@ nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
 " Explorer
 nnoremap <silent><leader>e :CocCommand explorer<cr>
 nnoremap <silent><leader><cr> :CocAction<cr>
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
