@@ -1,2 +1,2 @@
-rofi.theme: ./spotlight.rasi
+rofi.theme: ./flat.rasi
 rofi.modi: drun,run

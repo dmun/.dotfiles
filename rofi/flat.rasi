@@ -1,0 +1,93 @@
+configuration {
+    display-drun: "";
+    display-run: "";
+    display-window: "缾";
+    show-icons: true;
+    icon-theme: "Papirus";
+    fixed-num-lines: false;
+    location: 2;
+}
+
+* {
+  // Foreground
+  fg: #d0d0d0;
+  fg-dark: #777777;
+  fg-highlight: #ffffff;
+
+  // Background
+  bg: #252526;
+  bg-dark: #1e1e1e;
+  bg-highlight: #167cb7;
+
+  // Border
+  bd: #3c3c3c;
+  bd-highlight: #3379f2;
+
+  text-color: @fg;
+  background-color: @bg;
+
+  y-offset: 25%;
+  width: 32em;
+  spacing: 0;
+
+  font: "Product Sans 11";
+}
+
+window {
+  border-color: @bd;
+  border-radius: 10;
+  border: 2;
+}
+
+inputbar {
+  border-color: @bd;
+  border: 0 0 1 0;
+  border-radius: 0;
+}
+
+prompt {
+  text-color: @fg-dark;
+  padding: 0.4em 0.7em 0.4em 0.7em;
+  border: 0 0 0 0;
+  font: "Product Sans 20";
+  border-radius: 0;
+}
+
+entry {
+  placeholder-color: @fg-dark;
+  placeholder: "Search";
+  padding: 0.4em 0.5em 0.4em 0;
+  font: "Product Sans 20";
+  border-radius: 0;
+}
+
+listview {
+  background-color: @bg;
+  cycle: false;
+  dynamic: true;
+  padding: 0.3em 0 0 0;
+  lines: 7;
+  border-radius: 0;
+}
+
+element {
+  margin: 0 0.3em 0.3em 0.3em;
+  padding: 0.05em 0 0.05em 0;
+  border-radius: 7;
+}
+
+element-icon {
+  size: 0.75em;
+  padding: 0 0.4em 0 0.6em;
+}
+
+element-text {
+  padding: 0.2em 0.2em 0.2em 0;
+}
+
+element selected {
+  background-color: @bg-highlight;
+  text-color: @fg-highlight;
+  border-color: @bd-highlight;
+  border: 1;
+}
