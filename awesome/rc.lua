@@ -146,8 +146,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey }, "h", function () awful.client.focus.bydirection("left") end),
-    awful.key({ modkey }, "l", function () awful.client.focus.bydirection("right") end),
+    awful.key({ modkey }, "h", function () awful.client.focus.bydirection("left") if client.focus then client.focus:raise() end end),
+    awful.key({ modkey }, "l", function () awful.client.focus.bydirection("right") if client.focus then client.focus:raise() end end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
@@ -457,7 +457,7 @@ end)
 
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
+    c:emit_signal("request::activate", "mouse_enter", {raise = true})
 end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
