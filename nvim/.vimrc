@@ -22,8 +22,8 @@ set background=dark
 nnoremap <silent><leader>hl :nohl<CR>
 
 " Navigating buffers
-nnoremap <silent><M-n> :bnext<CR>
-nnoremap <silent><M-p> :bprev<CR>
+nnoremap <silent><M-.> :bnext<CR>
+nnoremap <silent><M-,> :bprev<CR>
 nnoremap <silent><M-w> :bd<CR>
 
 " Split/close window
