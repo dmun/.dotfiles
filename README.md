@@ -1,7 +1,7 @@
 # dotfiles
 This repository contains my configuration files for alacritty, bspwm, neofetch, nvim, picom, polybar, rofi and sxhkd.
 
-Running `./setup.sh` will create links in the designated directories to the configuration files.
+Running `./install.sh` will create links in the designated directories to the configuration files.
 
 ## Setup
 Follow the steps to use the dotfiles.
