@@ -7,6 +7,7 @@ set expandtab
 set mouse=a
 set noshowmode
 set number
+set relativenumber
 set nowrap
 set cursorline
 set showtabline=2
