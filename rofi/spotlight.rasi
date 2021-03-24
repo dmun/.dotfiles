@@ -15,14 +15,14 @@ configuration {
   fg-highlight: #ffffff;
 
   // Background
-  bg: argb:3c242424;
+  bg: argb:3c3c3c3c;
   bg-dark: argb:44101010;
   bg-highlight: argb:bb3379f2;
   bg-border: argb:88666666;
 
   // Border
   bd-outer: argb:ff000000;
-  bd-inner: argb:33aaaaaa;
+  bd-inner: argb:3cbbbbbb;
   bd-highlight: argb:dd3379f2;
 
   transparent: argb:00000000;
