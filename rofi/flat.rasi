@@ -35,7 +35,7 @@ configuration {
 
 window {
   border-color: @bd;
-  border-radius: 10;
+  border-radius: 5;
   border: 2;
 }
 
@@ -73,7 +73,7 @@ listview {
 element {
   margin: 0 0.3em 0.3em 0.3em;
   padding: 0.05em 0 0.05em 0;
-  border-radius: 7;
+  border-radius: 3;
 }
 
 element-icon {
