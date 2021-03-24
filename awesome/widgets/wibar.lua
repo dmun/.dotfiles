@@ -6,13 +6,16 @@ local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
+widget_padding = 10
+widget_spacing = 3
+
 -- Widgets
 local mybattery = require("widgets.battery")
 local mynetwork = require("widgets.network")
 
 -- Create a textclock widget
 local mytextclock = {
-    format = "%a %d %b %H:%M  ",
+    format = "%a %d %b %H:%M",
     widget = wibox.widget.textclock
 }
 -- Create a wibox for each screen and add it
@@ -76,6 +79,9 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
+        style = {
+            shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end,
+        },
         layout = {
             spacing = 0,
             layout = wibox.layout.fixed.horizontal
@@ -96,6 +102,41 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = taglist_buttons
     }
 
+    s.widgets = {
+        mybattery,
+        mynetwork,
+        mytextclock
+    }
+
+    s.right_bar = { -- Right widgets
+        layout = wibox.layout.fixed.horizontal,
+        {
+            wibox.widget.systray(),
+            top = 2,
+            bottom = 2,
+            right = widget_padding,
+            widget = wibox.container.margin
+        }
+    }
+
+    for i,v in ipairs(s.widgets) do
+        print(type(v))
+        s.right_bar[#s.right_bar+1] = ({{{
+                    v,
+                    left = widget_padding,
+                    right = widget_padding,
+                    widget = wibox.container.margin
+                },
+                -- bg = "#295a5f",
+                shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end,
+                widget = wibox.container.background
+            },
+            left = widget_spacing,
+            right = widget_spacing,
+            widget = wibox.container.margin
+        })
+    end
+
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -114,37 +155,7 @@ awful.screen.connect_for_each_screen(function(s)
         {
             layout = wibox.layout.align.horizontal,
         },
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            {
-                wibox.widget.systray(),
-                left = 10,
-                right = 10,
-                margins = 4,
-                widget = wibox.container.margin
-            },
-            {
-                mybattery,
-                left = 10,
-                right = 10,
-                margins = 3,
-                widget = wibox.container.margin
-            },
-            {
-                mynetwork,
-                left = 10,
-                right = 10,
-                margins = 3,
-                widget = wibox.container.margin
-            },
-            {
-                mytextclock,
-                left = 10,
-                right = 10,
-                margins = 3,
-                widget = wibox.container.margin
-            }
-        }
+        s.right_bar
     }
 
     return s.mywibox
