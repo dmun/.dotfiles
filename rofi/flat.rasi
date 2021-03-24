@@ -10,7 +10,7 @@ configuration {
 
 * {
   // Foreground
-  fg: #d0d0d0;
+  fg: #ffffff;
   fg-dark: #777777;
   fg-highlight: #ffffff;
 
@@ -29,8 +29,6 @@ configuration {
   y-offset: 25%;
   width: 32em;
   spacing: 0;
-
-  font: "Product Sans 11";
 }
 
 window {
@@ -49,7 +47,7 @@ prompt {
   text-color: @fg-dark;
   padding: 0.4em 0.7em 0.4em 0.7em;
   border: 0 0 0 0;
-  font: "Product Sans 20";
+  font: "Rubik 20";
   border-radius: 0;
 }
 
@@ -57,7 +55,7 @@ entry {
   placeholder-color: @fg-dark;
   placeholder: "Search";
   padding: 0.4em 0.5em 0.4em 0;
-  font: "Product Sans 20";
+  font: "Rubik 20";
   border-radius: 0;
 }
 
@@ -82,6 +80,7 @@ element-icon {
 }
 
 element-text {
+  font: "Rubik 11";
   padding: 0.2em 0.2em 0.2em 0;
 }
 
