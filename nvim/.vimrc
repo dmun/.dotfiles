@@ -18,9 +18,6 @@ set termguicolors
 colorscheme nvcode
 set background=dark
 
-" No highlight
-nnoremap <silent><leader>hl :nohl<CR>
-
 " Navigating buffers
 nnoremap <silent><M-.> :bnext<CR>
 nnoremap <silent><M-,> :bprev<CR>
