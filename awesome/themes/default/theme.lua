@@ -11,10 +11,10 @@ local themes_path = "~/.config/awesome/themes/"
 
 local theme = {}
 
-theme.font          = "Rubik 11"
+theme.font          = "Roboto 11"
 
 theme.bg_normal     = "#161616"
-theme.bg_focus      = "#202020"
+theme.bg_focus      = "#3c3c3c"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal

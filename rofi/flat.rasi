@@ -47,7 +47,7 @@ prompt {
   text-color: @fg-dark;
   padding: 0.4em 0.7em 0.4em 0.7em;
   border: 0 0 0 0;
-  font: "Rubik 20";
+  font: "Roboto 20";
   border-radius: 0;
 }
 
@@ -55,7 +55,7 @@ entry {
   placeholder-color: @fg-dark;
   placeholder: "Search";
   padding: 0.4em 0.5em 0.4em 0;
-  font: "Rubik 20";
+  font: "Roboto 20";
   border-radius: 0;
 }
 
@@ -80,7 +80,7 @@ element-icon {
 }
 
 element-text {
-  font: "Rubik 11";
+  font: "Roboto Medium 11";
   padding: 0.2em 0.2em 0.2em 0;
 }
 
