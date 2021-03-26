@@ -6,7 +6,7 @@ local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-widget_padding = 10
+widget_padding = 7
 widget_spacing = 3
 
 -- Widgets
@@ -79,9 +79,9 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
-        style = {
-            shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end,
-        },
+        -- style = {
+        --     shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end,
+        -- },
         layout = {
             spacing = 0,
             layout = wibox.layout.fixed.horizontal
