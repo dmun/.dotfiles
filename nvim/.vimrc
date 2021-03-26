@@ -5,13 +5,11 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set mouse=a
-set noshowmode
 set number
 set relativenumber
 set nowrap
 set cursorline
 set showtabline=2
-set laststatus=0
 
 " Color settings
 syntax on
