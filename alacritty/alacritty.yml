@@ -6,7 +6,7 @@ window:
   dynamic_padding: false
 font:
   normal:
-    family: JetBrains Mono Nerd Font
+    family: JetBrains Mono
 colors:
   name: Default (dark)
   author: Chris Kempson
