@@ -92,8 +92,8 @@ awful.screen.connect_for_each_screen(function(s)
                     id = 'text_role',
                     widget = wibox.widget.textbox
                 },
-                left = 12,
-                right = 12,
+                left = 10,
+                right = 10,
                 widget = wibox.container.margin
             },
             id = 'background_role',
