@@ -27,7 +27,7 @@ configuration {
   background-color: @bg;
 
   y-offset: 25%;
-  width: 32em;
+  width: 24em;
   spacing: 0;
 }
 
@@ -45,17 +45,17 @@ inputbar {
 
 prompt {
   text-color: @fg-dark;
-  padding: 0.4em 0.7em 0.4em 0.7em;
+  padding: 0.7em 0.7em 0.4em 0.7em;
   border: 0 0 0 0;
-  font: "Roboto 20";
+  font: "Roboto 18";
   border-radius: 0;
 }
 
 entry {
   placeholder-color: @fg-dark;
   placeholder: "Search";
-  padding: 0.4em 0.5em 0.4em 0;
-  font: "Roboto 20";
+  padding: 0.4em 0.5em 0.9em 0;
+  font: "Roboto 18";
   border-radius: 0;
 }
 
@@ -63,15 +63,14 @@ listview {
   background-color: @bg;
   cycle: false;
   dynamic: true;
-  padding: 0.3em 0 0 0;
+  // padding: 0.3em 0 0 0;
   lines: 7;
   border-radius: 0;
 }
 
 element {
-  margin: 0 0.3em 0.3em 0.3em;
-  padding: 0.05em 0 0.05em 0;
-  border-radius: 3;
+  // margin: 0 0.3em 0.3em 0.3em;
+  border-radius: 0;
 }
 
 element-icon {
