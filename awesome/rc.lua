@@ -115,6 +115,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
+    awful.key({ modkey }, "F5" , function() awful.spawn.with_shell("light -U 10") end,
+        {description = "decrease brightness", group = "screen"}),
+    awful.key({ modkey }, "F6", function() awful.spawn.with_shell("light -A 10") end,
+        {description = "increase brightness", group = "screen"}),
+
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
