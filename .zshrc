@@ -1,5 +1,5 @@
 # Antigen
-source $HOME/antigen/antigen.zsh
+source /usr/share/zsh/share/antigen.zsh
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
@@ -15,9 +15,9 @@ export SPACESHIP_VI_MODE_SHOW=false
 antigen apply
 
 # History
-export HISTFILESIZE=1000
-export HISTSIZE=1000
-export HISTFILE=~/.zsh_history
+HISTFILESIZE=1000
+HISTSIZE=1000
+HISTFILE=~/.zsh_history
 
 set -o vi
 alias lg=lazygit
