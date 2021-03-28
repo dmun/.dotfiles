@@ -15,7 +15,7 @@ fi
 # config files
 for file in $files
 do
-    echo Linking $script_dir/$file to $HOME/$file
+    echo Linking $script_dir/$file to $conf_dir/$file
     ln -sf $script_dir/$file $conf_dir/$file
 done
 
@@ -25,3 +25,5 @@ do
     echo Linking $script_dir/$dotfile to $HOME/$dotfile
     ln -sf $script_dir/$dotfile $HOME/$dotfile
 done
+
+echo Done!
