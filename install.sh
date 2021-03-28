@@ -1,24 +1,27 @@
 #!/bin/bash
-dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-
+script_dir="$(dirname $(readlink -f $0))"
 conf_dir=$HOME/.config
 
+# linked files
+files="awesome alacritty nvim rofi picom"
+dotfiles=".zshrc .tmux.conf .Xmodmap"
+
+# create config folder if it doesn't exist
 if [ ! -d $conf_dir ]; then
+    echo Creating $conf_dir
     mkdir $conf_dir
 fi
 
-# folders that go in the config directory
-for path in $dir/*/
+# config files
+for file in $files
 do
-    file=$(basename $path)
-    ln -sf $path $conf_dir/$file
+    echo Linking $script_dir/$file to $HOME/$file
+    ln -sf $script_dir/$file $conf_dir/$file
 done
 
-# dotfiles that go in the root directory
-for path in $dir/.*
+# dotfiles
+for dotfile in $dotfiles
 do
-    file=$(basename $path)
-    if [ ${#file} -gt 2 ] && [ $file != ".git" ]; then
-        ln -sf $path $HOME/$file
-    fi
+    echo Linking $script_dir/$dotfile to $HOME/$dotfile
+    ln -sf $script_dir/$dotfile $HOME/$dotfile
 done
