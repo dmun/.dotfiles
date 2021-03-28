@@ -14,5 +14,10 @@ export SPACESHIP_VI_MODE_SHOW=false
 
 antigen apply
 
+# History
+export HISTFILESIZE=1000
+export HISTSIZE=1000
+export HISTFILE=~/.zsh_history
+
 set -o vi
 alias lg=lazygit
