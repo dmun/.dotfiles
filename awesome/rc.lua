@@ -132,8 +132,9 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey }, "h", function () awful.client.focus.bydirection("left") if client.focus then client.focus:raise() end end),
-    awful.key({ modkey }, "l", function () awful.client.focus.bydirection("right") if client.focus then client.focus:raise() end end),
+    awful.key({ modkey }, "h", function () awful.client.focus.bydirection("left") if client.focus then client.focus:raise() end end, {description = "focus left"}),
+    awful.key({ modkey }, "l", function () awful.client.focus.bydirection("right") if client.focus then client.focus:raise() end end, {description = "focus right"}),
+
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
@@ -146,10 +147,12 @@ globalkeys = gears.table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "l", function () awful.client.swap.bydirection("right")    end,
               {description = "swap with previous client by index", group = "client"}),
+
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
+
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
@@ -169,10 +172,15 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
+    awful.key({ modkey }, "Down",     function () awful.tag.incmwfact( 0.05)          end,
+              {description = "increase master width factor", group = "layout"}),
+    awful.key({ modkey }, "Up",     function () awful.tag.incmwfact(-0.05)          end,
+              {description = "decrease master width factor", group = "layout"}),
     awful.key({ modkey }, "Right",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey }, "Left",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
+
     awful.key({ modkey,           }, "o", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "o", function () awful.layout.inc(-1)                end,
@@ -453,4 +461,3 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart
 awful.spawn.with_shell("xset r rate 200 60")
 awful.spawn.with_shell("xrandr --output HDMI-1 --same-as eDP-1")
-awful.spawn.with_shell("xmodmap .Xmodmap")
