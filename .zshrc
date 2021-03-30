@@ -15,6 +15,7 @@ export SPACESHIP_VI_MODE_SHOW=false
 antigen apply
 
 # History
+SAVEHIST=1000
 HISTFILESIZE=1000
 HISTSIZE=1000
 HISTFILE=~/.zsh_history
