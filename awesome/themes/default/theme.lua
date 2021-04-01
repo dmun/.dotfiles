@@ -11,7 +11,8 @@ local themes_path = "~/.config/awesome/themes/"
 
 local theme = {}
 
-theme.font          = "Roboto 11"
+theme.font          = "Noto Sans 11"
+theme.taglist_font  = "JetBrains Mono 11"
 
 theme.bg_normal     = "#161616"
 theme.bg_focus      = "#3c3c3c"
@@ -20,9 +21,6 @@ theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 theme.systray_icon_spacing = 10
 theme.taglist_bg    = "#000000"
--- theme.taglist_shape = function(cr, width, height)
---     gears.shape.rounded_rect(cr, width, height, 5)
--- end
 
 theme.fg_normal     = "#ffffff"
 theme.fg_focus      = "#ffffff"
