@@ -9,7 +9,7 @@
   --mff-tab-bg: #1e1e1e;
   --mff-tab-border-radius: 0px;
   --mff-tab-color: #aaaaaa;
-  --mff-tab-font-family: "Roboto", sans;
+  --mff-tab-font-family: "Noto", sans;
   --mff-tab-font-size: 11pt;
   --mff-tab-font-weight: 400;
   --mff-tab-height: 28px;
@@ -19,11 +19,11 @@
   --mff-urlbar-color: #d0d0d0;
   --mff-urlbar-bg: #252526;
   --mff-urlbar-focused-color: #d0d0d0;
-  --mff-urlbar-font-family: "Roboto", serif;
+  --mff-urlbar-font-family: "Noto", sans;
   --mff-urlbar-font-size: 12pt;
   --mff-urlbar-font-weight: 400;
   --mff-urlbar-results-color: #FFFFFF;
-  --mff-urlbar-results-font-family: "Roboto", serif;
+  --mff-urlbar-results-font-family: "Noto", sans;
   --mff-urlbar-results-font-size: 12pt;
   --mff-urlbar-results-font-weight: 400;
   --mff-urlbar-results-url-color: #d0d0d0;
