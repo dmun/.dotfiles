@@ -12,6 +12,6 @@ call plug#begin('~/.config/nvim/autoload')
     Plug 'lilydjwg/colorizer'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'romgrk/barbar.nvim'
-    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
 call plug#end()
