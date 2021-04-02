@@ -11,7 +11,7 @@ local themes_path = "~/.config/awesome/themes/"
 
 local theme = {}
 
-theme.font          = "Noto Sans 11"
+theme.font          = "Roboto 11"
 theme.taglist_font  = "JetBrains Mono 11"
 
 theme.bg_normal     = "#161616"
@@ -49,12 +49,15 @@ theme.border_marked = "#91231c"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
-    taglist_square_size, theme.fg_normal
-)
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
-    taglist_square_size, theme.fg_normal
-)
+-- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
+--     taglist_square_size, theme.fg_normal
+-- )
+-- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
+--     taglist_square_size, theme.fg_normal
+-- )
+
+theme.taglist_squares_sel = "bar-sel.png"
+theme.taglist_squares_unsel = "bar-unsel.png"
 
 -- Variables set for theming notifications:
 -- notification_font
