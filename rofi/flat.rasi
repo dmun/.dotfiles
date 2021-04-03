@@ -17,7 +17,7 @@ configuration {
   // Background
   bg: #252526;
   bg-dark: #1e1e1e;
-  bg-highlight: #167cb7;
+  bg-highlight: #0077ca;
 
   // Border
   bd: #3c3c3c;
@@ -31,9 +31,14 @@ configuration {
   spacing: 0;
 }
 
+main {
+  border-color: #000000;
+  border: 1;
+}
+
 window {
   border-color: @bd;
-  border-radius: 10;
+  border-radius: 0;
   border: 2;
 }
 
@@ -45,17 +50,17 @@ inputbar {
 
 prompt {
   text-color: @fg-dark;
-  padding: 0.7em 0.7em 0.4em 0.7em;
+  padding: 0.65em 0.7em 0.4em 0.7em;
   border: 0 0 0 0;
-  font: "Roboto 18";
+  font: "Ubuntu 18";
   border-radius: 0;
 }
 
 entry {
   placeholder-color: @fg-dark;
   placeholder: "Search";
-  padding: 0.4em 0.5em 0.9em 0;
-  font: "Roboto 18";
+  padding: 0.5em 0.5em 0.7em 0;
+  font: "Ubuntu 18";
   border-radius: 0;
 }
 
@@ -63,13 +68,13 @@ listview {
   background-color: @bg;
   cycle: false;
   dynamic: true;
-  padding: 0.3em 0 0 0;
+  padding: 0.3em 0 0.3em 0;
   lines: 7;
   border-radius: 0;
 }
 
 element {
-  margin: 0 0.3em 0.3em 0.3em;
+  // margin: 0 0.3em 0.3em 0.3em;
   border-radius: 0;
 }
 
@@ -79,13 +84,13 @@ element-icon {
 }
 
 element-text {
-  font: "Roboto Medium 11";
-  padding: 0.2em 0.2em 0.2em 0;
+  font: "Ubuntu Medium 11";
+  padding: 0.3em 0.2em 0.1em 0;
 }
 
 element selected {
   background-color: @bg-highlight;
   text-color: @fg-highlight;
   border-color: @bd-highlight;
-  border-radius: 7;
+  border-radius: 0;
 }

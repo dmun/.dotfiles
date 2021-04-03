@@ -9,7 +9,7 @@
   --mff-tab-bg: #1e1e1e;
   --mff-tab-border-radius: 0px;
   --mff-tab-color: #aaaaaa;
-  --mff-tab-font-family: "Noto", sans;
+  --mff-tab-font-family: "Ubuntu", sans;
   --mff-tab-font-size: 11pt;
   --mff-tab-font-weight: 400;
   --mff-tab-height: 28px;
@@ -17,13 +17,13 @@
   --mff-tab-selected-bg: #252526;
   --mff-tab-soundplaying-bg: #282C34;
   --mff-urlbar-color: #d0d0d0;
-  --mff-urlbar-bg: #252526;
+  --mff-urlbar-bg: #2e2e2e;
   --mff-urlbar-focused-color: #d0d0d0;
-  --mff-urlbar-font-family: "Noto", sans;
+  --mff-urlbar-font-family: "Ubuntu", sans;
   --mff-urlbar-font-size: 12pt;
   --mff-urlbar-font-weight: 400;
   --mff-urlbar-results-color: #FFFFFF;
-  --mff-urlbar-results-font-family: "Noto", sans;
+  --mff-urlbar-results-font-family: "Ubuntu", sans;
   --mff-urlbar-results-font-size: 12pt;
   --mff-urlbar-results-font-weight: 400;
   --mff-urlbar-results-url-color: #d0d0d0;
@@ -72,10 +72,6 @@
   border: none !important;
 }
 
-.tab-close-button {
-  /* display: none !important; */
-}
-
 .tab-text {
   font-family: var(--mff-tab-font-family);
   font-weight: var(--mff-tab-font-weight);
@@ -101,7 +97,7 @@ hbox.tab-content[pinned=true] .tab-text {
   display: flex;
   overflow: hidden;
   justify-content: center;
-width: 50% !important;
+  width: 50% !important;
   max-width: 50% !important;
   min-width: 50% !important;
 }
@@ -139,7 +135,6 @@ width: 50% !important;
 }
 
 #tabs-newtab-button {
-  list-style-image: url("add.svg") !important;
   opacity: 0.7;
   display: none !important;
 }
@@ -154,11 +149,6 @@ width: 50% !important;
   | || (_) | (_) | |__| _ \/ _ \|   /
   |_| \___/ \___/|____|___/_/  \_\_|_\
 */
-
-.urlbar-icon > image {
-  fill: var(--mff-icon-color) !important;
-  color: var(--mff-icon-color) !important;
-}
 
 .toolbarbutton-text {
   color: var(--mff-icon-color)  !important;
@@ -207,7 +197,7 @@ width: 50% !important;
 }
 
 #tracking-protection-icon-container, #identity-box {
-  display: none;
+    color: var(--mff-urlbar-color) !important;
 }
 
 #back-button > .toolbarbutton-icon{
@@ -216,11 +206,11 @@ width: 50% !important;
 }
 
 #back-button {
-  list-style-image: url("left-arrow.svg") !important;
+  /* list-style-image: url("left-arrow.svg") !important; */
 }
 
 #forward-button {
-  list-style-image: url("right-arrow.svg") !important;
+  /* list-style-image: url("right-arrow.svg") !important; */
 }
 
 toolbar {
@@ -266,7 +256,6 @@ tab.tabbrowser-tab:hover {
 }
 
 image#star-button {
-  display: none;
 }
 
 toolbar#nav-bar {

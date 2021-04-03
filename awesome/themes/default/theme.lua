@@ -11,11 +11,11 @@ local themes_path = "~/.config/awesome/themes/"
 
 local theme = {}
 
-theme.font          = "Roboto 11"
-theme.taglist_font  = "JetBrains Mono 11"
+theme.font          = "Ubuntu 11"
+-- theme.taglist_font  = "JetBrains Mono 11"
 
 theme.bg_normal     = "#161616"
-theme.bg_focus      = "#3c3c3c"
+theme.bg_focus      = "#2e2e2e"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal

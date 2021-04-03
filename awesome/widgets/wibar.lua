@@ -6,8 +6,7 @@ local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-widget_padding = 10
-widget_spacing = 3
+widget_padding = 12
 
 -- Widgets
 local mybattery = require("widgets.battery")
@@ -77,7 +76,7 @@ awful.screen.connect_for_each_screen(function(s)
         position = "top",
         screen = s,
         height = dpi(24),
-        border_width = 2,
+        -- border_width = 2,
         -- border_color = "#2c2c2c"
     })
 
@@ -130,8 +129,8 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.fixed.horizontal,
         {
             wibox.widget.systray(),
-            top = 2,
-            bottom = 2,
+            top = dpi(2),
+            bottom = dpi(2),
             right = widget_padding,
             widget = wibox.container.margin
         }
@@ -139,19 +138,15 @@ awful.screen.connect_for_each_screen(function(s)
 
     for i,v in ipairs(s.widgets) do
         print(type(v))
-        s.right_bar[#s.right_bar+1] = ({{{
-                    v,
-                    left = widget_padding,
-                    right = widget_padding,
-                    widget = wibox.container.margin
-                },
-                -- bg = "#3c3c3c",
-                shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end,
-                widget = wibox.container.background
+        s.right_bar[#s.right_bar+1] = ({{
+                v,
+                left = widget_padding,
+                right = widget_padding,
+                widget = wibox.container.margin
             },
-            left = widget_spacing,
-            right = widget_spacing,
-            widget = wibox.container.margin
+            -- bg = "#444444",
+            shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end,
+            widget = wibox.container.background
         })
     end
 
@@ -165,7 +160,7 @@ awful.screen.connect_for_each_screen(function(s)
                     s.mytaglist,
                     widget = wibox.container.background
                 },
-                left = 10,
+                left = 20,
                 right = 10,
                 widget = wibox.container.margin
             },
@@ -174,7 +169,11 @@ awful.screen.connect_for_each_screen(function(s)
         {
             layout = wibox.layout.align.horizontal,
         },
-        s.right_bar
+        {
+            s.right_bar,
+            right = 10,
+            widget = wibox.container.margin
+        }
     }
 
     return s.mywibox
