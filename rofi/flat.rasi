@@ -31,15 +31,16 @@ configuration {
   spacing: 0;
 }
 
-main {
-  border-color: #000000;
-  border: 1;
+mainbox {
+  border-color: @bd;
+  border-radius: 5;
+  border: 2;
 }
 
 window {
-  border-color: @bd;
-  border-radius: 0;
-  border: 2;
+  border-color: #000000;
+  border-radius: 5;
+  border: 1;
 }
 
 inputbar {
