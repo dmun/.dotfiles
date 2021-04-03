@@ -219,6 +219,7 @@ toolbar {
 
 #urlbar-background {
   opacity: .98 !important;
+  box-shadow: none !important;
 }
 
 #navigator-toolbox, toolbaritem {
