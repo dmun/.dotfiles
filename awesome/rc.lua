@@ -413,7 +413,7 @@ client.connect_signal("request::titlebars", function(c)
     positions = { "top", "right", "bottom", "left" }
 
     for i = 1, 4 do
-        awful.titlebar(c, { position = positions[i], size = 2, bg_focus = "#3e3e3edd", bg_normal = "#2e2e2edd" }) : setup {
+        awful.titlebar(c, { position = positions[i], size = 2, bg_focus = "#3f3f3fdd", bg_normal = "#2f2f2fdd" }) : setup {
             { -- Left
                 -- wibox.widget.imagebox(img, false, gears.shape.rounded_rect),
                 layout  = wibox.layout.fixed.horizontal

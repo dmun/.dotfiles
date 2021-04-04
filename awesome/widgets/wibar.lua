@@ -44,8 +44,8 @@ local function set_wallpaper(s)
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-        -- gears.wallpaper.maximized(wallpaper, s, true)
-        gears.wallpaper.set("#101010")
+        gears.wallpaper.maximized(wallpaper, s, true)
+        -- gears.wallpaper.set("#101010")
     end
 end
 
@@ -77,7 +77,7 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         height = dpi(24),
         -- border_width = 2,
-        -- border_color = "#2c2c2c"
+        -- border_color = "#2d333f"
     })
 
     -- Create a taglist widget
@@ -144,7 +144,7 @@ awful.screen.connect_for_each_screen(function(s)
                 right = widget_padding,
                 widget = wibox.container.margin
             },
-            -- bg = "#444444",
+            -- bg = "#cccccc22",
             shape = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 5) end,
             widget = wibox.container.background
         })
