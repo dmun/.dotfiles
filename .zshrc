@@ -22,3 +22,4 @@ HISTFILE=~/.zsh_history
 
 set -o vi
 alias lg=lazygit
+alias cpr=colorpicker
