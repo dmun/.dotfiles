@@ -440,4 +440,3 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart
 awful.spawn.with_shell("xset r rate 200 60")
-awful.spawn.with_shell("xrandr --output HDMI-1 --same-as eDP-1")
