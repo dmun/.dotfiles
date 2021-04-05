@@ -2,12 +2,12 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 require("status.network")
 
-local mynetwork = wibox.widget {
+local network = wibox.widget {
     widget = wibox.widget.textbox
 }
 
 awesome.connect_signal("status::network", function(state)
-    mynetwork.font = beautiful.font
+    network.font = beautiful.font
     local text
 
     if (state == "UP") then
@@ -16,7 +16,7 @@ awesome.connect_signal("status::network", function(state)
         text = "睊"
     end
 
-    mynetwork.text = text
+    network.text = text
 end)
 
-return mynetwork
+return network

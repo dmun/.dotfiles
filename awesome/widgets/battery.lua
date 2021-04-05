@@ -2,12 +2,12 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 require("status.battery")
 
-local mybattery = wibox.widget {
+local battery = wibox.widget {
     widget = wibox.widget.textbox
 }
 
 awesome.connect_signal("status::battery", function(capacity, charging)
-    mybattery.font = beautiful.font
+    battery.font = beautiful.font
     local text = capacity .. "% "
 
     if (capacity >= 99) then
@@ -26,7 +26,7 @@ awesome.connect_signal("status::battery", function(capacity, charging)
         text = text .. " "
     end
 
-    mybattery.text = text
+    battery.text = text
 end)
 
-return mybattery
+return battery
