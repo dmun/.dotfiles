@@ -91,7 +91,7 @@ local function set_wallpaper(s)
             wallpaper = wallpaper(s)
         end
         gears.wallpaper.maximized(wallpaper, s, true)
-        -- gears.wallpaper.set("#101010")
+        -- gears.wallpaper.set("#161616")
     end
 end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -102,7 +102,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "", "", "", "", "" }, s, awful.layout.layouts[1])
 
     wibar.get(s)
 end)
@@ -211,7 +211,7 @@ client.connect_signal("request::titlebars", function(c)
     positions = { "top", "right", "bottom", "left" }
 
     for i = 1, 4 do
-        awful.titlebar(c, { position = positions[i], size = 2, bg_focus = "#3f3f3fdd", bg_normal = "#2f2f2fdd" }) : setup {
+        awful.titlebar(c, { position = positions[i], size = 2, bg_focus = "#3c3c3c", bg_normal = "#303030" }) : setup {
             { -- Left
                 -- wibox.widget.imagebox(img, false, gears.shape.rounded_rect),
                 layout  = wibox.layout.fixed.horizontal

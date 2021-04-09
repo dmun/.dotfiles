@@ -6,6 +6,8 @@ local dpi = xresources.apply_dpi
 
 local taglist = {}
 
+local taglist_padding = 12
+
 local taglist_buttons = gears.table.join(
     awful.button({ }, 1, function(t) t:view_only() end),
     awful.button({ modkey }, 1, function(t)
@@ -34,8 +36,8 @@ function taglist.get(s)
                     id = 'text_role',
                     widget = wibox.widget.textbox
                 },
-                left = dpi(8),
-                right = dpi(8),
+                left = dpi(taglist_padding),
+                right = dpi(taglist_padding),
                 widget = wibox.container.margin
             },
             id = 'background_role',
