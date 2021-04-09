@@ -4,7 +4,7 @@ local wibox = require("wibox")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-local widget_padding = 12
+local widget_padding = 13
 
 -- Widget imports
 local mytaglist = require("widgets.taglist")
