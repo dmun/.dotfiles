@@ -12,7 +12,8 @@ local themes_path = "~/.config/awesome/themes/"
 local theme = {}
 
 theme.font          = "Ubuntu 11"
-theme.taglist_font  = "JetBrains Mono 12"
+theme.icon_font     = "Ubuntu 11"
+theme.taglist_font  = "Symbols Nerd Font 12"
 
 -- theme.bg_normal     = "#232831"
 -- theme.bg_focus      = "#2d333f"

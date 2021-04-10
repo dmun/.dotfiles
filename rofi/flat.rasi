@@ -41,17 +41,17 @@ inputbar {
 
 prompt {
   text-color: @fg-dark;
-  padding: 0.65em 0.7em 0.4em 0.7em;
+  padding: 0.5em 0.7em 0.4em 0.7em;
   border: 0 0 0 0;
-  font: "Ubuntu 18";
+  font: "Symbols Nerd Font 20";
   border-radius: 0;
 }
 
 entry {
   placeholder-color: @fg-dark;
   placeholder: "Search";
-  padding: 0.5em 0.5em 1.0em 0;
-  font: "Ubuntu 18";
+  padding: 0.4em 0.5em 0.8em 0;
+  font: "Ubuntu 20";
   border-radius: 0;
 }
 
@@ -71,12 +71,12 @@ element {
 
 element-icon {
   size: 0.75em;
-  padding: 0 0.4em 0 0.6em;
+  padding: 0 0.5em 0 0.8em;
 }
 
 element-text {
   font: "Ubuntu Medium 11";
-  padding: 0.3em 0.2em 0.3em 0;
+  padding: 0.3em 0.2em 0.2em 0;
 }
 
 element selected {

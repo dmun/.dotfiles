@@ -7,13 +7,13 @@ local network = wibox.widget {
 }
 
 awesome.connect_signal("status::network", function(state)
-    network.font = beautiful.font
+    network.font = beautiful.icon_font
     local text
 
     if (state == "UP") then
         text = ""
     else
-        text = "睊"
+        text = ""
     end
 
     network.text = text
