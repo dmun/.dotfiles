@@ -4,7 +4,7 @@ local wibox = require("wibox")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-local widget_padding = 13
+local widget_padding = 10
 
 -- Widget imports
 local mytaglist = require("widgets.taglist")
@@ -27,7 +27,7 @@ function wibar.get(s)
     local mywibox = awful.wibar({
         position = "top",
         screen = s,
-        height = dpi(24)
+        height = dpi(22)
     })
 
     local taglist = mytaglist.get(s)
