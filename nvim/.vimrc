@@ -11,6 +11,8 @@ set nowrap
 set cursorline
 set showtabline=2
 
+set guifont=JetBrains\ Mono,Symbols\ Nerd\ Font:h19
+
 " Color settings
 syntax on
 set termguicolors

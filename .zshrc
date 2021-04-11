@@ -5,12 +5,12 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle denysdovhan/spaceship-prompt
 
-export SPACESHIP_PROMPT_ADD_NEWLINE=false
-export SPACESHIP_GOLANG_SYMBOL=" " 
-export SPACESHIP_PHP_SYMBOL=" " 
-export SPACESHIP_DOCKER_SYMBOL=" " 
-export SPACESHIP_PYENV_SYMBOL=" " 
-export SPACESHIP_VI_MODE_SHOW=false
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_GOLANG_SYMBOL=" " 
+SPACESHIP_PHP_SYMBOL=" " 
+SPACESHIP_DOCKER_SYMBOL=" " 
+SPACESHIP_PYENV_SYMBOL=" " 
+SPACESHIP_VI_MODE_SHOW=false
 
 antigen apply
 
@@ -19,6 +19,8 @@ SAVEHIST=1000
 HISTFILESIZE=1000
 HISTSIZE=1000
 HISTFILE=~/.zsh_history
+
+export NeovideMultiGrid=true
 
 set -o vi
 alias lg=lazygit
