@@ -21,6 +21,7 @@ HISTSIZE=1000
 HISTFILE=~/.zsh_history
 
 export NeovideMultiGrid=true
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 set -o vi
 alias lg=lazygit
