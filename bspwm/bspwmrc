@@ -22,7 +22,7 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill $HOME/.config/bspwm/background.png
-
 wmname LG3D
+~/.config/polybar/launch.sh
+feh --bg-fill $HOME/.config/bspwm/background.png
 xset r rate 200 60
