@@ -26,3 +26,4 @@ wmname LG3D
 ~/.config/polybar/launch.sh
 feh --bg-fill $HOME/.config/bspwm/background.png
 xset r rate 200 60
+picom
