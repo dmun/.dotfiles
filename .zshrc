@@ -22,6 +22,8 @@ HISTFILE=~/.zsh_history
 
 export NeovideMultiGrid=true
 export _JAVA_AWT_WM_NONREPARENTING=1
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
 
 set -o vi
 alias lg=lazygit
