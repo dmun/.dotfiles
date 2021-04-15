@@ -50,8 +50,8 @@ prompt {
 entry {
   placeholder-color: @fg-dark;
   placeholder: "Search";
-  padding: 0.4em 0.5em 0.8em 0;
-  font: "Ubuntu 20";
+  padding: 0.3em 0.5em 0.9em 0;
+  font: "Roboto 20";
   border-radius: 0;
 }
 
@@ -75,8 +75,8 @@ element-icon {
 }
 
 element-text {
-  font: "Ubuntu Medium 11";
-  padding: 0.3em 0.2em 0.2em 0;
+  font: "Roboto Medium 11";
+  padding: 0.3em 0.2em 0.3em 0;
 }
 
 element selected {
