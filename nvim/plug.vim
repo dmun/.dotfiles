@@ -14,4 +14,9 @@ call plug#begin('~/.config/nvim/autoload')
     Plug 'romgrk/barbar.nvim'
     Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
     Plug 'christianchiarulli/nvcode-color-schemes.vim'
+
+    " UML
+    Plug 'tyru/open-browser.vim'
+    Plug 'weirongxu/plantuml-previewer.vim'
+    Plug 'aklt/plantuml-syntax'
 call plug#end()
