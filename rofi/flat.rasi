@@ -23,7 +23,7 @@
 
 mainbox {
   border-color: @bd;
-  border-radius: 10;
+  border-radius: 9;
   border: 2;
 }
 
