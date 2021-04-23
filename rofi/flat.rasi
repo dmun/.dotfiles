@@ -10,7 +10,7 @@
   bg-highlight: #0077ca;
 
   // Border
-  bd: #3c3c3c;
+  bd: #444444;
   bd-highlight: #3379f2;
 
   text-color: @fg;
@@ -23,13 +23,13 @@
 
 mainbox {
   border-color: @bd;
-  border-radius: 9;
+  border-radius: 0;
   border: 2;
 }
 
 window {
   border-color: #000000;
-  border-radius: 10;
+  border-radius: 0;
   border: 1;
 }
 
