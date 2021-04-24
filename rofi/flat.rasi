@@ -51,7 +51,7 @@ entry {
   placeholder-color: @fg-dark;
   placeholder: "Search";
   padding: 0.3em 0.5em 0.9em 0;
-  font: "Roboto 20";
+  font: "sans-serif 20";
   border-radius: 0;
 }
 
@@ -75,7 +75,7 @@ element-icon {
 }
 
 element-text {
-  font: "Roboto Medium 11";
+  font: "sans-serif Medium 11";
   padding: 0.3em 0.2em 0.3em 0;
 }
 
