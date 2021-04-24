@@ -15,21 +15,19 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # brightness
-XF86MonBrightnessUp
-    light -A 10
-
-XF86MonBrightnessDown
-    light -U 10
+XF86MonBrightness{Up,Down}
+    light -{A,U} 10
 
 # pulseaudio volume
-XF86AudioRaiseVolume
-    pamixer -i 5
-
-XF86AudioLowerVolume
-    pamixer -d 5
+XF86Audio{Raise,Lower}Volume
+    pamixer -{i,d} 5
 
 XF86AudioMute
     pamixer -t
+
+# screenshots with scrot/xclip
+{_, shift + }Print
+    scrot {_,-s} -e 'xclip -selection clipboard -t image/png -i $f'
 
 #
 # bspwm hotkeys
@@ -106,33 +104,32 @@ super + {_,shift + }{1-9,0}
 #
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
+super + alt + {h,j,k,l}
 	bspc node -p {west,south,north,east}
 
 # preselect the ratio
-super + ctrl + {1-9}
+super + alt + {1-9}
 	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + ctrl + space
+super + alt + space
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+super + alt + shift + space
+ 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 #
 # move/resize
 #
 
-# expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move a floating window
-super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+# Smart resize, will grow or shrink depending on location.
+# Will always grow for floating nodes.
+super + ctrl + {h,j,k,l}
+    n=50; \
+    { d1=left;   d2=right;  dx=-$n; dy=0;   \
+    , d1=bottom; d2=top;    dx=0;   dy=$n;  \
+    , d1=top;    d2=bottom; dx=0;   dy=-$n; \
+    , d1=right;  d2=left;   dx=$n;  dy=0;   \
+    } \
+    bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
