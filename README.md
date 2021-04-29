@@ -4,7 +4,7 @@ Running `./install.sh` will create links in the designated directories to the co
 ## Setup
 ### Packages
 ```
-sudo apt install awesome neovim pulseaudio rofi pulsemixer light
+sudo pacman -S antigen bspwm  light lxappearance mcmojava-cursors-git neofetch neovim-nightly-bin nodejs noto-fonts noto-fonts-cjk noto-fonts-emoji npm picom polybar pulseaudio rofi sxhkd scrot ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-roboto vimix-gtk-themes-git yarn zathura zsh
 ```
 
 ### Vim-plug
@@ -16,6 +16,3 @@ In neovim:
 ```
 :PlugInstall
 ```
-
-### Picom
-Install from `https://github.com/ibhagwan/picom`
