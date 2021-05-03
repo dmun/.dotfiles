@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/autoload')
 
     " Misc
     Plug 'mhinz/vim-startify'
+    Plug 'folke/which-key.nvim'
 
     " UML
     Plug 'tyru/open-browser.vim'
