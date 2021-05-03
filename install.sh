@@ -26,4 +26,8 @@ do
     ln -sf $script_dir/$dotfile $HOME/$dotfile
 done
 
+# firefox theme
+echo Linking $script_dir/userChrome.css to $HOME/.mozilla/firefox/*.default-release/chrome
+ln -sf $script_dir/userChrome.css to $HOME/.mozilla/firefox/*.default-release/chrome
+
 echo Done!
