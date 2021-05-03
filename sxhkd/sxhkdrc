@@ -8,7 +8,11 @@ super + Return
 
 # program launcher
 super + @space
-	rofi -show
+	rofi -show drun -show-icons
+
+# emoji selector
+super + period
+    rofi -show emoji
 
 # make sxhkd reload its configuration files:
 super + Escape
