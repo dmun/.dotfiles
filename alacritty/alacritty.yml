@@ -7,14 +7,14 @@ font:
   normal:
     family: monospace
 colors:
-  name: Default (dark)
-  author: Chris Kempson
+  name: Dark+
+  author: dmun
   primary:
     background: "#1e1e1e"
-    foreground: "#d0d0d0"
+    foreground: "#d4d4d4"
   cursor:
     text: "#1e1e1e"
-    cursor: "#d0d0d0"
+    cursor: "#d4d4d4"
   normal:
     black: "#1e1e1e"
     red: "#d16969"
@@ -23,7 +23,7 @@ colors:
     blue: "#569cd6"
     magenta: "#c586c0"
     cyan: "#4ec9b0"
-    white: "#d0d0d0"
+    white: "#d4d4d4"
   bright:
     black: "#505050"
     red: "#f44747"
