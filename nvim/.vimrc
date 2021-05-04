@@ -43,7 +43,7 @@ nnoremap <silent><M-K> <C-w>K
 nnoremap <silent><M-L> <C-w>L
 
 " Resizing windows
-nnoremap <silent><M-Down> :resize +5<CR>
-nnoremap <silent><M-Up> :resize -5<CR>
-nnoremap <silent><M-Left> :vertical resize -10<CR>
-nnoremap <silent><M-Right> :vertical resize +10<CR>
+nnoremap <silent><M-C-j> :resize +3<CR>
+nnoremap <silent><M-C-k> :resize -3<CR>
+nnoremap <silent><M-C-h> :vertical resize -5<CR>
+nnoremap <silent><M-C-l> :vertical resize +5<CR>
