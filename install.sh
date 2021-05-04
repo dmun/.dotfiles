@@ -3,7 +3,7 @@ script_dir="$(dirname $(readlink -f $0))"
 conf_dir=$HOME/.config
 
 # linked files
-files="bspwm sxhkd polybar dunst fontconfig alacritty nvim rofi picom"
+files="bspwm sxhkd polybar dunst fontconfig alacritty nvim rofi zathura picom"
 dotfiles=".zshrc .tmux.conf .Xmodmap"
 
 # create config folder if it doesn't exist

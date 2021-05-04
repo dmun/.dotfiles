@@ -1,0 +1,13 @@
+set smooth-scroll true
+set recolor true
+
+set default-bg "#1e1e1e"
+
+set recolor-lightcolor "#1e1e1e"
+set recolor-darkcolor "#d4d4d4"
+
+set inputbar-bg "#1e1e1e"
+set inputbar-fg "#d4d4d4"
+
+set statusbar-bg "#1e1e1e"
+set statusbar-fg "#d4d4d4"
