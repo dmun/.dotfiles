@@ -16,9 +16,6 @@ call plug#begin('~/.config/nvim/autoload')
     Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
     Plug 'romgrk/barbar.nvim'
 
-    " Plug 'nvim-lua/popup.nvim'
-    " Plug 'nvim-lua/plenary.nvim'
-
     " Misc
     Plug 'mhinz/vim-startify'
     Plug 'folke/which-key.nvim'
