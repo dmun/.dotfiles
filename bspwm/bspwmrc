@@ -2,7 +2,8 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor -d     
+# bspc monitor -d     
+bspc monitor -d WEB CODE TERM ETC CHAT
 
 bspc config border_width         2
 bspc config window_gap          12
@@ -23,8 +24,8 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 wmname LG3D
+xsetroot -cursor_name left_ptr
 ~/.config/polybar/launch.sh
 feh --bg-fill $HOME/.config/bspwm/background.png
 xset r rate 200 60
 dunst &
-picom &
