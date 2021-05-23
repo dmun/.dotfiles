@@ -29,6 +29,10 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
     pamixer -t
 
+# pulsemixer
+super + u
+    alacritty -e pulsemixer
+
 # screenshots with scrot/xclip
 {_, shift + }Print
     scrot {_,-s} -e 'xclip -selection clipboard -t image/png -i $f'
