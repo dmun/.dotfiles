@@ -38,106 +38,40 @@ super + u
     scrot {_,-s} -e 'xclip -selection clipboard -t image/png -i $f'
 
 #
-# bspwm hotkeys
+# awesome hotkeys
 #
 
-# quit/restart bspwm
+# quit/restart
 super + alt + {q,r}
-	bspc {quit,wm -r}
+	echo "awesome.{quit,restart}()" | awesome-client
 
 # close and kill
 super + {_, shift + } q
-	bspc node -{c,k}
+	echo "client.focus:kill()" | awesome-client
 
-# alternate between the tiled and monocle layout
-super + m
-	bspc desktop -l next
+# set the client state
+super + {s,d,f,shift + f}
+ 	echo "change_client_state('{floating,default,maximized,fullscreen}')" | awesome-client
 
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+# focus/swap clients
+super + {_,shift + }{j,k,h,l}
+    echo "require('awful').client.{focus,swap}.bydirection('{down,up,left,right}')" | awesome-client
 
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
-
-#
-# state/flags
-#
-
-# set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
-# set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
-
-#
-# focus/swap
-#
-
-# focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
-
-# focus the node for the given path jump
-# super + {p,b,comma,period}
-# 	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous window in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
-
-# focus the next/previous desktop in the current monitor
+# focus the next/previous tag
 super + {p,n}
-	bspc desktop -f {prev,next}.local
-
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
+	echo "require('awful').tag.view{prev,next}()" | awesome-client
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {1-5}{_, + ctrl, + shift}
+	echo "awful = require('awful')\ntag = awful.screen.focused().tags[{1-5}]\n{tag:view_only(),awful.tag.viewtoggle(tag),client.focus:move_to_tag(tag)}" | awesome-client
 
-#
-# preselect
-#
+# resize master
+super + ctrl + {h,l}
+    echo "require('awful').tag.incmwfact({-,_}0.05)" | awesome-client
 
-# preselect the direction
-super + alt + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+# previous client
+super + Tab
+    echo "awful.client.focus.history.previous()" | awesome-client
 
-# preselect the ratio
-super + alt + {1-9}
-	bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node
-super + alt + space
-	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + alt + shift + space
- 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#
-# move/resize
-#
-
-# Smart resize, will grow or shrink depending on location.
-# Will always grow for floating nodes.
-super + ctrl + {h,j,k,l}
-    n=50; \
-    { d1=left;   d2=right;  dx=-$n; dy=0;   \
-    , d1=bottom; d2=top;    dx=0;   dy=$n;  \
-    , d1=top;    d2=bottom; dx=0;   dy=-$n; \
-    , d1=right;  d2=left;   dx=$n;  dy=0;   \
-    } \
-    bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
+super + ctrl + {j,k}
+    echo "awful.screen.focus_relative({_,-}1)" | awesome-client
