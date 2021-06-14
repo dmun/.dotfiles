@@ -17,6 +17,7 @@ call plug#begin('~/.config/nvim/autoload')
     Plug 'romgrk/barbar.nvim'
 
     " Misc
+    Plug 'kyazdani42/nvim-tree.lua'
     Plug 'mhinz/vim-startify'
     Plug 'folke/which-key.nvim'
     Plug 'airblade/vim-rooter'
