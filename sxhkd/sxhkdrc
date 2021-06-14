@@ -51,7 +51,7 @@ super + {_, shift + } q
 
 # set the client state
 super + {s,d,f,shift + f}
- 	echo "change_client_state('{floating,default,maximized,fullscreen}')" | awesome-client
+	echo "change_client_state('{stacking,default,maximized,fullscreen}')" | awesome-client
 
 # focus/swap clients
 super + {_,shift + }{j,k,h,l}
@@ -63,7 +63,7 @@ super + {p,n}
 
 # focus or send to the given desktop
 super + {1-5}{_, + ctrl, + shift}
-	echo "awful = require('awful')\ntag = awful.screen.focused().tags[{1-5}]\n{tag:view_only(),awful.tag.viewtoggle(tag),client.focus:move_to_tag(tag)}" | awesome-client
+	echo "awful = require('awful') tag = awful.screen.focused().tags[{1-5}] {tag:view_only(),awful.tag.viewtoggle(tag),client.focus:move_to_tag(tag)}" | awesome-client
 
 # resize master
 super + ctrl + {h,l}
