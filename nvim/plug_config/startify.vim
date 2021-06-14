@@ -15,7 +15,7 @@ let g:startify_lists = [
 let g:webdevicons_enable_startify = 1
 
 let g:startify_bookmarks = [
-            \ { 'w': '~/.config/bspwm/bspwmrc' },
+            \ { 'w': '~/.config/awesome/rc.lua' },
             \ { 'n': '~/.config/nvim/init.vim' },
             \ { 'z': '~/.zshrc' },
             \ ]
