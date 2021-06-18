@@ -73,5 +73,6 @@ super + ctrl + {h,l}
 super + Tab
     echo "awful.client.focus.history.previous()" | awesome-client
 
+# focus the next/previous screen
 super + ctrl + {j,k}
     echo "awful.screen.focus_relative({_,-}1)" | awesome-client
