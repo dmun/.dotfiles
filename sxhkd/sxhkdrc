@@ -62,8 +62,8 @@ super + {p,n}
 	echo "require('awful').tag.view{prev,next}()" | awesome-client
 
 # focus or send to the given desktop
-super + {1-5}{_, + ctrl, + shift}
-	echo "awful = require('awful') tag = awful.screen.focused().tags[{1-5}] {tag:view_only(),awful.tag.viewtoggle(tag),client.focus:move_to_tag(tag)}" | awesome-client
+super + {1-9,0}{_, + ctrl, + shift}
+	echo "awful = require('awful') tag = awful.screen.focused().tags[{1-9,10}] {tag:view_only(),awful.tag.viewtoggle(tag),client.focus:move_to_tag(tag)}" | awesome-client
 
 # resize master
 super + ctrl + {h,l}
