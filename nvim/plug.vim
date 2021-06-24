@@ -14,7 +14,8 @@ call plug#begin('~/.config/nvim/autoload')
     " Appearance
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
-    Plug 'romgrk/barbar.nvim'
+    " Plug 'romgrk/barbar.nvim'
+    Plug 'akinsho/nvim-bufferline.lua'
 
     " Misc
     Plug 'kyazdani42/nvim-tree.lua'

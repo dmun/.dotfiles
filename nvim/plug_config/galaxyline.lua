@@ -124,79 +124,80 @@
 --          highlight = {colors.grey, colors.bg}
 --      }
 --  }
- 
- gls.right[6] = {
-     LineInfo = {
-         provider = 'LineColumn',
-         separator = '  ',
-         separator_highlight = {'NONE', colors.bg},
-         highlight = {colors.grey, colors.bg}
-     }
- }
- 
- gls.right[7] = {
-     PerCent = {
-         provider = 'LinePercent',
-         separator = ' ',
-         separator_highlight = {'NONE', colors.bg},
-         highlight = {colors.grey, colors.bg}
+
+gls.right[6] = {
+    LineInfo = {
+        provider = 'LineColumn',
+        separator = '  ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
     }
- }
- 
- gls.right[8] = {
-     Tabstop = {
-         provider = function()
-             return "Spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth") .. " "
-         end,
-         condition = condition.hide_in_width,
-         separator = ' ',
-         separator_highlight = {'NONE', colors.bg},
-         highlight = {colors.grey, colors.bg}
-     }
- }
- 
- gls.right[9] = {
-     BufferType = {
-         provider = 'FileTypeName',
-         condition = condition.hide_in_width,
-         separator = ' ',
-         separator_highlight = {'NONE', colors.bg},
-         highlight = {colors.grey, colors.bg}
-     }
- }
- 
- gls.right[10] = {
-     FileEncode = {
-         provider = 'FileEncode',
-         condition = condition.hide_in_width,
-         separator = ' ',
-         separator_highlight = {'NONE', colors.bg},
-         highlight = {colors.grey, colors.bg}
-     }
- }
- 
- gls.right[11] = {
-     Space = {
-         provider = function()
-             return ' '
-         end,
-         separator = ' ',
-         separator_highlight = {'NONE', colors.bg},
-         highlight = {colors.orange, colors.bg}
-     }
- }
- 
- gls.short_line_left[1] = {
-     BufferType = {
-         provider = 'FileTypeName',
-         separator = ' ',
-         separator_highlight = {'NONE', colors.bg},
-         highlight = {colors.grey, colors.bg}
-     }
- }
- 
- gls.short_line_left[2] = {
-     SFileName = {provider = 'SFileName', condition = condition.buffer_not_empty, highlight = {colors.grey, colors.bg}}
- }
- 
- gls.short_line_right[1] = {BufferIcon = {provider = 'BufferIcon', highlight = {colors.grey, colors.bg}}}
+}
+
+gls.right[7] = {
+    PerCent = {
+        provider = 'LinePercent',
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+   }
+}
+
+gls.right[8] = {
+    Tabstop = {
+        provider = function()
+            return "Spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth") .. " "
+        end,
+        condition = condition.hide_in_width,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
+gls.right[9] = {
+    BufferType = {
+        provider = 'FileTypeName',
+        condition = condition.hide_in_width,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
+gls.right[10] = {
+    FileEncode = {
+        provider = 'FileEncode',
+        condition = condition.hide_in_width,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
+gls.right[11] = {
+    Space = {
+        provider = function()
+            return ' '
+        end,
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.orange, colors.bg}
+    }
+}
+
+gls.short_line_left[1] = {
+    BufferType = {
+        provider = 'FileTypeName',
+        icon = ' ',
+        separator = ' ',
+        separator_highlight = {'NONE', colors.bg},
+        highlight = {colors.grey, colors.bg}
+    }
+}
+
+gls.short_line_left[2] = {
+    SFileName = {provider = 'SFileName', condition = condition.buffer_not_empty, highlight = {colors.grey, colors.bg}}
+}
+
+-- gls.short_line_right[1] = {BufferIcon = {provider = 'BufferIcon', highlight = {colors.grey, colors.bg}}}
