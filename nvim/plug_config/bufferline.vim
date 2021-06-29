@@ -27,7 +27,7 @@ hi BufferLineTabClose guifg=#d4d4d4 ctermfg=188 guibg=#2d2d2d ctermbg=235 gui=NO
 hi BufferLineTabSelected guifg=#d4d4d4 ctermfg=188 guibg=#1e1e1e ctermbg=234 gui=NONE cterm=NONE
 
 hi BufferLineCloseButton guifg=#d4d4d4 ctermfg=188 guibg=#2d2d2d ctermbg=234 gui=NONE cterm=NONE
-hi BufferLineCloseButtonVisible guifg=#d4d4d4 ctermfg=188 guibg=#2d2d2d ctermbg=234 gui=NONE cterm=NONE
+hi BufferLineCloseButtonVisible guifg=#d4d4d4 ctermfg=188 guibg=#1e1e1e ctermbg=234 gui=NONE cterm=NONE
 hi BufferLineCloseButtonSelected guifg=#d4d4d4 ctermfg=188 guibg=#1e1e1e ctermbg=234 gui=NONE cterm=NONE
 
 hi BufferLineSeparator guifg=#252526 ctermfg=188 guibg=#2d2d2d ctermbg=234 gui=NONE cterm=NONE
