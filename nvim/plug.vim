@@ -5,6 +5,7 @@ call plug#begin('~/.config/nvim/autoload')
 
     " Git
     Plug 'airblade/vim-gitgutter'
+    Plug 'kdheepak/lazygit.nvim'
 
     " IDE like
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -14,15 +15,15 @@ call plug#begin('~/.config/nvim/autoload')
     " Appearance
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'glepnir/galaxyline.nvim', {'branch': 'main'}
-    " Plug 'romgrk/barbar.nvim'
     Plug 'akinsho/nvim-bufferline.lua'
 
     " Misc
     Plug 'kyazdani42/nvim-tree.lua'
     Plug 'mhinz/vim-startify'
-    Plug 'folke/which-key.nvim'
     Plug 'airblade/vim-rooter'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
 
     " UML
