@@ -1,15 +1,11 @@
-lua <<EOF
-	require("bufferline").setup {
-		options = {
-			offsets = {{filetype = "NvimTree", text = " EXPLORER", text_align = "left"}},
-			show_close_icon = false,
-		--	separator_style = "thick",
-		}
+require("bufferline").setup {
+	options = {
+		offsets = {{filetype = "NvimTree", text = " EXPLORER", text_align = "left"}},
+		show_close_icon = false,
 	}
-EOF
+}
 
-" au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
-
+vim.cmd [[
 nnoremap <silent><M-n> :BufferLineCycleNext<CR>
 nnoremap <silent><M-p> :BufferLineCyclePrev<CR>
 
@@ -34,3 +30,4 @@ hi BufferLineModified guifg=#999999 ctermfg=NONE guibg=#2d2d2d ctermbg=235 gui=N
 
 hi BufferLineSeparator guifg=#252526 ctermfg=188 guibg=#2d2d2d ctermbg=234 gui=NONE cterm=NONE
 hi BufferLineBufferSelected gui=bold
+]]

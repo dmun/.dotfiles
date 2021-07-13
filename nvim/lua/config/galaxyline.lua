@@ -4,6 +4,9 @@ local condition = require('galaxyline.condition')
 local gls = gl.section
 gl.short_line_list = {'NvimTree','vista','dbui','packer'}
 
+colors.fg = '#d4d4d4'
+colors.bg = '#2d2d2d'
+
 local get_filename = function()
 	return vim.fn.expand("%:h:t") .. "/" .. vim.fn.expand("%:t")
 end
@@ -30,7 +33,7 @@ local current_file_name_provider = function()
 	local icon = ""
 	if vim.bo.modifiable then
 		if vim.bo.modified then
-			return file .. " " .. icon .. "	"
+			return file .. " " .. icon .. " "
 		end
 	end
 	return file .. " "
@@ -41,13 +44,13 @@ gls.left[2] = {
 		provider = function()
 			-- auto change color according the vim mode
 			local mode_color = {n = colors.green, i = colors.blue,v=colors.orange,
-													[''] = colors.orange,V=colors.orange,
-													c = colors.magenta,no = colors.red,s = colors.orange,
-													S=colors.orange,[''] = colors.orange,
-													ic = colors.yellow,R = colors.violet,Rv = colors.violet,
-													cv = colors.red,ce=colors.red, r = colors.cyan,
-													rm = colors.cyan, ['r?'] = colors.cyan,
-													['!']	= colors.red,t = colors.red}
+				[''] = colors.orange,V=colors.orange,
+				c = colors.magenta,no = colors.red,s = colors.orange,
+				S=colors.orange,[''] = colors.orange,
+				ic = colors.yellow,R = colors.violet,Rv = colors.violet,
+				cv = colors.red,ce=colors.red, r = colors.cyan,
+				rm = colors.cyan, ['r?'] = colors.cyan,
+				['!'] = colors.red,t = colors.red}
 			vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
 			return '▊ '
 		end,
@@ -88,7 +91,7 @@ gls.left[6] = {
 gls.left[7] = {
 	PerCent = {
 		provider = 'LinePercent',
-		separator = '',
+		separator = ' ',
 		separator_highlight = {'NONE',colors.bg},
 		highlight = {'#696969',colors.bg,'bold'},
 	}
@@ -98,6 +101,8 @@ gls.left[8] = {
 	DiagnosticError = {
 		provider = 'DiagnosticError',
 		icon = '  ',
+		separator = ' ',
+		separator_highlight = {'NONE',colors.bg},
 		highlight = {colors.red,colors.bg}
 	}
 }
@@ -105,6 +110,8 @@ gls.left[9] = {
 	DiagnosticWarn = {
 		provider = 'DiagnosticWarn',
 		icon = '  ',
+		separator = ' ',
+		separator_highlight = {'NONE',colors.bg},
 		highlight = {colors.yellow,colors.bg},
 	}
 }
@@ -113,6 +120,8 @@ gls.left[10] = {
 	DiagnosticHint = {
 		provider = 'DiagnosticHint',
 		icon = '  ',
+		separator = ' ',
+		separator_highlight = {'NONE',colors.bg},
 		highlight = {colors.cyan,colors.bg},
 	}
 }
@@ -121,6 +130,8 @@ gls.left[11] = {
 	DiagnosticInfo = {
 		provider = 'DiagnosticInfo',
 		icon = '  ',
+		separator = ' ',
+		separator_highlight = {'NONE',colors.bg},
 		highlight = {colors.blue,colors.bg},
 	}
 }
@@ -180,6 +191,12 @@ gls.right[9] = {
 }
 
 gls.short_line_left[1] = {
+	RainbowRed = {
+		provider = function() return ' ' end,
+		highlight = {colors.blue,colors.bg}
+	},
+}
+gls.short_line_left[2] = {
 	BufferType = {
 		provider = 'FileTypeName',
 		separator = ' ',
@@ -188,9 +205,9 @@ gls.short_line_left[1] = {
 	}
 }
 
-gls.short_line_left[2] = {
+gls.short_line_left[3] = {
 	SFileName = {
-		provider =	'SFileName',
+		provider = 'SFileName',
 		condition = condition.buffer_not_empty,
 		highlight = {colors.fg,colors.bg,'bold'}
 	}
