@@ -12,7 +12,7 @@ super + @space
 
 # emoji selector
 super + period
-    rofi -show emoji
+	rofi -show emoji
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -20,22 +20,22 @@ super + Escape
 
 # brightness
 XF86MonBrightness{Up,Down}
-    light -{A,U} 10
+	light -{A,U} 10
 
 # pulseaudio volume
 XF86Audio{Raise,Lower}Volume
-    pamixer -{i,d} 5
+	pamixer -{i,d} 5
 
 XF86AudioMute
-    pamixer -t
+	pamixer -t
 
 # pulsemixer
 super + u
-    alacritty -e pulsemixer
+	alacritty -e pulsemixer
 
 # screenshots with scrot/xclip
 {_, shift + }Print
-    scrot {_,-s} -e 'xclip -selection clipboard -t image/png -i $f'
+	scrot {_,-s} -e 'xclip -selection clipboard -t image/png -i $f'
 
 #
 # awesome hotkeys
@@ -55,7 +55,7 @@ super + {s,d,f,shift + f}
 
 # focus/swap clients
 super + {_,shift + }{j,k,h,l}
-    echo "require('awful').client.{focus,swap}.bydirection('{down,up,left,right}')" | awesome-client
+	echo "require('awful').client.{focus,swap}.bydirection('{down,up,left,right}')" | awesome-client
 
 # focus the next/previous tag
 super + {p,n}
@@ -67,12 +67,12 @@ super + {1-9,0}{_, + ctrl, + shift}
 
 # resize master
 super + ctrl + {h,l}
-    echo "require('awful').tag.incmwfact({-,_}0.05)" | awesome-client
+	echo "require('awful').tag.incmwfact({-,_}0.05)" | awesome-client
 
 # previous client
 super + Tab
-    echo "awful.client.focus.history.previous()" | awesome-client
+	echo "awful.client.focus.history.previous()" | awesome-client
 
 # focus the next/previous screen
 super + ctrl + {j,k}
-    echo "awful.screen.focus_relative({_,-}1)" | awesome-client
+	echo "awful.screen.focus_relative({_,-}1)" | awesome-client

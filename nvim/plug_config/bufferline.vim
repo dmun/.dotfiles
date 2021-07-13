@@ -1,11 +1,11 @@
 lua <<EOF
-    require("bufferline").setup {
-        options = {
-            offsets = {{filetype = "NvimTree", text = " EXPLORER", text_align = "left"}},
-            show_close_icon = false,
-            -- separator_style = "thick",
-        }
-    }
+	require("bufferline").setup {
+		options = {
+			offsets = {{filetype = "NvimTree", text = " EXPLORER", text_align = "left"}},
+			show_close_icon = false,
+		--	separator_style = "thick",
+		}
+	}
 EOF
 
 " au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif

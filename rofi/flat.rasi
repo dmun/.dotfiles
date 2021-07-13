@@ -1,87 +1,87 @@
 * {
-  // Foreground
-  fg: #ffffff;
-  fg-dark: #777777;
-  fg-highlight: #ffffff;
+//	Foreground
+	fg: #ffffff;
+	fg-dark: #777777;
+	fg-highlight: #ffffff;
 
-  // Background
-  bg: #252526;
-  bg-dark: #1e1e1e;
-  bg-highlight: #264f78;
+//	Background
+	bg: #252526;
+	bg-dark: #1e1e1e;
+	bg-highlight: #264f78;
 
-  // Border
-  bd: #444444;
-  bd-highlight: #3379f2;
+//	Border
+	bd: #444444;
+	bd-highlight: #3379f2;
 
-  text-color: @fg;
-  background-color: @bg;
+	text-color: @fg;
+	background-color: @bg;
 
-  y-offset: 25%;
-  width: 24em;
-  spacing: 0;
+	y-offset: 25%;
+	width: 24em;
+	spacing: 0;
 }
 
 mainbox {
-  border-color: @bd;
-  border-radius: 0;
-  border: 2;
+	border-color: @bd;
+	border-radius: 5;
+	border: 2;
 }
 
 window {
-  border-color: #000000;
-  border-radius: 0;
-  border: 1;
+	border-color: #000000;
+	border-radius: 6;
+	border: 1;
 }
 
 inputbar {
-  border-color: @bd;
-  border: 0 0 1 0;
-  border-radius: 0;
+	border-color: @bd;
+	border: 0 0 1 0;
+	border-radius: 0;
 }
 
 prompt {
-  text-color: @fg-dark;
-  padding: 0.5em 0.7em 0.4em 0.7em;
-  border: 0 0 0 0;
-  font: "Symbols Nerd Font 20";
-  border-radius: 0;
+	text-color: @fg-dark;
+	padding: 0.5em 0.7em 0.4em 0.7em;
+	border: 0 0 0 0;
+	font: "Symbols Nerd Font 20";
+	border-radius: 0;
 }
 
 entry {
-  placeholder-color: @fg-dark;
-  placeholder: "Search";
-  padding: 0.3em 0.5em 0.9em 0;
-  font: "sans-serif 20";
-  border-radius: 0;
+	placeholder-color: @fg-dark;
+	placeholder: "Search";
+	padding: 0.3em 0.5em 0.9em 0;
+	font: "sans-serif 20";
+	border-radius: 0;
 }
 
 listview {
-  background-color: @bg;
-  cycle: false;
-  dynamic: true;
-  padding: 0.3em 0 0.3em 0;
-  lines: 7;
-  border-radius: 0;
+	background-color: @bg;
+	cycle: false;
+	dynamic: true;
+	padding: 0.3em 0 0.3em 0;
+	lines: 7;
+	border-radius: 0;
 }
 
 element {
-  // margin: 0 0.3em 0.3em 0.3em;
-  border-radius: 0;
+//	margin: 0 0.3em 0.3em 0.3em;
+	border-radius: 0;
 }
 
 element-icon {
-  size: 0.75em;
-  padding: 0 0 0 0.8em;
+	size: 0.75em;
+	padding: 0 0 0 0.8em;
 }
 
 element-text {
-  font: "sans-serif Medium 11";
-  padding: 0.3em 0.2em 0.3em 0.5em;
+	font: "sans-serif Medium 11";
+	padding: 0.3em 0.2em 0.3em 0.5em;
 }
 
 element selected {
-  background-color: @bg-highlight;
-  text-color: @fg-highlight;
-  border-color: @bd-highlight;
-  border-radius: 0;
+	background-color: @bg-highlight;
+	text-color: @fg-highlight;
+	border-color: @bd-highlight;
+	border-radius: 0;
 }
