@@ -7,29 +7,29 @@ font:
   normal:
     family: monospace
 colors:
-  name: Dark+
+  name: Doom One
   author: dmun
   primary:
-    background: "#1e1e1e"
-    foreground: "#d4d4d4"
+    background: "#282c34"
+    foreground: "#bbc2cf"
   cursor:
-    text: "#1e1e1e"
-    cursor: "#d4d4d4"
+    text: "#282c34"
+    cursor: "#bbc2cf"
   normal:
-    black: "#1e1e1e"
-    red: "#d16969"
-    green: "#6a9955"
-    yellow: "#d7ba7d"
-    blue: "#569cd6"
-    magenta: "#c586c0"
-    cyan: "#4ec9b0"
-    white: "#d4d4d4"
+    black: "#1b2229"
+    red: "#ff6c6b"
+    green: "#98be65"
+    yellow: "#ecbe7b"
+    blue: "#51afef"
+    magenta: "#c678dd"
+    cyan: "#46d9ff"
+    white: "#efefef"
   bright:
-    black: "#505050"
-    red: "#f44747"
-    green: "#608b4e"
-    yellow: "#dcdcaa"
-    blue: "#9cdcfe"
-    magenta: "#aa759f"
-    cyan: "#4ec9b0"
-    white: "#f5f5f5"
+    black: "#3f444a"
+    red: "#ff6c6b"
+    green: "#98be65"
+    yellow: "#ecbe7b"
+    blue: "#51afef"
+    magenta: "#a9a1e1"
+    cyan: "#46d9ff"
+    white: "#efefef"
