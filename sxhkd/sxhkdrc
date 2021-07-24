@@ -53,6 +53,10 @@ super + {_, shift + } q
 super + {s,d,f,shift + f}
 	echo "change_client_state('{stacking,default,maximized,fullscreen}')" | awesome-client
 
+# reset the client color
+super + c
+	echo "reset_titlebar_color()" | awesome-client
+
 # focus/swap clients
 super + {_,shift + }{j,k,h,l}
 	echo "require('awful').client.{focus,swap}.bydirection('{down,up,left,right}')" | awesome-client
