@@ -6,6 +6,8 @@ window:
 font:
   normal:
     family: monospace
+  offset:
+    y: -1
 colors:
   name: Doom One
   author: dmun
