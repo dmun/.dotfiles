@@ -10,8 +10,9 @@
 	bg-highlight: #264f78;
 
 //	Border
-	bd: #444444;
-	bd-highlight: #3379f2;
+	bd: #3E3E3F;
+	bd-highlight: #585859;
+	bd-outer: #000000;
 
 	text-color: @fg;
 	background-color: @bg;
@@ -23,19 +24,19 @@
 
 mainbox {
 	border-color: @bd;
-	border-radius: 5;
-	border: 2;
+	border-radius: 4;
+	border: 0 2 2 2;
 }
 
 window {
-	border-color: #000000;
-	border-radius: 6;
+	border-color: @bd-outer;
+	border-radius: 4;
 	border: 1;
 }
 
 inputbar {
-	border-color: @bd;
-	border: 0 0 1 0;
+	border-color: @bd-highlight;
+	border: 2 0 0 0;
 	border-radius: 0;
 }
 
@@ -61,6 +62,8 @@ listview {
 	dynamic: true;
 	padding: 0.3em 0 0.3em 0;
 	lines: 7;
+	border-color: @bd;
+	border: 1 0 0 0;
 	border-radius: 0;
 }
 
@@ -82,6 +85,5 @@ element-text {
 element selected {
 	background-color: @bg-highlight;
 	text-color: @fg-highlight;
-	border-color: @bd-highlight;
 	border-radius: 0;
 }
