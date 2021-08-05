@@ -15,7 +15,7 @@
 	fg-dark: #5B6268;
 	fg-highlight: #ffffff;
 	bg: #282C34;
-	bg-highlight: #264f78;
+	bg-highlight: #3f444a;
 	bd: #41454D;
 	bd-highlight: #5B5F67;
 	bd-outer: #000000;
