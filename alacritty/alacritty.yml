@@ -1,3 +1,5 @@
+env:
+  TERM: xterm-256color
 window:
   padding:
     x: 0
@@ -18,7 +20,7 @@ colors:
     text: "#282c34"
     cursor: "#bbc2cf"
   normal:
-    black: "#1b2229"
+    black: "#1d2026"
     red: "#ff6c6b"
     green: "#98be65"
     yellow: "#ecbe7b"
