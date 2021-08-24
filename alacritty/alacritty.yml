@@ -14,10 +14,10 @@ colors:
   name: Doom One
   author: dmun
   primary:
-    background: "#282c34"
+    background: "#21242b"
     foreground: "#bbc2cf"
   cursor:
-    text: "#282c34"
+    text: "#21242b"
     cursor: "#bbc2cf"
   normal:
     black: "#1d2026"

@@ -38,8 +38,8 @@
 //	fg-highlight: #ffffff;
 //	bg: #282C3455;
 //	bg-highlight: #5B5F6733;
-//	bd: #41454Daa;
-//	bd-highlight: #5B5F67cc;
+//	bd: #4B4F57bb;
+//	bd-highlight: #8B8F97aa;
 //	bd-outer: #000000;
 
 	text-color: @fg;
@@ -52,14 +52,12 @@
 mainbox {
 	border-color: @bd;
 	border-radius: 0;
-//	border-radius: 4;
 	border: 0 2 2 2;
 }
 
 window {
 	border-color: @bd-outer;
 	border-radius: 0;
-//	border-radius: 0;
 	border: 1;
 }
 
