@@ -55,7 +55,7 @@ super + {s,d,f,shift + f}
 
 # reset the client color
 super + c
-	echo "reset_titlebar_color()" | awesome-client
+	echo "require('util.client_colors').update()" | awesome-client
 
 # focus/swap clients
 super + {_,shift + }{j,k,h,l}
@@ -76,6 +76,10 @@ super + ctrl + {h,l}
 # previous client
 super + Tab
 	echo "awful.client.focus.history.previous()" | awesome-client
+
+# next layout
+super + o
+	echo "awful.layout.inc(1)" | awesome-client
 
 # focus the next/previous screen
 super + ctrl + {j,k}
