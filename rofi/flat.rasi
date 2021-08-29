@@ -51,13 +51,13 @@
 
 mainbox {
 	border-color: @bd;
-	border-radius: 0;
+	border-radius: 4;
 	border: 0 2 2 2;
 }
 
 window {
 	border-color: @bd-outer;
-	border-radius: 0;
+	border-radius: 4;
 	border: 1;
 }
 
