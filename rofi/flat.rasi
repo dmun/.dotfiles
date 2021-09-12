@@ -16,8 +16,8 @@
 	fg-highlight: #ffffff;
 	bg: #282C34;
 	bg-highlight: #3f444a;
-	bd: #41454D;
-	bd-highlight: #5B5F67;
+	bd: #474a51;
+	bd-highlight: #6d7077;
 	bd-outer: #000000;
 
 
@@ -69,7 +69,7 @@ inputbar {
 
 prompt {
 	text-color: @fg-dark;
-	padding: 0.5em 0.7em 0.4em 0.7em;
+	padding: 0.5em 0.7em 0.15em 0.7em;
 	border: 0 0 0 0;
 	font: "Symbols Nerd Font 20";
 	border-radius: 0;
@@ -78,7 +78,7 @@ prompt {
 entry {
 	placeholder-color: @fg-dark;
 	placeholder: "Search";
-	padding: 0.3em 0.5em 0.9em 0;
+	padding: 0.3em 0.5em 0.15em 0;
 	font: "sans-serif 20";
 	border-radius: 0;
 }
@@ -101,7 +101,7 @@ element {
 
 element-icon {
 	size: 0.75em;
-	padding: 0 0 0 0.8em;
+	padding: 0.4em 0 0 0.8em;
 }
 
 element-text {
@@ -113,4 +113,9 @@ element selected {
 	background-color: @bg-highlight;
 	text-color: @fg-highlight;
 	border-radius: 0;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
 }
