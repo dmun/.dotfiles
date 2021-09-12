@@ -41,6 +41,10 @@ super + u
 # awesome hotkeys
 #
 
+# apps
+super + Tab ; {b,r}
+	{firefox,zathura}
+
 # quit/restart
 super + alt + {q,r}
 	echo "awesome.{quit,restart}()" | awesome-client
@@ -73,12 +77,8 @@ super + {1-9,0}{_, + ctrl, + shift}
 super + ctrl + {h,l}
 	echo "require('awful').tag.incmwfact({-,_}0.05)" | awesome-client
 
-# previous client
-super + Tab
-	echo "awful.client.focus.history.previous()" | awesome-client
-
 # next layout
-super + o
+super + y
 	echo "awful.layout.inc(1)" | awesome-client
 
 # focus the next/previous screen

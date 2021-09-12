@@ -1,13 +1,23 @@
-set smooth-scroll true
-set recolor true
+set guioptions none
+set page-padding 2
+set statusbar-basename
+set smooth-scroll
+set recolor
 
-set default-bg "#1e1e1e"
+set default-bg \#21242b
 
-set recolor-lightcolor "#1e1e1e"
-set recolor-darkcolor "#d4d4d4"
+set recolor-lightcolor \#282c34
+set recolor-darkcolor \#dddddd
 
-set inputbar-bg "#1e1e1e"
-set inputbar-fg "#d4d4d4"
+set highlight-fg \#dddddd
+set highlight-color \#dddddd
+set highlight-active-color \#282c34
 
-set statusbar-bg "#1e1e1e"
-set statusbar-fg "#d4d4d4"
+set inputbar-fg \#bbc2cf
+set inputbar-bg \#1d2024
+
+set index-bg \#21242b
+set index-active-bg \#51afef
+
+set statusbar-fg \#bbc2cf
+set statusbar-bg \#1d2024
