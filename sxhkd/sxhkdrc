@@ -55,7 +55,7 @@ super + {_, shift + } q
 
 # set the client state
 super + {s,d,f,shift + f}
-	echo "change_client_state('{stacking,default,maximized,fullscreen}')" | awesome-client
+	echo "require('util.client_state').change('{stacking,default,maximized,fullscreen}')" | awesome-client
 
 # reset the client color
 super + c
