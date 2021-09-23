@@ -3,8 +3,8 @@ script_dir="$(dirname $(readlink -f $0))"
 conf_dir=$HOME/.config
 
 # linked files
-files="bspwm sxhkd polybar dunst fontconfig alacritty nvim rofi zathura picom neofetch"
-dotfiles=".zshrc .tmux.conf .Xmodmap"
+files="sxhkd polybar fontconfig alacritty rofi zathura picom neofetch"
+dotfiles=".zshrc .tmux.conf .Xmodmap .ideavimrc"
 
 # create config folder if it doesn't exist
 if [ ! -d $conf_dir ]; then

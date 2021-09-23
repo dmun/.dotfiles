@@ -1,0 +1,35 @@
+set NERDTree
+set number
+set relativenumber
+
+let mapleader = " "
+
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
+nnoremap 0 g0
+nnoremap $ g$
+nnoremap Y y$
+
+" Save
+nnoremap <C-s> :w!<CR>
+inoremap <C-s> <ESC>:w!<CR>
+
+" Resize
+nnoremap <C--> :action
+
+" Navigating buffers
+nnoremap <A-n> :action NextTab<CR>
+nnoremap <A-p> :action PreviousTab<CR>
+nnoremap <A-w> :action CloseEditor<CR>
+
+" Split/close window
+nnoremap <A-v> <C-w>v
+nnoremap <A-s> <C-w>s
+nnoremap <A-q> :action CloseEditor<CR>
+nnoremap <leader><leader>
+
+" Navigating windows
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
