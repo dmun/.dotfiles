@@ -1,0 +1,19 @@
+{
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.smoothScrolling": true,
+    "editor.fontFamily": "'JetBrains Mono', monospace",
+    "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "trailing",
+    "settingsSync.ignoredSettings": [
+        "editor.fontSize",
+        "editor.fontFamily"
+    ],
+    "window.menuBarVisibility": "toggle",
+    "editor.fontSize": 15,
+    "workbench.activityBar.visible": false,
+    "breadcrumbs.enabled": false,
+    "editor.lineNumbers": "relative",
+    "workbench.colorTheme": "One Dark Pro",
+    "editor.lineHeight": 1.6,
+}

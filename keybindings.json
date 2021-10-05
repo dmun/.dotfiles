@@ -26,6 +26,14 @@
         "key":     "alt+`",
         "command": "workbench.action.toggleSidebarVisibility"
     },
+    {
+        "key": "ctrl+=",
+        "command": "editor.action.fontZoomIn"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "editor.action.fontZoomOut"
+    },
     
     //
     //  Vim-like keybindings
