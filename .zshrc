@@ -25,6 +25,11 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
+# ls
+alias la="ls -a"
+alias ll="ls -la"
+alias ls="ls --color=auto"
+
 set -o vi
 alias lg=lazygit
 alias cpr=colorpicker
