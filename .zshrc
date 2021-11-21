@@ -28,7 +28,7 @@ export LC_CTYPE=en_US.UTF-8
 # ls
 alias la="ls -a"
 alias ll="ls -la"
-alias ls="ls --color=auto"
+alias ls="ls -F --color=auto"
 
 set -o vi
 alias lg=lazygit
