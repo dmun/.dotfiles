@@ -4,18 +4,11 @@ set relativenumber
 
 let mapleader = " "
 
-nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
-nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
-nnoremap 0 g0
-nnoremap $ g$
 nnoremap Y y$
 
 " Save
-nnoremap <C-s> :w!<CR>
-inoremap <C-s> <ESC>:w!<CR>
-
-" Resize
-nnoremap <C--> :action
+nnoremap <silent><C-s> :w!<CR><C-l>
+inoremap <silent><C-s> <C-o>:w!<CR><C-o><C-l>
 
 " Navigating buffers
 nnoremap <A-n> :action NextTab<CR>
