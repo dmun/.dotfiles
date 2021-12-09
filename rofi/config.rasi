@@ -1,5 +1,4 @@
 configuration {
-	theme: "./flat.rasi";
 	modi: "drun,run";
 	location: 2;
 	fixed-num-lines: false;
@@ -10,3 +9,5 @@ configuration {
 	display-drun: "";
     display-emoji: "";
 }
+
+@theme "./flat.rasi"
