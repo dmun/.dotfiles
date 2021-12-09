@@ -43,7 +43,7 @@ super + u
 
 # apps
 super + Tab ; {b,r,f}
-	{firefox,zathura,thunar}
+	{firefox,zathura,nemo}
 
 # quit/restart
 super + alt + {q,r}
