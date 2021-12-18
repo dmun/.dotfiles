@@ -7,8 +7,12 @@ let mapleader = " "
 nnoremap Y y$
 
 " Save
-nnoremap <silent><C-s> :w!<CR><C-l>
-inoremap <silent><C-s> <C-o>:w!<CR><C-o><C-l>
+nnoremap <C-s> :w!<CR><C-l>
+inoremap <C-s> <C-o>:w!<CR><C-o><C-l>
+
+" Font size
+nnoremap <C-=> :action EditorIncreaseFontSize<CR>
+nnoremap <C--> :action EditorDecreaseFontSize<CR>
 
 " Navigating buffers
 nnoremap <A-n> :action NextTab<CR>
