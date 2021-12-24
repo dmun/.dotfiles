@@ -11,14 +11,15 @@
 //	bd-outer: #000000;
 
 //	Doom One
-	fg: #ffffff;
+	fg: #dddddd;
 	fg-dark: #5B6268;
 	fg-highlight: #ffffff;
 	bg: #282C34;
-	bg-highlight: #3f444a;
-	bd: #474a51;
-	bd-highlight: #6d7077;
-	bd-outer: #000000;
+	bg-prompt: #21242b;
+	bg-highlight: #21242b;
+	bd: #000000;
+	bd-highlight: #474a51;
+	bd-outer: #a9a1e1;
 
 
 //	Transparent colors
@@ -45,14 +46,14 @@
 	text-color: @fg;
 	background-color: @bg;
 	y-offset: 25%;
-	width: 24em;
+	width: 23em;
 	spacing: 0;
 }
 
 mainbox {
 	border-color: @bd;
 	border-radius: 0;
-	border: 0 2 2 2;
+	border: 0;
 }
 
 window {
@@ -63,13 +64,13 @@ window {
 
 inputbar {
 	border-color: @bd-highlight;
-	border: 2 0 0 0;
+	border: 0;
 	border-radius: 0;
 }
 
 prompt {
 	text-color: @fg-dark;
-	padding: 0.5em 0.7em 0.15em 0.7em;
+	padding: 0.7em 0.6em 0.15em 0.8em;
 	border: 0 0 0 0;
 	font: "Symbols Nerd Font 20";
 	border-radius: 0;
@@ -78,7 +79,7 @@ prompt {
 entry {
 	placeholder-color: @fg-dark;
 	placeholder: "Search";
-	padding: 0.3em 0.5em 0.15em 0;
+	padding: 0.5em 0.5em 0.45em 0;
 	font: "sans-serif 20";
 	border-radius: 0;
 }
@@ -101,12 +102,12 @@ element {
 
 element-icon {
 	size: 0.75em;
-	padding: 0.4em 0 0 0.8em;
+	padding: 0.5em 0 0.5em 1.0em;
 }
 
 element-text {
 	font: "sans-serif Medium 11";
-	padding: 0.3em 0.2em 0.3em 0.5em;
+	padding: 0.45em 0.2em 0.4em 0.9em;
 }
 
 element selected {
