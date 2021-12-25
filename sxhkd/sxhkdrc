@@ -29,13 +29,20 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# pulsemixer
-super + u
-	alacritty --class pulsemixer -e pulsemixer
+# open system applications
+super + {u,b,c}
+	alacritty -e {pulsemixer,bluetoothctl,colorpicker}
+
+super + {e}
+	nautilus
+
+# open user applications
+super + Tab ; {b,e}
+	{firefox,emacs}
 
 # screenshots with scrot/xclip
-{_, shift + }Print
-	scrot {_,-s} -e 'xclip -selection clipboard -t image/png -i $f'
+{_,shift + , ctrl + }Print
+	scrot {_,-s,-u} ~/Pictures/scrot/ss.png -e 'xclip -selection clipboard -t image/png -i $f'
 
 #
 # bspwm hotkeys
@@ -79,7 +86,7 @@ super + ctrl + {m,x,y,z}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+	bspc node -{f,s} {west,next,prev,east}.local
 
 # focus the node for the given path jump
 # super + {p,b,comma,period}
@@ -92,16 +99,6 @@ super + {_,shift + }c
 # focus the next/previous desktop in the current monitor
 super + {p,n}
 	bspc desktop -f {prev,next}.local
-
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
-
-# focus the older or newer node in the focus history
-super + {o,i}
-	bspc wm -h off; \
-	bspc node {older,newer} -f; \
-	bspc wm -h on
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
