@@ -55,5 +55,4 @@
 
 (global-set-key (kbd "C-s") 'save-buffer)
 (evil-set-leader 'normal (kbd "SPC"))
-(evil-define-key 'normal 'global (kbd "<leader>e") 'treemacs)
 (map! :map general-override-mode-map :nv "s" #'evil-substitute)
