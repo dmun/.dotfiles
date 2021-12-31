@@ -27,6 +27,10 @@
         "command": "workbench.action.toggleSidebarVisibility"
     },
     {
+        "key":     "alt+escape",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
         "key": "ctrl+=",
         "command": "editor.action.fontZoomIn"
     },
