@@ -4,10 +4,10 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	kitty
 
 # program launcher
-super + @space
+super + space
 	rofi -show drun -show-icons
 
 # emoji selector
@@ -35,10 +35,6 @@ super + {u,b,c}
 
 super + {e}
 	nautilus
-
-# open user applications
-super + Tab ; {b,e}
-	{firefox,emacs}
 
 # screenshots with scrot/xclip
 {_,shift + , ctrl + }Print
