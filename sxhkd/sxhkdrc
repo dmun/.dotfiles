@@ -31,7 +31,7 @@ XF86AudioMute
 
 # open system applications
 super + {u,b,c}
-	alacritty -e {pulsemixer,bluetoothctl,colorpicker}
+	kitty -e {pulsemixer,bluetoothctl,colorpicker}
 
 super + {e}
 	nautilus
