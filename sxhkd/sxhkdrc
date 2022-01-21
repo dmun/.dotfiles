@@ -3,8 +3,8 @@
 #
 
 # terminal emulator
-super + Return
-	kitty
+super + {_,shift + }Return
+	{kitty,$HOME/.dotfiles/scratch.sh}
 
 # program launcher
 super + space
