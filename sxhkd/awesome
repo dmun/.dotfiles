@@ -1,46 +1,4 @@
 #
-# wm independent hotkeys
-#
-
-# terminal emulator
-super + {_,shift + }Return
-	{kitty,$HOME/.dotfiles/scratch.sh}
-
-# program launcher
-super + space
-	rofi -show drun -show-icons
-
-# emoji selector
-super + Period
-	rofi -show emoji
-
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
-
-# brightness
-XF86MonBrightness{Up,Down}
-	light -{A,U} 10
-
-# pulseaudio volume
-XF86Audio{Raise,Lower}Volume
-	pactl set-sink-volume @DEFAULT_SINK@ {+,-}10%
-
-XF86AudioMute
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-# open system applications
-super + {u,b,c}
-	kitty -e {pulsemixer,bluetoothctl,colorpicker}
-
-super + {e}
-	nautilus
-
-# screenshots with scrot/xclip
-{_,shift + , ctrl + }Print
-	scrot {_,-s,-u} ~/Pictures/scrot/ss.png -e 'xclip -selection clipboard -t image/png -i $f'
-
-#
 # awesome hotkeys
 #
 
