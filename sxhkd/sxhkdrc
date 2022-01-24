@@ -63,6 +63,9 @@ super + {_,shift + }{h,l}
 super + {_,shift + }{j,k}
 	echo "require('awful').client.{focus,swap}.byidx('{1,-1}')" | awesome-client
 
+super + {_,shift + }Tab
+	echo "require('awful').client.focus.byidx('{1,-1}')" | awesome-client
+
 # focus the next/previous tag
 super + {p,n}
 	echo "require('awful').tag.view{prev,next}()" | awesome-client
@@ -73,7 +76,7 @@ super + {1-9,0}{_, + ctrl, + shift}
 
 # resize master
 super + ctrl + {h,l}
-	echo "require('awful').tag.incmwfact({_,-}0.05)" | awesome-client
+	echo "require('awful').tag.incmwfact({-,_}0.05)" | awesome-client
 
 # increase master clients
 super + {equal,minus}
