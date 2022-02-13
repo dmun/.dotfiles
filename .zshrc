@@ -6,7 +6,7 @@ fi
 export PATH
 
 # Antigen
-source $HOME/.local/bin/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
@@ -36,7 +36,7 @@ export LC_CTYPE=en_US.UTF-8
 # ls
 alias la="ls -a"
 alias ll="ls -la"
-alias ls="ls -F --color=auto"
+alias ls="ls -FG"
 
 set -o vi
 alias lg=lazygit

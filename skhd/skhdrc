@@ -1,0 +1,34 @@
+#
+# wm independent hotkeys
+#
+
+# open terminal
+alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+
+#
+# yabai hotkeys
+#
+
+# focus window
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus next
+alt - k : yabai -m window --focus prev
+alt - l : yabai -m window --focus east
+
+# move window
+alt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+alt + shift - j : yabai -m window --swap next || $(yabai -m window --display next; yabai -m display --focus next)
+alt + shift - k : yabai -m window --swap prev || $(yabai -m window --display prev; yabai -m display --focus prev)
+alt + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+
+# focus space
+alt + shift - 1 : yabai -m window --space 1
+alt + shift - 2 : yabai -m window --space 2
+alt + shift - 3 : yabai -m window --space 3
+alt + shift - 4 : yabai -m window --space 4
+alt + shift - 5 : yabai -m window --space 5
+alt + shift - 6 : yabai -m window --space 6
+alt + shift - 7 : yabai -m window --space 7
+alt + shift - 8 : yabai -m window --space 8
+alt + shift - 9 : yabai -m window --space 9
+alt + shift - 0 : yabai -m window --space 10
