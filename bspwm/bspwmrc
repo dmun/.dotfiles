@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # run when process is not active
 run_once () {
@@ -10,11 +10,13 @@ run_once sxhkd
 run_once redshift-gtk
 run_once dunst
 run_once nm-applet
+run_once blueman-applet
 
 ~/.fehbg
 ~/.config/polybar/launch.sh
 wmname LG3D
 xset r rate 225 33
+xset m 2/1 0
 xmodmap ~/.Xmodmap
 xsetroot -cursor_name left_ptr
 
