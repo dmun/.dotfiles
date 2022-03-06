@@ -19,7 +19,7 @@
 	bg-highlight: #21242b;
 	bd: #000000;
 	bd-highlight: #474a51;
-	bd-outer: #a9a1e1;
+	bd-outer: #51afef;
 
 
 //	Transparent colors
