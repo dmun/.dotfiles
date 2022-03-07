@@ -30,8 +30,12 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # open system applications
-super + {u,b,c}
-	kitty -e {pulsemixer,bluetoothctl,colorpicker}
+super + {v,b}
+	kitty -e {pulsemixer,bluetoothctl}
+
+# colorpicker
+super + c
+	colorpicker --short --one-shot | tr -d "\n" | xclip -sel clip
 
 super + {e}
 	nautilus
@@ -72,12 +76,17 @@ super + g
 super + {d,shift + d,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
+# make node sticky
 super + a
     bspc node -g sticky
 
+# unhide all hidden nodes on desktop
+super + u
+	bspc node any.local.hidden -g hidden
+
 # set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+super + alt + {i,x,z}
+	bspc node -g {marked,locked,private}
 
 #
 # focus/swap
