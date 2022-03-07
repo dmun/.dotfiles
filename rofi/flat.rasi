@@ -15,7 +15,7 @@
 	fg-dark: #5B6268;
 	fg-highlight: #ffffff;
 	bg: #282C34;
-	bg-prompt: #21242b;
+	bg-list: #282c34;
 	bg-highlight: #21242b;
 	bd: #000000;
 	bd-highlight: #474a51;
@@ -85,7 +85,7 @@ entry {
 }
 
 listview {
-	background-color: @bg;
+	background-color: @bg-list;
 	cycle: false;
 	dynamic: true;
 //	padding: 0.3em 0 0.3em 0;
@@ -98,16 +98,19 @@ listview {
 element {
 //	margin: 0 0.3em 0.3em 0.3em;
 	border-radius: 0;
+	background-color: @bg-list;
 }
 
 element-icon {
 	size: 0.75em;
 	padding: 0.5em 0 0.5em 1.0em;
+	background-color: @bg-list;
 }
 
 element-text {
 	font: "sans-serif Medium 11";
 	padding: 0.45em 0.2em 0.4em 0.9em;
+	background-color: @bg-list;
 }
 
 element selected {
