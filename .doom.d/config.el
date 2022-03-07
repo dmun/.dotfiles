@@ -53,14 +53,13 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;;
-;; Evil settings
-;;
-
 ;; General
 (global-set-key (kbd "C-s") 'save-buffer)
 (evil-set-leader 'normal (kbd "SPC"))
 (map! :map general-override-mode-map :nv "s" #'evil-substitute)
+
+;; Open
+(map! :leader :desc "Open compilation buffer" "o c" #'compilation-goto-in-progress-buffer)
 
 ;; Visual movement
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
