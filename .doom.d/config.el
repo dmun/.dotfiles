@@ -33,7 +33,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type `relative)
+(setq display-line-numbers-type `visual)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -53,6 +53,18 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;;
+;; Evil settings
+;;
+
+;; General
 (global-set-key (kbd "C-s") 'save-buffer)
 (evil-set-leader 'normal (kbd "SPC"))
 (map! :map general-override-mode-map :nv "s" #'evil-substitute)
+
+;; Visual movement
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+(define-key evil-normal-state-map (kbd "0") 'evil-beginning-of-visual-line)
+(define-key evil-normal-state-map (kbd "$") 'evil-end-of-visual-line)
+(define-key evil-normal-state-map (kbd "Y") 'evil-previous-visual-line)
