@@ -48,5 +48,6 @@ bspc rule -a Discord                      desktop='^10'
 bspc rule -a "Microsoft Teams - Preview"  desktop='^10'
 bspc rule -a nl.han.asdb.integration.Main state=floating
 bspc rule -a Emacs                        state=tiled
+bspc rule -a Zathura                      state=tiled
 bspc rule -a Floating                     state=floating
 bspc rule -a scratchpad                   state=floating sticky=on
