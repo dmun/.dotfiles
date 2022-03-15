@@ -60,10 +60,8 @@
 
 ;; Open
 (map! :leader :desc "Open compilation buffer" "o c" #'compilation-goto-in-progress-buffer)
+(map! :leader :desc "Open treemacs" "e" #'+treemacs/toggle)
 
 ;; Visual movement
 (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
-(define-key evil-normal-state-map (kbd "0") 'evil-beginning-of-visual-line)
-(define-key evil-normal-state-map (kbd "$") 'evil-end-of-visual-line)
-(define-key evil-normal-state-map (kbd "Y") 'evil-previous-visual-line)
