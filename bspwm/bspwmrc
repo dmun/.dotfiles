@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# Xorg settings
+wmname LG3D
+xset r rate 225 33
+xset m 2/1 0
+xrdb ~/.Xresources
+xmodmap ~/.Xmodmap
+xsetroot -cursor_name left_ptr
+
 # run when process is not active
 run_once () {
     pgrep -x $1 > /dev/null || $1 &
@@ -14,11 +22,6 @@ run_once blueman-applet
 
 ~/.fehbg
 ~/.config/polybar/launch.sh
-wmname LG3D
-xset r rate 225 33
-xset m 2/1 0
-xmodmap ~/.Xmodmap
-xsetroot -cursor_name left_ptr
 
 # bspwm settings
 bspc monitor -d I II III IV V VI VII VIII IX X
@@ -29,6 +32,7 @@ border_width=1
 bspc config border_width         $border_width
 bspc config window_gap           -$border_width
 
+bspc config top_padding 0
 for side in right bottom left; do
     bspc config ${side}_padding $border_width
     bspc config ${side}_monocle_padding -$border_width
