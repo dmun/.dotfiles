@@ -57,6 +57,7 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 (evil-set-leader 'normal (kbd "SPC"))
 (map! :map general-override-mode-map :nv "s" #'evil-substitute)
+(setq evil-escape-key-sequence "ESC")  ;; Remove jk for escaping because Dutch
 
 ;; Open
 (map! :leader :desc "Open compilation buffer" "o c" #'compilation-goto-in-progress-buffer)
