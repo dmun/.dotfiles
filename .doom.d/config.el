@@ -55,6 +55,7 @@
 
 ;; General
 (global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-/") 'comment-line)
 (evil-set-leader 'normal (kbd "SPC"))
 (map! :map general-override-mode-map :nv "s" #'evil-substitute)
 (setq evil-escape-key-sequence "ESC")  ;; Remove jk for escaping because Dutch
