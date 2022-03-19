@@ -8,11 +8,7 @@ super + {_,shift + }Return
 
 # program launcher
 super + space
-	rofi -show drun -show-icons
-
-# emoji selector
-super + Period
-	rofi -show emoji
+	rofi -show drun -dpi $(xrdb -query | grep "Xft.dpi:" | cut -f 2)
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -73,8 +69,11 @@ super + g
 #
 
 # set the window state
-super + {d,shift + d,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {d,shift + d,s,shift + f}
+	bspc desktop -l tiled; bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+super + f
+	bspc desktop -l monocle; bspc node -t tiled
 
 # make node sticky
 super + a

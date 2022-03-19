@@ -7,11 +7,12 @@ killall -9q polybar
 while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
 ## Handle DPI
-dpi=$(xrdb -query | grep -oP "Xft.dpi:\s*\K\d*")
-if [ -z $dpi ]; then dpi=96; fi
-scaling=$(expr $dpi \* 100 / 96)
-height=$(expr 30 \* $scaling / 100)
-echo "polybar.height: $height" | xrdb -merge
+dpi=$(xrdb -query | grep "Xft.dpi:" | cut -f 2)
+if [[ -n $dpi ]]; then
+    scaling=$(expr $dpi \* 100 / 96)
+    height=$(expr 30 \* $scaling / 100)
+    echo "polybar.height: $height" | xrdb -merge
+fi
 
 ## Launch
 polybar main -c ~/.config/polybar/config.ini &
