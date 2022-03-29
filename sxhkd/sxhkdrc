@@ -26,15 +26,15 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # open system applications
-super + {v,b}
-	kitty -e {pulsemixer,bluetoothctl}
+super + {v}
+	kitty -e {pulsemixer}
 
 # colorpicker
 super + c
 	colorpicker --short --one-shot | tr -d "\n" | xclip -sel clip
 
-super + {e}
-	nautilus
+super + {e,b}
+	{nautilus,blueman-manager}
 
 # screenshots with scrot/xclip
 {_,shift + , ctrl + }Print
