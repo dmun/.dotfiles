@@ -26,8 +26,8 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # open system applications
-super + {v}
-	kitty -e {pulsemixer}
+super + {v,shift + b}
+	kitty -e {pulsemixer, bluetoothctl}
 
 # colorpicker
 super + c
