@@ -3,7 +3,7 @@ set page-padding 2
 set statusbar-basename
 set smooth-scroll
 set scroll-step 100
-set recolor
+# set recolor
 
 set default-bg \#21242b
 
