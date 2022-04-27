@@ -26,8 +26,8 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # open system applications
-super + {v,shift + b}
-	kitty -e {pulsemixer, bluetoothctl}
+super + {v,shift + b,t}
+	kitty -e {pulsemixer,bluetoothctl,bpytop}
 
 # colorpicker
 super + c
@@ -41,107 +41,52 @@ super + {e,b}
 	scrot {_,-s,-u} ~/Pictures/scrot/ss.png -e 'xclip -selection clipboard -t image/png -i $f'
 
 #
-# bspwm hotkeys
+# awesome hotkeys
 #
 
-# quit/restart bspwm
+# quit/restart
 super + alt + {q,r}
-	bspc {quit,wm -r}
+	echo "awesome.{quit,restart}()" | awesome-client
 
 # close and kill
 super + {_, shift + } q
-	bspc node -{c,k}
+	echo "client.focus:kill()" | awesome-client
 
-# alternate between the tiled and monocle layout
-super + m
-	bspc desktop -l next
+# set the client state
+super + {s,d,f,shift + f}
+	echo "require('util').change('{stacking,default,maximized,fullscreen}')" | awesome-client
 
-# send the newest marked node to the newest preselected node
-super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+# focus/swap clients
+super + {_,shift + }{h,l}
+	echo "require('awful').client.{focus,swap}.bydirection('{left,right}')" | awesome-client
 
-# swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
+super + {_,shift + }{j,k}
+	echo "require('awful').client.{focus,swap}.byidx('{1,-1}')" | awesome-client
 
-#
-# state/flags
-#
+# focus screens
+super + ctrl + {j,k}
+	echo "require('awful').screen.focus_relative('{1,-1}')" | awesome-client
 
-# set the window state
-super + {d,shift + d,s,shift + f}
-	bspc desktop -l tiled; bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
-super + f
-	bspc desktop -l monocle; bspc node -t tiled
-
-# make node sticky
-super + a
-    bspc node -g sticky
-
-# unhide all hidden nodes on desktop
-super + u
-	bspc node any.local.hidden -g hidden
-
-# set the node flags
-super + alt + {i,x,z}
-	bspc node -g {marked,locked,private}
-
-#
-# focus/swap
-#
-
-# focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}.local
-
-# focus the node for the given path jump
-# super + {p,b,comma,period}
-# 	bspc node -f @{parent,brother,first,second}
-
-# focus the next/previous window in the current desktop
-super + {_,shift + }Tab
-	bspc node -f {next,prev}.local.!hidden.window
-
-# focus the next/previous desktop in the current monitor
+# focus the next/previous tag
 super + {p,n}
-	bspc desktop -f {prev,next}.local
+	echo "require('awful').tag.view{prev,next}()" | awesome-client
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {1-9,0}{_, + ctrl, + shift}
+	echo "awful = require('awful') tag = awful.screen.focused().tags[{1-9,10}] {tag:view_only(),awful.tag.viewtoggle(tag),client.focus:move_to_tag(tag)}" | awesome-client
 
-#
-# preselect
-#
+# resize master
+super + ctrl + {h,l}
+	echo "require('awful').tag.incmwfact({_,-}0.05)" | awesome-client
 
-# preselect the direction
-super + alt + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+# increase master clients
+super + {equal,minus}
+	echo "require('awful').tag.incnmaster({1,-1}, nil, true)" | awesome-client
 
-# preselect the ratio
-super + alt + {1-9}
-	bspc node -o 0.{1-9}
+# next layout
+super + y
+	echo "awful.layout.inc(1)" | awesome-client
 
-# cancel the preselection for the focused node
-super + alt + space
-	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + alt + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
-
-#
-# move/resize
-#
-
-# Smart resize, will grow or shrink depending on location.
-# Will always grow for floating nodes.
-super + ctrl + {h,j,k,l}
-	n=50; \
-	{ d1=left;   d2=right;  dx=-$n; dy=0;   \
-	, d1=bottom; d2=top;    dx=0;   dy=$n;  \
-	, d1=top;    d2=bottom; dx=0;   dy=-$n; \
-	, d1=right;  d2=left;   dx=$n;  dy=0;   \
-	} \
-	bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
+# focus the next/previous screen
+super + ctrl + {j,k}
+	echo "awful.screen.focus_relative({_,-}1)" | awesome-client
