@@ -4,6 +4,8 @@ then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
+export PATH=$PATH:$HOME/.local/share/neovim/bin
+export GOPATH=~/work/go
 
 # Antigen
 source /usr/local/share/antigen/antigen.zsh
