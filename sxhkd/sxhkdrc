@@ -26,8 +26,8 @@ XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # open system applications
-super + {v,shift + b,t}
-	kitty -e {pulsemixer,bluetoothctl,bpytop}
+super + {v,shift + b,t,g}
+	kitty -e {pulsemixer,bluetoothctl,bpytop,lazygit}
 
 # colorpicker
 super + c
@@ -62,10 +62,6 @@ super + {_,shift + }{h,l}
 
 super + {_,shift + }{j,k}
 	echo "require('awful').client.{focus,swap}.byidx('{1,-1}')" | awesome-client
-
-# focus screens
-super + ctrl + {j,k}
-	echo "require('awful').screen.focus_relative('{1,-1}')" | awesome-client
 
 # focus the next/previous tag
 super + {p,n}

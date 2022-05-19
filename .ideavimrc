@@ -7,8 +7,8 @@ let mapleader = " "
 nnoremap Y y$
 
 " Save
-nnoremap <C-s> :w!<CR><C-l>
-inoremap <C-s> <C-o>:w!<CR><C-o><C-l>
+nnoremap <C-s> :w!<CR>
+inoremap <C-s> <C-o>:w!<CR>
 
 " Font size
 nnoremap <C-=> :action EditorIncreaseFontSize<CR>

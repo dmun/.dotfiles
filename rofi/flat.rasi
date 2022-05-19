@@ -11,15 +11,15 @@
 //	bd-outer: #000000;
 
 //	Doom One
-	fg: #dddddd;
+	fg: #ffffff;
 	fg-dark: #5B6268;
 	fg-highlight: #ffffff;
-	bg: #282C34;
-	bg-list: #282c34;
-	bg-highlight: #21242b;
-	bd: #000000;
-	bd-highlight: #474a51;
-	bd-outer: #51afef;
+	bg: #21242b;
+	bg-list: #21242b;
+	bg-highlight: #282c34;
+	bd: #474a51;
+	bd-highlight: #777A81;
+	bd-outer: #000000;
 
 
 //	Transparent colors
@@ -52,20 +52,20 @@
 
 mainbox {
 	border-color: @bd;
-	border-radius: 0;
-	border: 0;
+	border-radius: 10;
+	border: 0 1 1 1;
 }
 
 window {
 	border-color: @bd-outer;
-	border-radius: 0;
+	border-radius: 10;
 	border: 1;
 }
 
 inputbar {
 	border-color: @bd-highlight;
-	border: 0;
-	border-radius: 0;
+	border: 1 0 0 0;
+	border-radius: 10;
 }
 
 prompt {
@@ -80,7 +80,7 @@ entry {
 	placeholder-color: @fg-dark;
 	placeholder: "Search";
 	padding: 0.5em 0.5em 0.45em 0;
-	font: "sans-serif 20";
+	font: "sans-serif Medium 20";
 	border-radius: 0;
 }
 
