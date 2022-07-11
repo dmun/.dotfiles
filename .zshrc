@@ -47,3 +47,4 @@ set -o vi
 alias lg=lazygit
 alias cpr=colorpicker
 alias alt="sudo alternatives --config"
+alias v=nvim
