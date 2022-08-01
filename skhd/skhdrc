@@ -9,11 +9,27 @@ alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d
 # yabai hotkeys
 #
 
+# window actions
+alt - e : yabai -m window --toggle split
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# float / unfloat window and center on screen
+alt - t : yabai -m window --toggle float;\
+          yabai -m window --grid 4:4:1:1:2:2
+
+shift + alt - f : yabai -m window --toggle native-fullscreen
+
+# tree
+alt - r : yabai -m space --rotate 90
+
 # focus window
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus next
 alt - k : yabai -m window --focus prev
 alt - l : yabai -m window --focus east
+
+# alt - tab : yabai -m window --focus next
+# shift + alt - tab : yabai -m window --focus prev
 
 # move window
 alt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
@@ -21,7 +37,7 @@ alt + shift - j : yabai -m window --swap next || $(yabai -m window --display nex
 alt + shift - k : yabai -m window --swap prev || $(yabai -m window --display prev; yabai -m display --focus prev)
 alt + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
 
-# focus space
+# move window to space
 alt + shift - 1 : yabai -m window --space 1
 alt + shift - 2 : yabai -m window --space 2
 alt + shift - 3 : yabai -m window --space 3
