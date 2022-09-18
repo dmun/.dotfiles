@@ -7,13 +7,25 @@ yabai -m config mouse_modifier fn
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 
-yabai -m config top_padding    12
-yabai -m config bottom_padding 12
-yabai -m config left_padding   12
-yabai -m config right_padding  12
-yabai -m config window_gap     12
+yabai -m config top_padding    0
+yabai -m config bottom_padding 0
+yabai -m config left_padding   0
+yabai -m config right_padding  0
+yabai -m config window_gap     0
 yabai -m config window_topmost true
 
 # rules
-yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^Karabiner*" manage=off
+yabai -m rule --add app="^Emacs$" manage=on
+
+# array of applications that will not get managed
+UNMANAGED_APPS=(
+    "JetBrains Toolbox"
+    "^System Preferences$"
+    "^Karabiner*"
+)
+
+for app in "${UNMANAGED_APPS[@]}"
+do
+    yabai -m rule --add app=$app manage=off
+    echo $app
+done
