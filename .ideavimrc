@@ -18,6 +18,8 @@ nnoremap <C--> :action EditorDecreaseFontSize<CR>
 nnoremap <A-n> :action NextTab<CR>
 nnoremap <A-p> :action PreviousTab<CR>
 nnoremap <A-w> :action CloseEditor<CR>
+nnoremap <C-o> :action Back<CR>
+nnoremap <C-i> :action Forward<CR>
 
 " Split/close window
 nnoremap <A-v> <C-w>v
@@ -30,3 +32,4 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-h> <C-w>h
 nnoremap <A-l> <C-w>l
+

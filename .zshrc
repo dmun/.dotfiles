@@ -8,6 +8,7 @@ fi
 export PATH
 export PATH=$PATH:$HOME/.local/share/neovim/bin
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:/Users/david/Library/Python/3.10/lib/python/site-packages
 export GOPATH=~/work/go
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
@@ -63,7 +64,15 @@ alias v=nvim
 # homebrew
 alias bs="brew search"
 alias bi="brew install"
+alias lat="latexmk -pvc -pdf -interaction=nonstopmode"
+export HDF5_DIR=/opt/homebrew/
 
+alias mucc=muc --file $HISTFILE --count 10 --pretty --bar '*' --bar-open '(' --bar-close ')'    
+
+alias java-17="export JAVA_HOME=`/usr/libexec/java_home -v 17`; java -version"
+alias java-18="export JAVA_HOME=`/usr/libexec/java_home -v 18`; java -version"
+export JAVA_HOME=`/usr/libexec/java_home -v 17`
+export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 # __conda_setup="$('/Users/david/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -80,3 +89,4 @@ alias bi="brew install"
 # <<< conda initialize <<<
 
 # zprof
+
