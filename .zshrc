@@ -29,7 +29,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle denysdovhan/spaceship-prompt
 
-SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_GOLANG_SYMBOL=" " 
 SPACESHIP_PHP_SYMBOL=" " 
 SPACESHIP_DOCKER_SYMBOL=" " 
@@ -64,7 +64,7 @@ alias v=nvim
 # homebrew
 alias bs="brew search"
 alias bi="brew install"
-alias lat="latexmk -pvc -pdf -interaction=nonstopmode"
+alias lat="latexmk -pvc -pdf -interaction=nonstopmode -shell-escape"
 export HDF5_DIR=/opt/homebrew/
 
 alias mucc=muc --file $HISTFILE --count 10 --pretty --bar '*' --bar-open '(' --bar-close ')'    
@@ -89,4 +89,8 @@ export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
 # <<< conda initialize <<<
 
 # zprof
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
