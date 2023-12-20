@@ -67,29 +67,12 @@ alias bi="brew install"
 alias lat="latexmk -pvc -pdf -interaction=nonstopmode -shell-escape"
 export HDF5_DIR=/opt/homebrew/
 
-alias mucc=muc --file $HISTFILE --count 10 --pretty --bar '*' --bar-open '(' --bar-close ')'    
+alias mucc="muc --file $HISTFILE --count 10 --pretty --bar '*' --bar-open '(' --bar-close ')'"
 
 alias java-17="export JAVA_HOME=`/usr/libexec/java_home -v 17`; java -version"
 alias java-18="export JAVA_HOME=`/usr/libexec/java_home -v 18`; java -version"
 export JAVA_HOME=`/usr/libexec/java_home -v 17`
 export NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/david/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/david/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/david/opt/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/david/opt/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< conda initialize <<<
-
-# zprof
-
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -100,3 +83,10 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 export BAT_THEME="Catppuccin-mocha"
+
+source ~/.secrets
+
+cs ()
+{
+    curl "cheat.sh/$1"
+}
