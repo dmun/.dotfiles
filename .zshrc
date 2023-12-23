@@ -28,6 +28,7 @@ fi
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle denysdovhan/spaceship-prompt
+antigen bundle jeffreytse/zsh-vi-mode
 
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_GOLANG_SYMBOL=" " 
@@ -55,7 +56,7 @@ alias la="ls -a"
 alias ll="ls -la"
 alias ls="ls -FG"
 
-set -o vi
+# set -o vi
 alias lg=lazygit
 alias cpr=colorpicker
 alias alt="sudo alternatives --config"
@@ -95,10 +96,10 @@ alias mucc="muc --file $HISTFILE --count 10 --pretty --bar '*' --bar-open '(' --
 # eval "$(pyenv init -)"
 
 export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,gutter:-1,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
---color=border:#313244"
+--color=bg+:8,bg:-1,gutter:-1,spinner:3,hl:1 \
+--color=fg:#cdd6f4,header:1,info:#cba6f7,pointer:3 \
+--color=marker:3,fg+:#cdd6f4,prompt:#cba6f7,hl+:1 \
+--color=border:8"
 
 export BAT_THEME="Catppuccin-mocha"
 
@@ -109,3 +110,5 @@ cs ()
     curl "cheat.sh/$1"
 }
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

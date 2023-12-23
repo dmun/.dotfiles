@@ -5,35 +5,10 @@ window:
     x: 10
     y: 10
   dynamic_padding: true
+  decorations: buttonless
 font:
+  size: 18
   normal:
-    family: monospace
-  offset:
-    y: -1
-colors:
-  name: Doom One
-  author: dmun
-  primary:
-    background: "#21242b"
-    foreground: "#bbc2cf"
-  cursor:
-    text: "#21242b"
-    cursor: "#bbc2cf"
-  normal:
-    black: "#1d2026"
-    red: "#ff6c6b"
-    green: "#98be65"
-    yellow: "#ecbe7b"
-    blue: "#51afef"
-    magenta: "#c678dd"
-    cyan: "#46d9ff"
-    white: "#efefef"
-  bright:
-    black: "#3f444a"
-    red: "#ff6c6b"
-    green: "#98be65"
-    yellow: "#ecbe7b"
-    blue: "#51afef"
-    magenta: "#a9a1e1"
-    cyan: "#46d9ff"
-    white: "#efefef"
+    family: JetbrainsMono Nerd Font
+import:
+  - ~/.config/alacritty/themes/catppuccin-mocha.yml
