@@ -12,6 +12,6 @@ gui:
 git:
   paging:
     colorArg: always
-    useConfig: true
+    pager: diff-so-fancy
 os:
   editPreset: 'nvim'
