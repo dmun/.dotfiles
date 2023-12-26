@@ -114,3 +114,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+export XDG_CONFIG_HOME="$HOME/.config"

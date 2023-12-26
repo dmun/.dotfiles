@@ -1,4 +1,17 @@
 gui:
+  nerdFontsVersion: "3"
+  # border: 'rounded'
+  # windowSize: 'half'
+  showListFooter: false
+  showBottomLine: false
   theme:
     inactiveBorderColor:
-      - green
+      - '#585B70'
+    selectedLineBgColor:
+      - '#3758A2'
+git:
+  paging:
+    colorArg: always
+    useConfig: true
+os:
+  editPreset: 'nvim'
