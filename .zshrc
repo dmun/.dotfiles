@@ -10,11 +10,38 @@ export PATH=$PATH:$HOME/.local/share/neovim/bin
 export PATH=$PATH:$HOME/.cargo/bin
 # export PATH=$PATH:/Users/david/Library/Python/3.10/lib/python/site-packages
 # export GOPATH=~/work/go
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 # [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export NODE_OPTIONS=--openssl-legacy-provider
+
+# place this after nvm initialization!
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 
 # Antigen
@@ -96,10 +123,10 @@ alias mucc="muc --file $HISTFILE --count 10 --pretty --bar '*' --bar-open '(' --
 # eval "$(pyenv init -)"
 
 export FZF_DEFAULT_OPTS=" \
---color=bg+:8,bg:-1,gutter:-1,spinner:3,hl:1 \
---color=fg:#cdd6f4,header:1,info:#cba6f7,pointer:3 \
+--color=bg+:#2A2B3E,bg:-1,gutter:-1,spinner:3,hl:1 \
+--color=fg:#cdd6f4,header:1,info:10,pointer:3 \
 --color=marker:3,fg+:#cdd6f4,prompt:#cba6f7,hl+:1 \
---color=border:8"
+--color=border:8 --info=default"
 
 export BAT_THEME="Catppuccin-mocha"
 
