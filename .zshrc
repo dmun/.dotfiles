@@ -55,7 +55,7 @@ fi
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle denysdovhan/spaceship-prompt
-antigen bundle jeffreytse/zsh-vi-mode
+# antigen bundle jeffreytse/zsh-vi-mode
 
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_GOLANG_SYMBOL=" " 
@@ -143,3 +143,11 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export ZVM_KEYTIMEOUT=0
+export EDITOR=nvim
+
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -e
+set -o emacs
+bindkey '^Xe' edit-command-line
