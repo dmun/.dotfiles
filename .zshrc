@@ -6,7 +6,7 @@ then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
-export PATH=$PATH:$HOME/.local/share/neovim/bin
+export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:$HOME/.cargo/bin
 # export PATH=$PATH:/Users/david/Library/Python/3.10/lib/python/site-packages
 # export GOPATH=~/work/go
@@ -124,10 +124,11 @@ alias mucc="muc --file $HISTFILE --count 10 --pretty --bar '*' --bar-open '(' --
 
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#2A2B3E,bg:-1,gutter:-1,spinner:3,hl:1 \
---color=fg:#cdd6f4,header:1,info:10,pointer:3 \
---color=marker:3,fg+:#cdd6f4,prompt:#cba6f7,hl+:1 \
---color=border:8 --info=default"
-
+--color=fg:#CDD6F4,header:1,info:#B4BEFE,pointer:4 \
+--color=marker:3,fg+:#CDD6F4,prompt:#CBA6F7,hl+:1 \
+--color=border:4 --info=inline-right"
+#2A2B3E
+##3e4b6c
 export BAT_THEME="Catppuccin-mocha"
 
 source ~/.secrets
