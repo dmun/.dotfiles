@@ -152,3 +152,4 @@ zle -N edit-command-line
 bindkey -e
 set -o emacs
 bindkey '^Xe' edit-command-line
+export ESCDELAY=1
