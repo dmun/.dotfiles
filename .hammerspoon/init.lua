@@ -20,7 +20,6 @@ hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, function(evt)
         if not (combo or expired) then
             hs.eventtap.keyStroke({}, "escape", 0)
         end
-        timer:stop()
     end
 
     lastCtrl = ctrl
