@@ -1,10 +1,19 @@
+set sneak
+set surround
 set NERDTree
 set number
 set relativenumber
+set scrolloff=5
 
 let mapleader = " "
 
 nnoremap Y y$
+
+nmap <leader>td <Action>(ToggleDistractionFreeMode)
+
+" Surround
+nmap Q ysiw
+nmap M ysiW
 
 " Save
 nnoremap <C-s> :w!<CR>

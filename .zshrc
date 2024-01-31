@@ -87,7 +87,7 @@ alias ls="ls -FG"
 alias lg=lazygit
 alias cpr=colorpicker
 alias alt="sudo alternatives --config"
-alias v=nvim
+alias nv=nvim
 
 # homebrew
 alias bs="brew search"
