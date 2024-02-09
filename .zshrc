@@ -8,6 +8,7 @@ fi
 export PATH
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.config/emacs/bin
 # export PATH=$PATH:/Users/david/Library/Python/3.10/lib/python/site-packages
 # export GOPATH=~/work/go
 export NVM_DIR="$HOME/.nvm"
@@ -124,7 +125,7 @@ alias mucc="muc --file $HISTFILE --count 10 --pretty --bar '*' --bar-open '(' --
 
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#2A2B3E,bg:-1,gutter:-1,spinner:3,hl:1 \
---color=fg:#CDD6F4,header:1,info:#B4BEFE,pointer:#B4BEFE \
+--color=fg:#CDD6F4,header:#B4BEFE,info:#B4BEFE,pointer:#B4BEFE \
 --color=marker:3,fg+:#CDD6F4,prompt:#CBA6F7,hl+:1 \
 --color=border:4 --info=inline-right --scrollbar=▎"
 #2A2B3E
