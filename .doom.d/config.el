@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-feather-light)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -54,17 +54,21 @@
 ;; they are implemented.
 
 ;; General
-(global-set-key (kbd "C-s") 'save-buffer)
-(global-set-key (kbd "C-/") 'comment-line)
-(evil-set-leader 'normal (kbd "SPC"))
+;; (global-set-key (kbd "C-s") 'save-buffer)
+;; (global-set-key (kbd "C-/") 'comment-line)
+;; (evil-set-leader 'normal (kbd "SPC"))
 ;; (map! :map general-override-mode-map :nv "s" #'evil-substitute)
-(setq evil-escape-key-sequence "ESC")  ;; Remove jk for escaping because Dutch
-(setq evil-snipe-scope 'buffer)
+;; (setq evil-escape-key-sequence "ESC")  ;; Remove jk for escaping because Dutch
+;; (setq evil-snipe-scope 'buffer)
+(setq display-line-numbers-type nil)
+(setq doom-modeline-hud nil)
+(tool-bar-mode -1)
+(add-to-list 'default-frame-alist '(undecorated . t))
 
 ;; Open
 (map! :leader :desc "Open compilation buffer" "o c" #'compilation-goto-in-progress-buffer)
 (map! :leader :desc "Open treemacs" "e" #'+treemacs/toggle)
 
 ;; Visual movement
-(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
-(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
+;; (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+;; (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)

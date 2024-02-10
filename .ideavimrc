@@ -13,8 +13,8 @@ nnoremap Y y$
 nmap <leader>td <Action>(ToggleDistractionFreeMode)
 
 " Surround
-nmap Q ysiw
-nmap M ysiW
+" nmap Q ysiw
+" nmap M ysiW
 
 " Save
 nnoremap <C-s> :w!<CR>
