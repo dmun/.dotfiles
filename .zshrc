@@ -125,9 +125,9 @@ alias mucc="muc --file $HISTFILE --count 10 --pretty --bar '*' --bar-open '(' --
 
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#45475a,bg:-1,gutter:-1,spinner:3,hl:1 \
---color=fg:#CDD6F4,header:#B4BEFE,info:#B4BEFE,pointer:#B4BEFE \
+--color=fg:#CDD6F4,header:#B4BEFE,info:#B4BEFE,pointer:#e2e7f9 \
 --color=marker:3,fg+:#e2e7f9,prompt:#CBA6F7,hl+:1 \
---color=border:4 --info=inline-right --scrollbar=▎"
+--color=border:4 --info=inline-right --scrollbar=▎ --pointer=' '"
 #2A2B3E
 #45475a
 #3e4b6c
