@@ -1,5 +1,5 @@
 set sneak
-set ignorecase
+set ignorecase smartcase
 set surround
 set NERDTree
 set number
