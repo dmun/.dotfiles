@@ -1,14 +1,23 @@
 set sneak
-set ignorecase smartcase
 set surround
 set NERDTree
 set number
 set relativenumber
+set scrolloff=0
+set clipboard+=unnamed
+set showcmd
 set scrolloff=5
+set highlightedyank
+set hlsearch
+set ignorecase smartcase
+set incsearch
+let sneak#s_next=1
 
 let mapleader = " "
 
 nnoremap Y y$
+
+nnoremap <ESC> <ESC>:nohl<CR>
 
 nmap <leader>td <Action>(ToggleDistractionFreeMode)
 
