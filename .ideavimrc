@@ -3,6 +3,7 @@ set surround
 set NERDTree
 set number
 set relativenumber
+set visualbell
 set scrolloff=0
 set clipboard+=unnamed
 set showcmd
@@ -12,6 +13,7 @@ set hlsearch
 set ignorecase smartcase
 set incsearch
 let sneak#s_next=1
+let sneak#label=1
 
 let mapleader = " "
 
@@ -20,6 +22,27 @@ nnoremap Y y$
 nnoremap <ESC> <ESC>:nohl<CR>
 
 nmap <leader>td <Action>(ToggleDistractionFreeMode)
+nmap <leader>ts <Action>(ViewStatusBar)
+nmap <leader>gt <Action>(Gradle.ExecuteTask)
+nmap <leader>mr <Action>(Rerun)
+nmap <leader>mk <Action>(RunConfiguration)
+
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>rm <Action>(ExtractMethod)
+nmap <leader>rv <Action>(IntroduceVariable)
+nmap <leader>rv <Action>(IntroduceConstant)
+nmap <leader>rf <Action>(IntroduceParameter)
+nmap <leader>rs <Action>(ChangeSignature)
+nmap <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+nmap gi <Action>(GotoImplementation)
+nmap gt <Action>(GotoImplementation)
+
+nmap <leader>gb <Action>(Git.Branches)
+nmap <leader>gs <Action>(ActivateVersionControlToolWindow)
+
+nmap ]d <Action>(ReSharperGotoNextErrorInSolution)
+nmap [d <Action>(ReSharperGotoPrevErrorInSolution)
 
 " Surround
 " nmap Q ysiw
@@ -34,21 +57,15 @@ nnoremap <C-=> :action EditorIncreaseFontSize<CR>
 nnoremap <C--> :action EditorDecreaseFontSize<CR>
 
 " Navigating buffers
-nnoremap <A-n> :action NextTab<CR>
-nnoremap <A-p> :action PreviousTab<CR>
-nnoremap <A-w> :action CloseEditor<CR>
 nnoremap <C-o> :action Back<CR>
 nnoremap <C-i> :action Forward<CR>
 
-" Split/close window
-nnoremap <A-v> <C-w>v
-nnoremap <A-s> <C-w>s
-nnoremap <A-q> :action CloseEditor<CR>
-nnoremap <leader><leader>
+" Harpoon
+nmap <leader>q :action HarpoonerQuickMenu<cr>
+nmap <leader>m :action HarpoonerAddFile<cr>
 
-" Navigating windows
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-h> <C-w>h
-nnoremap <A-l> <C-w>l
-
+nmap <leader>1 :action HarpoonerOpenFile0<cr>
+nmap <leader>2 :action HarpoonerOpenFile1<cr>
+nmap <leader>3 :action HarpoonerOpenFile2<cr>
+nmap <leader>4 :action HarpoonerOpenFile3<cr>
+nmap <leader>5 :action HarpoonerOpenFile4<cr>
