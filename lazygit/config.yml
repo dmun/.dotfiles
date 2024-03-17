@@ -4,14 +4,14 @@ gui:
   # windowSize: 'half'
   showListFooter: false
   showBottomLine: false
-  theme:
-    inactiveBorderColor:
-      - '#585B70'
-    selectedLineBgColor:
-      - '#3758A2'
-git:
-  paging:
-    colorArg: always
-    pager: diff-so-fancy
+  # theme:
+  #   inactiveBorderColor:
+  #     - '#585B70'
+  #   selectedLineBgColor:
+  #     - '#3758A2'
+# git:
+#   paging:
+#     colorArg: always
+#     pager: diff-so-fancy
 os:
   editPreset: 'nvim'
