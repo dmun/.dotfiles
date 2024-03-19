@@ -33,9 +33,4 @@ set -x ESCDELAY 1
 set -x BAT_THEME "Catppuccin-mocha"
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --glob "!.git"'
 set -x EDITOR nvim
-# set -x FZF_DEFAULT_OPTS " \
-# --color=bg+:#45475a,bg:-1,gutter:-1,spinner:3,hl:1 \
-# --color=fg:#CDD6F4,header:#B4BEFE,info:#B4BEFE,pointer:#e2e7f9 \
-# --color=marker:3,fg+:#e2e7f9,prompt:#CBA6F7,hl+:1 \
-# --color=border:4 --info=inline-right --scrollbar=▎ --pointer=' '"
 
