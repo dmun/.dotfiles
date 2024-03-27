@@ -12,8 +12,6 @@ set highlightedyank
 set hlsearch
 set ignorecase smartcase
 set incsearch
-let sneak#s_next=1
-let sneak#label=1
 
 let mapleader = " "
 
@@ -34,6 +32,8 @@ nmap <leader>rv <Action>(IntroduceConstant)
 nmap <leader>rf <Action>(IntroduceParameter)
 nmap <leader>rs <Action>(ChangeSignature)
 nmap <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+nmap <leader>hr <Action>(Vcs.RollbackChangedLines)
 
 nmap gi <Action>(GotoImplementation)
 nmap gt <Action>(GotoImplementation)
