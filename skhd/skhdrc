@@ -3,7 +3,7 @@
 #
 
 # open terminal
-alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+alt - o : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
 #
 # yabai hotkeys
