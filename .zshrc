@@ -13,4 +13,7 @@ export LC_CTYPE=en_US.UTF-8
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 exec fish
