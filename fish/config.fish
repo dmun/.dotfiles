@@ -30,7 +30,6 @@ end
 
 # environment variables
 set -x ESCDELAY 1
-set -x BAT_THEME "Catppuccin-mocha"
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --glob "!.git"'
 set -x EDITOR nvim
 
