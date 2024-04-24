@@ -14,13 +14,5 @@ export PATH=$PATH:$HOME/.cargo/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-# bun completions
-[ -s "/Users/david/.bun/_bun" ] && source "/Users/david/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
+export VCPKG_ROOT="/Users/david/Development/vcpkg"
 export OBSIDIAN_VAULT="/Users/david/Library/Mobile Documents/iCloud~md~obsidian/Documents/iCloud"
-
-exec fish
