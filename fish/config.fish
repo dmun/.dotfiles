@@ -3,10 +3,8 @@
 # eval /Users/david/opt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
 
-# fish
 set fish_greeting
-
-# zoxide
+bass source ~/.zshrc
 zoxide init fish | source
 
 # aliases
@@ -30,6 +28,6 @@ end
 
 # environment variables
 set -x ESCDELAY 1
-set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --glob "!.git"'
+set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
 set -x EDITOR nvim
 
