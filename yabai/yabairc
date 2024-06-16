@@ -23,7 +23,7 @@ UNMANAGED_APPS=(
     "JetBrains Toolbox"
     "^System Settings$"
     "^Karabiner*"
-    "^Xcode$"
+    # "^Xcode$"
 )
 
 for app in "${UNMANAGED_APPS[@]}"
