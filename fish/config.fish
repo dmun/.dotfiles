@@ -4,7 +4,6 @@
 # <<< conda initialize <<<
 
 set fish_greeting
-bass source ~/.zshrc
 zoxide init fish | source
 
 # aliases
