@@ -29,4 +29,5 @@ end
 set -x ESCDELAY 1
 set -x EDITOR nvim
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
-set -x FZF_DEFAULT_OPTS '--color=bg+:#39424D'
+# set -x FZF_DEFAULT_OPTS '--color=bg+:#39424D'
+set -x FZF_DEFAULT_OPTS '--no-separator'
