@@ -13,6 +13,7 @@ return {
 	font_size = 12,
 	font = wezterm.font("JetBrains Mono"),
 	line_height = 1.2,
+	underline_thickness = 2,
 
 	-- Tab Bar
 	enable_tab_bar = true,
