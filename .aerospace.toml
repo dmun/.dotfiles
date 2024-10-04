@@ -89,9 +89,9 @@ end tell'
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
-alt-s = 'layout tiling v_accordion'
+alt-f = 'layout tiling h_accordion'
 alt-d = 'layout tiling h_tiles'
-alt-f = 'layout floating'
+alt-s = 'layout floating'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus left'
@@ -176,7 +176,7 @@ alt-shift-5 = 'move-node-to-workspace 5'
 # alt-shift-z = 'move-node-to-workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-alt-tab = 'workspace-back-and-forth'
+alt-tab = 'focus right'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
