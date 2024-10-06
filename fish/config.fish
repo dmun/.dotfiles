@@ -35,7 +35,9 @@ set -x FZF_DEFAULT_OPTS '--no-separator'
 
 if status is-interactive
 and not set -q TMUX
-    if not tmux attach
+    if tmux has-session > /dev/null 2>&1
+        exec tmux attach
+    else
         exec tmux
     end
 end
