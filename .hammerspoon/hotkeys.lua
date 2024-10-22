@@ -5,9 +5,9 @@ function M:init()
 		hs.reload()
 	end)
 
-	self.reload = hs.hotkey.bind({ "ctrl" }, "j", function()
-		hs.eventtap.keyStroke({}, "escape", 0)
-	end)
+	-- self.reload = hs.hotkey.bind({ "ctrl" }, "j", function()
+	-- 	hs.eventtap.keyStroke({}, "escape", 0)
+	-- end)
 end
 
 return M
