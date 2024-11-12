@@ -21,7 +21,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 15
+accordion-padding = 0
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -85,7 +85,7 @@ alt-enter = 'exec-and-forget /Applications/kitty.app/Contents/MacOS/kitty --sing
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
-alt-f = 'layout tiling v_accordion'
+alt-f = 'layout tiling h_accordion'
 alt-d = 'layout tiling h_tiles'
 alt-s = 'layout floating'
 
@@ -120,9 +120,9 @@ alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-alt-tab = 'focus down'
+alt-tab = 'focus left'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-alt-shift-tab = 'focus up'
+alt-shift-tab = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
@@ -145,4 +145,8 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.window-title-regex-substring = 'Figure'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.window-title-regex-substring = 'Quartz'
 run = ['layout floating']
