@@ -11,8 +11,8 @@ alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d
 
 # window actions
 alt - e : yabai -m window --toggle split
-# alt - d : yabai -m space --layout bsp;
-alt - f : yabai -m window --toggle zoom-fullscreen
+alt - d : yabai -m space --layout bsp;
+alt - f : yabai -m space --layout stack
 alt - s : yabai -m window --toggle float;\
           yabai -m window --grid 4:4:1:1:2:2
 alt - a : yabai -m window --toggle sticky
