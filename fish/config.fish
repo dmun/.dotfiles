@@ -8,7 +8,7 @@ zoxide init fish | source
 pyenv init - | source
 
 # aliases
-alias nv=nvim
+alias v=nvim
 alias lg=lazygit
 alias la="ls -a"
 alias ll="ls -la"
@@ -33,7 +33,17 @@ set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
 # set -x FZF_DEFAULT_OPTS '--color=bg+:#39424D'
 set -x FZF_DEFAULT_OPTS '--no-separator'
 
+function y
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+
 if status is-interactive
+
 and not set -q TMUX
     if tmux has-session > /dev/null 2>&1
         exec tmux attach

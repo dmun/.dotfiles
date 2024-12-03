@@ -1,0 +1,164 @@
+live_config_reload = true
+
+import = [
+  "~/.config/alacritty/themes/modus_vivendi.toml",
+]
+
+[shell]
+program = "/opt/homebrew/bin/fish"
+
+[window]
+decorations = "None"
+padding = { x = 0, y = 0 }
+
+[font]
+normal = { family = "Iosevka Comfy", style = "Regular" }
+bold = { family = "Iosevka Comfy", style = "Medium" }
+italic = { family = "Iosevka Comfy", style = "Italic" }
+size = 24
+offset = { y = 5 }
+glyph_offset = { y = 5 }
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[keyboard]
+bindings = [
+  { key= "A",         mods= "Command",        chars= "\u001ba" },
+  { key= "B",         mods= "Command",        chars= "\u001bb" },
+  { key= "C",         mods= "Command",        chars= "\u001bc" },
+  { key= "D",         mods= "Command",        chars= "\u001bd" },
+  { key= "E",         mods= "Command",        chars= "\u001be" },
+  { key= "F",         mods= "Command",        chars= "\u001bf" },
+  { key= "G",         mods= "Command",        chars= "\u001bg" },
+  { key= "H",         mods= "Command",        chars= "\u001bh" },
+  { key= "I",         mods= "Command",        chars= "\u001bi" },
+  { key= "J",         mods= "Command",        chars= "\u001bj" },
+  { key= "K",         mods= "Command",        chars= "\u001bk" },
+  { key= "L",         mods= "Command",        chars= "\u001bl" },
+  { key= "M",         mods= "Command",        chars= "\u001bm" },
+  { key= "N",         mods= "Command",        chars= "\u001bn" },
+  { key= "O",         mods= "Command",        chars= "\u001bo" },
+  { key= "P",         mods= "Command",        chars= "\u001bp" },
+  { key= "Q",         mods= "Command",        chars= "\u001bq" },
+  { key= "R",         mods= "Command",        chars= "\u001br" },
+  { key= "S",         mods= "Command",        chars= "\u001bs" },
+  { key= "T",         mods= "Command",        chars= "\u001bt" },
+  { key= "U",         mods= "Command",        chars= "\u001bu" },
+  # { key= "V",         mods= "Command",        chars= "\u001bv" },
+  { key= "W",         mods= "Command",        chars= "\u001bw" },
+  { key= "X",         mods= "Command",        chars= "\u001bx" },
+  { key= "Y",         mods= "Command",        chars= "\u001by" },
+  { key= "Z",         mods= "Command",        chars= "\u001bz" },
+
+  { key= "A",         mods= "Command|Shift",  chars= "\u001bA" },
+  { key= "B",         mods= "Command|Shift",  chars= "\u001bB" },
+  { key= "C",         mods= "Command|Shift",  chars= "\u001bC" },
+  { key= "D",         mods= "Command|Shift",  chars= "\u001bD" },
+  { key= "E",         mods= "Command|Shift",  chars= "\u001bE" },
+  { key= "F",         mods= "Command|Shift",  chars= "\u001bF" },
+  { key= "G",         mods= "Command|Shift",  chars= "\u001bG" },
+  { key= "H",         mods= "Command|Shift",  chars= "\u001bH" },
+  { key= "I",         mods= "Command|Shift",  chars= "\u001bI" },
+  { key= "J",         mods= "Command|Shift",  chars= "\u001bJ" },
+  { key= "K",         mods= "Command|Shift",  chars= "\u001bK" },
+  { key= "L",         mods= "Command|Shift",  chars= "\u001bL" },
+  { key= "M",         mods= "Command|Shift",  chars= "\u001bM" },
+  { key= "N",         mods= "Command|Shift",  chars= "\u001bN" },
+  { key= "O",         mods= "Command|Shift",  chars= "\u001bO" },
+  { key= "P",         mods= "Command|Shift",  chars= "\u001bP" },
+  { key= "Q",         mods= "Command|Shift",  chars= "\u001bQ" },
+  { key= "R",         mods= "Command|Shift",  chars= "\u001bR" },
+  { key= "S",         mods= "Command|Shift",  chars= "\u001bS" },
+  { key= "T",         mods= "Command|Shift",  chars= "\u001bT" },
+  { key= "U",         mods= "Command|Shift",  chars= "\u001bU" },
+  { key= "V",         mods= "Command|Shift",  chars= "\u001bV" },
+  { key= "W",         mods= "Command|Shift",  chars= "\u001bW" },
+  { key= "X",         mods= "Command|Shift",  chars= "\u001bX" },
+  { key= "Y",         mods= "Command|Shift",  chars= "\u001bY" },
+  { key= "Z",         mods= "Command|Shift",  chars= "\u001bZ" },
+
+  { key= "Home",                          chars= "\u001bOH",   mode= "AppCursor"   },
+  { key= "Home",                          chars= "\u001b[1~",  mode= "~AppCursor"  },
+  { key= "End",                           chars= "\u001bOF",   mode= "AppCursor"   },
+  { key= "End",                           chars= "\u001b[4~",  mode= "~AppCursor"  },
+  { key= "PageUp",                        chars= "\u001b[5~"                     },
+  { key= "PageDown",                      chars= "\u001b[6~"                     },
+  { key= "Left",      mods= "Shift",      chars= "\u001b[1;2D"                   },
+  { key= "Left",      mods= "Control",    chars= "\u001b[1;5D"                   },
+  { key= "Left",      mods= "Command",        chars= "\u001b[1;3D"                   },
+  { key= "Left",                          chars= "\u001b[D",   mode= "~AppCursor"  },
+  { key= "Left",                          chars= "\u001bOD",   mode= "AppCursor"   },
+  { key= "Right",     mods= "Shift",      chars= "\u001b[1;2C"                   },
+  { key= "Right",     mods= "Control",    chars= "\u001b[1;5C"                   },
+  { key= "Right",     mods= "Command",        chars= "\u001b[1;3C"                   },
+  { key= "Right",                         chars= "\u001b[C",   mode= "~AppCursor"  },
+  { key= "Right",                         chars= "\u001bOC",   mode= "AppCursor"   },
+  { key= "Up",        mods= "Shift",      chars= "\u001b[1;2A"                   },
+  { key= "Up",        mods= "Control",    chars= "\u001b[1;5A"                   },
+  { key= "Up",        mods= "Command",        chars= "\u001b[1;3A"                   },
+  { key= "Up",                            chars= "\u001b[A",   mode= "~AppCursor"  },
+  { key= "Up",                            chars= "\u001bOA",   mode= "AppCursor"   },
+  { key= "Down",      mods= "Shift",      chars= "\u001b[1;2B"                   },
+  { key= "Down",      mods= "Control",    chars= "\u001b[1;5B"                   },
+  { key= "Down",      mods= "Command",        chars= "\u001b[1;3B"                   },
+  { key= "Down",                          chars= "\u001b[B",   mode= "~AppCursor"  },
+  { key= "Down",                          chars= "\u001bOB",   mode= "AppCursor"   },
+  { key= "Tab",       mods= "Shift",      chars= "\u001b[Z"                      },
+  { key= "F1",                            chars= "\u001bOP"                      },
+  { key= "F2",                            chars= "\u001bOQ"                      },
+  { key= "F3",                            chars= "\u001bOR"                      },
+  { key= "F4",                            chars= "\u001bOS"                      },
+  { key= "F5",                            chars= "\u001b[15~"                    },
+  { key= "F6",                            chars= "\u001b[17~"                    },
+  { key= "F7",                            chars= "\u001b[18~"                    },
+  { key= "F8",                            chars= "\u001b[19~"                    },
+  { key= "F9",                            chars= "\u001b[20~"                    },
+  { key= "F10",                           chars= "\u001b[21~"                    },
+  { key= "F11",                           chars= "\u001b[23~"                    },
+  { key= "F12",                           chars= "\u001b[24~"                    },
+  { key= "Back",                          chars= "\u007f"                        },
+  { key= "Back",      mods= "Command",        chars= "\u001b\u007f"                    },
+  { key= "Insert",                        chars= "\u001b[2~"                     },
+  { key= "Delete",                        chars= "\u001b[3~",  mode= "AppKeypad"   },
+  { key= "Delete",                        chars= "\u001b[P",   mode= "~AppKeypad"  },
+
+  { key= "Key0",      mods= "Command",       chars= "\u001b0" },
+  { key= "Key1",      mods= "Command",       chars= "\u001b1" },
+  { key= "Key2",      mods= "Command",       chars= "\u001b2" },
+  { key= "Key3",      mods= "Command",       chars= "\u001b3" },
+  { key= "Key4",      mods= "Command",       chars= "\u001b4" },
+  { key= "Key5",      mods= "Command",       chars= "\u001b5" },
+  { key= "Key6",      mods= "Command",       chars= "\u001b6" },
+  { key= "Key7",      mods= "Command",       chars= "\u001b7" },
+  { key= "Key8",      mods= "Command",       chars= "\u001b8" },
+  { key= "Key9",      mods= "Command",       chars= "\u001b9" },
+
+  { key= "Key0",      mods= "Command|Shift", chars= "\u001b!" },
+  { key= "Key1",      mods= "Command|Shift", chars= "\u001b@" },
+  { key= "Key2",      mods= "Command|Shift", chars= "\u001b#" },
+  { key= "Key3",      mods= "Command|Shift", chars= "\u001b$" },
+  { key= "Key4",      mods= "Command|Shift", chars= "\u001b%" },
+  { key= "Key5",      mods= "Command|Shift", chars= "\u001b^" },
+  { key= "Key6",      mods= "Command|Shift", chars= "\u001b&" },
+  { key= "Key7",      mods= "Command|Shift", chars= "\u001b*" },
+  { key= "Key8",      mods= "Command|Shift", chars= "\u001b(" },
+  { key= "Key9",      mods= "Command|Shift", chars= "\u001b)" },
+
+  { key= "Semicolon", mods= "Command",       chars= "\u001b;" },
+  { key= "Comma",     mods= "Command",       chars= "\u001b," },
+  { key= "Period",    mods= "Command",       chars= "\u001b." },
+  { key= "LBracket",  mods= "Command",       chars= "\u001b[" },
+  { key= "RBracket",  mods= "Command",       chars= "\u001b]" },
+  { key= "Slash",     mods= "Command",       chars= "\u001b/" },
+  { key= "Space",     mods= "Command",       chars= "\u001b " },
+  { key= "Backslash", mods= "Command",       chars= "\u001b\\" },
+
+  { key= "Semicolon", mods= "Command|Shift", chars= "\u001b=" },
+  { key= "Comma",     mods= "Command|Shift", chars= "\u001b<" },
+  { key= "Period",    mods= "Command|Shift", chars= "\u001b>" },
+  { key= "LBracket",  mods= "Command|Shift", chars= "\u001b{" },
+  { key= "RBracket",  mods= "Command|Shift", chars= "\u001b}" },
+  { key= "Slash",     mods= "Command|Shift", chars= "\u001b?" },
+  { key= "Backslash", mods= "Command|Shift", chars= "\u001b|" },
+]
