@@ -42,9 +42,7 @@ function y
 	rm -f -- "$tmp"
 end
 
-if status is-interactive
-
-and not set -q TMUX
+if status is-interactive and not set -q TMUX
     if tmux has-session > /dev/null 2>&1
         exec tmux attach
     else

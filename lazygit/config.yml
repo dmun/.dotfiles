@@ -1,14 +1,15 @@
 gui:
-  nerdFontsVersion: "3"
-  # border: 'rounded'
+  # nerdFontsVersion: "3"
+  border: 'single'
   # windowSize: 'half'
   showListFooter: false
   showBottomLine: false
-  # theme:
-  #   inactiveBorderColor:
-  #     - '#585B70'
-  #   selectedLineBgColor:
-  #     - '#3758A2'
+  showPanelJumps: false
+  theme:
+    inactiveBorderColor:
+      - '#61647A'
+    selectedLineBgColor:
+      - '#3758A2'
 # git:
 #   paging:
 #     colorArg: always
