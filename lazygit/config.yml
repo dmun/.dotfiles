@@ -7,7 +7,8 @@ gui:
   showPanelJumps: false
   theme:
     inactiveBorderColor:
-      - '#61647A'
+      # - '#61647A'
+      - '#8D90A3'
     selectedLineBgColor:
       - '#3758A2'
 # git:
