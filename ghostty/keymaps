@@ -1,0 +1,97 @@
+keybind = cmd+a=esc:a
+keybind = cmd+b=esc:b
+keybind = cmd+c=esc:c
+keybind = cmd+d=esc:d
+keybind = cmd+e=esc:e
+keybind = cmd+f=esc:f
+keybind = cmd+g=esc:g
+keybind = cmd+h=esc:h
+keybind = cmd+i=esc:i
+keybind = cmd+j=esc:j
+keybind = cmd+k=esc:k
+keybind = cmd+l=esc:l
+keybind = cmd+m=esc:m
+keybind = cmd+n=esc:n
+keybind = cmd+o=esc:o
+keybind = cmd+p=esc:p
+# keybind = cmd+q=esc:q
+keybind = cmd+r=esc:r
+keybind = cmd+s=esc:s
+keybind = cmd+t=esc:t
+keybind = cmd+u=esc:u
+# keybind = cmd+v=esc:v
+# keybind = cmd+w=esc:w
+keybind = cmd+x=esc:x
+keybind = cmd+y=esc:y
+keybind = cmd+z=esc:z
+
+keybind = cmd+shift+a=esc:A
+keybind = cmd+shift+b=esc:B
+keybind = cmd+shift+c=esc:C
+keybind = cmd+shift+d=esc:D
+keybind = cmd+shift+e=esc:E
+keybind = cmd+shift+f=esc:F
+keybind = cmd+shift+g=esc:G
+keybind = cmd+shift+h=esc:H
+keybind = cmd+shift+i=esc:I
+keybind = cmd+shift+j=esc:J
+keybind = cmd+shift+k=esc:K
+keybind = cmd+shift+l=esc:L
+keybind = cmd+shift+m=esc:M
+keybind = cmd+shift+n=esc:N
+keybind = cmd+shift+o=esc:O
+keybind = cmd+shift+p=esc:P
+# keybind = cmd+shift+q=esc:Q
+keybind = cmd+shift+r=esc:R
+keybind = cmd+shift+s=esc:S
+keybind = cmd+shift+t=esc:T
+keybind = cmd+shift+u=esc:U
+# keybind = cmd+shift+v=esc:V
+# keybind = cmd+shift+w=esc:W
+keybind = cmd+shift+x=esc:X
+keybind = cmd+shift+y=esc:Y
+keybind = cmd+shift+z=esc:Z
+
+keybind = cmd+left=csi:1;3D
+keybind = cmd+down=csi:1;3B
+keybind = cmd+up=csi:1;3A
+keybind = cmd+right=csi:1;3C
+
+keybind = cmd+0=esc:0
+keybind = cmd+1=esc:1
+keybind = cmd+2=esc:2
+keybind = cmd+3=esc:3
+keybind = cmd+4=esc:4
+keybind = cmd+5=esc:5
+keybind = cmd+6=esc:6
+keybind = cmd+7=esc:7
+keybind = cmd+8=esc:8
+keybind = cmd+9=esc:9
+
+keybind = cmd+shift+0=esc:!
+keybind = cmd+shift+1=esc:@
+keybind = cmd+shift+2=esc:#
+keybind = cmd+shift+3=esc:$
+keybind = cmd+shift+4=esc:%
+keybind = cmd+shift+5=esc:^
+keybind = cmd+shift+6=esc:&
+keybind = cmd+shift+7=esc:*
+keybind = cmd+shift+8=esc:(
+keybind = cmd+shift+9=esc:)
+
+keybind = cmd+;=esc:;
+keybind = cmd+,=esc:,
+keybind = cmd+.=esc:.
+keybind = cmd+[=esc:[
+keybind = cmd+]=esc:]
+keybind = cmd+/=esc:/
+keybind = cmd+ =esc: 
+keybind = cmd+\=esc:\
+
+keybind = cmd+shift+;=esc::
+keybind = cmd+shift+,=esc:<
+keybind = cmd+shift+.=esc:>
+keybind = cmd+shift+{=esc:{
+keybind = cmd+shift+}=esc:}
+keybind = cmd+shift+?=esc:?
+keybind = cmd+shift+\=esc:|

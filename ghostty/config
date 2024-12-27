@@ -1,0 +1,24 @@
+command = /opt/homebrew/bin/fish
+shell-integration = fish
+
+theme = modus-vivendi
+
+font-family = JetBrains Mono
+font-size = 18.5
+font-thicken
+
+adjust-cell-height = 20%
+adjust-cursor-height = 20%
+adjust-box-thickness = 1
+bold-is-bright = true
+cursor-invert-fg-bg
+
+# macos-titlebar-style = hidden
+window-decoration = false
+window-padding-y = 0
+window-padding-balance = false
+window-padding-color = extend
+
+confirm-close-surface = false
+
+config-file = keymaps
