@@ -89,8 +89,8 @@ keybind = cmd+ =esc:
 keybind = cmd+\=esc:\
 
 keybind = cmd+shift+;=esc::
-keybind = cmd+shift+,=esc:<
-keybind = cmd+shift+.=esc:>
+# keybind = cmd+shift+,=esc:<
+# keybind = cmd+shift+.=esc:>
 keybind = cmd+shift+{=esc:{
 keybind = cmd+shift+}=esc:}
 keybind = cmd+shift+?=esc:?
