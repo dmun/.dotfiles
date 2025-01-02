@@ -7,21 +7,23 @@ font-family = JetBrains Mono
 font-size = 18.5
 font-thicken
 
+cursor-style = block
 adjust-cell-height = 20%
 adjust-cursor-height = 35%
 adjust-cursor-thickness = 5
 adjust-box-thickness = 1
-adjust-underline-thickness = 2
+adjust-underline-thickness = 1
 bold-is-bright = true
 cursor-invert-fg-bg
 
 # macos-titlebar-style = hidden
 window-decoration = false
 window-padding-y = 0
-window-padding-x = 4,0
+window-padding-x = 6,0
 window-padding-balance = false
 window-padding-color = extend
 
 confirm-close-surface = false
+quit-after-last-window-closed = true
 
 config-file = keymaps
