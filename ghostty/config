@@ -1,15 +1,16 @@
 command = /opt/homebrew/bin/fish
 shell-integration = fish
 
-theme = modus-vivendi
+theme = moonfly
 
 font-family = JetBrains Mono
 font-size = 18.5
 font-thicken
 
 cursor-style = block
-adjust-cell-height = 20%
-adjust-cursor-height = 35%
+cursor-style-blink = true
+adjust-cell-height = 10%
+adjust-cursor-height = 25%
 adjust-cursor-thickness = 5
 adjust-box-thickness = 1
 adjust-underline-thickness = 1
@@ -19,8 +20,9 @@ cursor-invert-fg-bg
 # macos-titlebar-style = hidden
 window-decoration = false
 window-padding-y = 0
-window-padding-x = 6,0
+window-padding-x = 4,0
 window-padding-balance = false
+# window-padding-color = extend-always
 window-padding-color = extend
 
 confirm-close-surface = false
