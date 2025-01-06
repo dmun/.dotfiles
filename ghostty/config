@@ -9,10 +9,10 @@ font-thicken
 
 cursor-style = block
 cursor-style-blink = true
-adjust-cell-height = 10%
-adjust-cursor-height = 25%
+adjust-cell-height = 0%
+adjust-cursor-height = 15%
 adjust-cursor-thickness = 5
-adjust-box-thickness = 1
+adjust-box-thickness = 0
 adjust-underline-thickness = 1
 bold-is-bright = true
 cursor-invert-fg-bg
