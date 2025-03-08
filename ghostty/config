@@ -4,29 +4,30 @@ shell-integration = fish
 theme = Jellybeans
 
 font-family = JetBrains Mono
-font-size = 22
+font-size = 20
 font-thicken
-# font-thicken-strength = 55
+# font-thicken-strength = 255
 
 # cursor-color = #FFFFFF
 cursor-text = #000000
 cursor-style = block
 cursor-style-blink = true
 adjust-cell-height = 10%
-adjust-cursor-height = 10%
-adjust-cursor-thickness = 5
+adjust-cursor-height = 15%
+adjust-cursor-thickness = 6
 adjust-box-thickness = 1
 adjust-underline-thickness = 1
 bold-is-bright = true
 # cursor-invert-fg-bg
 
-# macos-titlebar-style = hidden
-window-decoration = false
+window-vsync = false
+macos-titlebar-style = hidden
+# window-decoration = false
 window-padding-y = 0
-window-padding-x = 4,0
+window-padding-x = 0,0
 window-padding-balance = false
 # window-padding-color = extend-always
-window-padding-color = extend
+# window-padding-color = extend
 # window-colorspace = display-p3
 
 confirm-close-surface = false
