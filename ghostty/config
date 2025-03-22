@@ -1,19 +1,19 @@
 command = /opt/homebrew/bin/fish
 shell-integration = fish
 
-theme = night-owl
+theme = Jellybeans
 
 font-family = JetBrains Mono
-font-size = 20
+font-size = 22
 font-thicken
-font-thicken-strength = 155
+# font-thicken-strength = 155
 
 # cursor-color = #FFFFFF
 # cursor-text = #000000
 cursor-style = block
 # cursor-style-blink = true
-adjust-cell-height = 10%
-adjust-cursor-height = 15%
+adjust-cell-height = 5%
+adjust-cursor-height = 10%
 adjust-cursor-thickness = 6
 adjust-box-thickness = 1
 adjust-underline-thickness = 1
