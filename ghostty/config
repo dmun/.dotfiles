@@ -8,17 +8,17 @@ font-size = 22
 font-thicken
 # font-thicken-strength = 155
 
-cursor-color = #FFFFFF
-cursor-text = #000000
+# cursor-color = #FFFFFF
+# cursor-text = #000000
 cursor-style = block
 # cursor-style-blink = true
 adjust-cell-height = 5%
-adjust-cursor-height = 10%
+adjust-cursor-height = 15%
 adjust-cursor-thickness = 6
 adjust-box-thickness = 1
 adjust-underline-thickness = 1
 bold-is-bright = true
-# cursor-invert-fg-bg
+cursor-invert-fg-bg
 
 window-vsync = false
 macos-titlebar-style = hidden
