@@ -2,6 +2,7 @@ command = /opt/homebrew/bin/fish
 shell-integration = fish
 
 theme = Jellybeans
+foreground = e8e8d3
 
 font-family = JetBrains Mono
 font-size = 22
