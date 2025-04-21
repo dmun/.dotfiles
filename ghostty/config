@@ -1,19 +1,20 @@
 command = /opt/homebrew/bin/fish
 shell-integration = fish
 
-theme = Jellybeans
+theme = alabaster
 
-font-family = JetBrains Mono
-font-size = 22
+font-family = Iosevka ss07
+font-size = 25.5
 font-thicken
 # font-thicken-strength = 155
+font-feature = -calt, -liga, dlig
 
 # cursor-color = #FFFFFF
 # cursor-text = #000000
 cursor-style = block
-# cursor-style-blink = true
-adjust-cell-height = 5%
-adjust-cursor-height = 15%
+cursor-style-blink = false
+adjust-cell-height = 0%
+adjust-cursor-height = 0%
 adjust-cursor-thickness = 6
 adjust-box-thickness = 1
 adjust-underline-thickness = 1
@@ -21,14 +22,15 @@ bold-is-bright = true
 cursor-invert-fg-bg
 
 window-vsync = false
-macos-titlebar-style = hidden
-# window-decoration = false
+# macos-titlebar-style = hidden
+window-decoration = false
 window-padding-y = 0
-window-padding-x = 0
+window-padding-x = 6,0
 window-padding-balance = false
 # window-padding-color = extend-always
-# window-padding-color = extend
+window-padding-color = extend
 # window-colorspace = display-p3
+# window-step-resize
 
 confirm-close-surface = false
 quit-after-last-window-closed = true
