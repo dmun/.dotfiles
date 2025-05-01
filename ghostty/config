@@ -3,10 +3,12 @@ shell-integration = fish
 
 theme = alabaster
 
-font-family = Iosevka ss07
+font-family             = Iosevka SS14
+font-family-bold        = Iosevka SS14 Medium
+font-family-bold-italic = Iosevka SS14 Medium Italic
 font-size = 25.5
 font-thicken
-# font-thicken-strength = 155
+# font-thicken-strength = 255
 font-feature = -calt, -liga, dlig
 
 # cursor-color = #FFFFFF
@@ -14,7 +16,7 @@ font-feature = -calt, -liga, dlig
 cursor-style = block
 cursor-style-blink = false
 adjust-cell-height = 0%
-adjust-cursor-height = 0%
+adjust-cursor-height = 10%
 adjust-cursor-thickness = 6
 adjust-box-thickness = 1
 adjust-underline-thickness = 1
@@ -22,8 +24,8 @@ bold-is-bright = true
 cursor-invert-fg-bg
 
 window-vsync = false
-# macos-titlebar-style = hidden
-window-decoration = false
+macos-titlebar-style = hidden
+# window-decoration = false
 window-padding-y = 0
 window-padding-x = 6,0
 window-padding-balance = false
