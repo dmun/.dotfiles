@@ -17,7 +17,6 @@ alias lat="latexmk -pvc -pdf -interaction=nonstopmode -shell-escape"
 alias lg=lazygit
 alias cpr=colorpicker
 alias alt="sudo alternatives --config"
-alias nv=nvim
 alias bs="brew search"
 alias bi="brew install"
 
