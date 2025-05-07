@@ -3,19 +3,19 @@ shell-integration = fish
 
 theme = alabaster
 
-font-family             = JetBrains Mono  
-font-family-bold        = JetBrains Mono Medium
-font-family-bold-italic = JetBrains Mono Medium Italic
-font-size = 22
+font-family             = JetBrains Mono
+# font-family-bold        = JetBrains Mono Medium
+# font-family-bold-italic = JetBrains Mono Medium Italic
+font-size = 24.5
 font-thicken
-# font-thicken-strength = 255
+font-thicken-strength = 255
 # font-feature = -calt, -liga, dlig
 
 # cursor-color = #FFFFFF
 # cursor-text = #000000
 cursor-style = block
 cursor-style-blink = false
-adjust-cell-height = 0%
+adjust-cell-height = 10%
 adjust-cursor-height = 10%
 adjust-cursor-thickness = 6
 adjust-box-thickness = 1
