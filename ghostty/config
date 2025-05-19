@@ -4,8 +4,8 @@ shell-integration = fish
 theme = alabaster
 
 font-family             = JetBrains Mono
-# font-family-bold        = JetBrains Mono Medium
-# font-family-bold-italic = JetBrains Mono Medium Italic
+# font-family-bold        = Iosevka SS05 Medium
+# font-family-bold-italic = Iosevka SS05 Medium Italic
 font-size = 24.5
 font-thicken
 font-thicken-strength = 255
