@@ -1,19 +1,19 @@
 gui:
-  # nerdFontsVersion: "3"
-  border: 'single'
-  # windowSize: 'half'
-  showListFooter: false
-  showBottomLine: false
-  showPanelJumps: false
-  theme:
-    inactiveBorderColor:
-      # - '#61647A'
-      - '#8D90A3'
-    selectedLineBgColor:
-      - '#3758A2'
+    # nerdFontsVersion: "3"
+    border: 'single'
+    # screenMode: 'full'
+    showListFooter: true
+    showBottomLine: false
+    showPanelJumps: false
+    theme:
+        inactiveBorderColor:
+          - white
+        # - '#8D90A3'
+        # selectedLineBgColor:
+        # - '#3758A2'
 # git:
 #   paging:
 #     colorArg: always
 #     pager: diff-so-fancy
 os:
-  editPreset: 'nvim'
+    editPreset: 'nvim'

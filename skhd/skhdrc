@@ -4,6 +4,7 @@
 
 # open terminal
 alt - return : open -n "/Applications/Ghostty.app"
+# alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
 #
 # yabai hotkeys

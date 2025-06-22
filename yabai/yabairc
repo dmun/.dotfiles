@@ -32,6 +32,7 @@ UNMANAGED_APPS=(
     "soa"
     "SDL2"
     "sdl2"
+    "^Oklch Color Picker$"
     # "^Quartz*"
     # "^Xcode$"
 )

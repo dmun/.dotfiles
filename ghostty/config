@@ -1,11 +1,12 @@
 command = /opt/homebrew/bin/fish
 shell-integration = fish
 
-theme = alabaster
+theme = Builtin Tango Dark
+# background = 190b05
 
-font-family             = JetBrains Mono
-# font-family-bold        = Iosevka SS05 Medium
-# font-family-bold-italic = Iosevka SS05 Medium Italic
+font-family             = Iosevka SS14
+# font-family-bold        = JetBrains Mono Medium
+# font-family-bold-italic = JetBrains Mono Medium Italic
 font-size = 24.5
 font-thicken
 font-thicken-strength = 255
@@ -15,8 +16,8 @@ font-thicken-strength = 255
 # cursor-text = #000000
 cursor-style = block
 cursor-style-blink = false
-adjust-cell-height = 10%
-adjust-cursor-height = 10%
+adjust-cell-height = 0%
+adjust-cursor-height = 1%
 adjust-cursor-thickness = 6
 adjust-box-thickness = 1
 adjust-underline-thickness = 1
@@ -28,10 +29,10 @@ window-vsync = false
 macos-titlebar-style = hidden
 # window-decoration = false
 window-padding-y = 2,0
-window-padding-x = 6,0
+window-padding-x = 0,0
 window-padding-balance = false
 # window-padding-color = extend-always
-window-padding-color = extend
+# window-padding-color = extend
 # window-colorspace = display-p3
 # window-step-resize
 
@@ -39,3 +40,4 @@ confirm-close-surface = false
 quit-after-last-window-closed = true
 
 config-file = keymaps
+keybind = shift+enter=text:\n
