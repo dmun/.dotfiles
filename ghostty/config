@@ -1,5 +1,6 @@
 command = zsh
 shell-integration = zsh
+shell-integration-features = no-cursor
 
 theme = iTerm2 Default
 # background = 190b05
@@ -25,9 +26,9 @@ bold-is-bright = true
 cursor-invert-fg-bg
 mouse-hide-while-typing
 
-window-vsync = true
-macos-titlebar-style = hidden
-# window-decoration = false
+window-vsync = false
+# macos-titlebar-style = hidden
+window-decoration = false
 window-padding-y = 2,0
 window-padding-x = 0,0
 window-padding-balance = false
