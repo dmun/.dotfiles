@@ -1,15 +1,15 @@
 {
-  "layer": "overlay",
+  "layer": "top",
   "position": "top",
   "spacing": 2,
-  "height": 0,
+  "height": 38,
   "passthrough": false,
   "gtk-layer-shell": true,
-  "exclusive": false,
+  "exclusive": true,
 
-  "margin-top": 96,
+  "margin-top": 16,
   "margin-right": 196,
-  "margin-bottom": 16,
+  "margin-bottom": 0,
   "margin-left": 196,
 
   "modules-left": ["hyprland/workspaces"],
