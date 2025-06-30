@@ -11,47 +11,69 @@
   --sidebar-bgcolor: white !important;
 
   
-  --browser-bgcolor: hsla(30, 100%, 20%, 0.05) !important;
+  --browser-bgcolor: hsla(210, 30%, 80%, 0.3) !important;
   --tab-selected-bgcolor: color-mix(in oklab, rgba(240, 240, 240, 0.2), var(--sidebar-bgcolor) 100%) !important;
   --tab-hover-bgcolor: color-mix(in oklab, rgba(240, 240, 240, 0.2), var(--sidebar-bgcolor) 60%) !important;
   --tab-icon-end-margin: 16px !important;
   --toolbar-button-icon-fill: black !important;
   --tab-selected-outline-color: transparent !important;
   --shadow-color: rgba(0, 0, 0, 0.1);
-  --browser-shadow: 0px 0px 3px 2px var(--shadow-color) !important;
+  --browser-shadow: 0px 0px 3px 3px var(--shadow-color) !important;
 
+  --tab-textcolor: black !important;
+    --tab-selected-textcolor: black !important;
+    --toolbox-textcolor-inactive: black !important;
+    --toolbox-textcolor: black !important;
+/*     --toolbarbutton-icon-fill: black !important; */
   --sidebar-width: 240px;
+  --browser-border-color: rgba(255, 255, 255, 0.4);
+  --browser-border-top-color: rgba(255, 255, 255, 0.6);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {    
+    --tab-textcolor: white !important;
+    --tab-selected-textcolor: white !important;
+    --toolbox-textcolor-inactive: white !important;
+    --toolbox-textcolor: white !important;
+    --toolbarbutton-icon-fill: white !important;
+    
+    --tabstrip-inner-border: 0px !important;
+    
     --sidebar-bgcolor: black !important;
-    --browser-bgcolor: hsla(220, 40%, 5%, 0.5) !important;
-    --tab-selected-bgcolor: color-mix(in oklab, rgba(0, 0, 0, 0.2), var(--sidebar-bgcolor) 60%) !important;
+    --browser-bgcolor: hsla(220, 20%, 10%, 0.3) !important;
+    --tab-selected-bgcolor: color-mix(in oklab, rgba(0, 0, 0, 0.2), var(--sidebar-bgcolor) 40%) !important;
     --tab-selected-outline-color: color-mix(in oklch, rgba(255, 255, 255, 0.3), var(--sidebar-bgcolor) 30%) !important;
     --tab-selected-outline-top-color: color-mix(in oklch, rgba(255, 255, 255, 0.3), var(--sidebar-bgcolor) 1%) !important;
     --shadow-color: rgba(0, 0, 0, 0.12);
     --browser-shadow: 0px 0px 3px 2px var(--shadow-color) !important;
+    --browser-border-color: rgba(255, 255, 255, 0.1);
+    --browser-border-top-color: rgba(255, 255, 255, 0.3);
   }
 }
-
+hbox:not(#nav-bar-customization-target) {
+  #nav-bar toolbaritem toolbarbutton,
+  toolbarbutton .toolbarbutton-icon {
+    fill: black !important;
+  }
+}
+#nav-bar > toolbaritem toolbarbutton {
+  fill: black !important;
+}
 toolbarbutton {
   transition: opacity 0.1s ease-in-out;
 }
 .titlebar-buttonbox {
   margin-left: 18px !important;
 }
-.browser-toolbox-background {
-  -moz-appearance: -moz-window-titlebar !important;
-/*   backdrop-filter:blur(4px) !important; */
-/*   -moz-appearance: -moz-sidebar !important; */
-/*   -moz-appearance: -moz-mac-vibrant-titlebar-light !important; */
-/*   background-color: var(--browser-bgcolor) !important; */
-/*   appearance: -moz-window-titlebar !important; */
+#navigator-toolbox {
+/*   -moz-appearance: -moz-window-titlebar !important; */
+/*     backdrop-filter: blur(8px) !important; */
+  background-color: var(--browser-bgcolor) !important;
 }
-
 body {
 /*   appearance: -moz-sidebar !important; */
+/*   backdrop-filter: blur(8px) !important; */
   background-color: var(--browser-bgcolor) !important;
 }
 
@@ -96,7 +118,7 @@ body::before {
   margin-left: 0 !important;
 
   clip-path: inset(0 -8px -8px -8px) !important;
-  border-radius: 7px !important;
+  border-radius: 8px !important;
   padding-bottom: 0 !important;
   box-shadow: var(--browser-shadow) !important;
   border-top-left-radius: 0 !important;
@@ -111,6 +133,14 @@ body::before {
   height: calc(var(--urlbar-container-height) + 6px) !important;
 }
 
+#main-window body {
+  border: 1px solid var(--browser-border-color) !important;
+  border-radius: 9px !important;
+  box-sizing: border-box !important;
+  border-top-color: var(--browser-border-top-color) !important;
+  outline: 1px solid white !important;
+}
+
 #nav-bar-customization-target {
   height: var(--urlbar-container-height) !important;
   top: 6px;
@@ -118,7 +148,7 @@ body::before {
   right: 6px;
   background-color: var(--toolbar-bgcolor);
   position: absolute;
-  border-bottom: 1px solid rgba(125, 125, 125, 0.15);
+  border-bottom: 1px solid rgba(125, 125, 125, 0.1);
   
   clip-path: inset(-8px -8px 0 -8px) !important;
   border-radius: 7px !important;
@@ -156,7 +186,6 @@ splitter {
 }
 
 #PanelUI-menu-button {
-  list-style-image: url("resources/down.svg") !important;
   opacity: 0.5;
   position: fixed;
   top: 8px !important;
@@ -166,8 +195,8 @@ splitter {
 #tabbrowser-tabs[orient="vertical"] {
   padding: 0px !important;
   font-size: 13px !important;
-  font-family: "SF Pro Display", system-ui !important;
-/*   font-weight: medium !important; */
+  font-family: "Inter", system-ui !important;
+  font-weight: 400 !important;
 
   #tabbrowser-arrowscrollbox-periphery {
     margin-block: 2px !important;
@@ -184,8 +213,8 @@ splitter {
   }
   .tab-background[selected] {
     box-shadow: 0px 1px 3px 1px var(--shadow-color) !important;
-    border-top: 1px solid var(--tab-selected-outline-top-color);
-/*     outline: none !important; */
+/*     border-top: 1px solid var(--tab-selected-outline-top-color); */
+    outline: none !important;
   }
 
   .tabbrowser-tab {
@@ -223,6 +252,10 @@ splitter {
 
 .toolbarbutton-text {
   padding-inline-start: 12px !important;
+}
+
+.tab-text {
+  margin-block: 2px !important;
 }
 
 .tab-label, .tab-group-label {
