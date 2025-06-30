@@ -22,7 +22,7 @@
   --sidebar-width: 240px;
   --tabstrip-inner-border: 0px !important;
   --browser-border-color: rgba(255, 255, 255, 0.4);
-  --browser-border-top-color: rgba(255, 255, 255, 0.6);
+  --browser-border-top-color: rgba(255, 255, 255, 0.7);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,6 +86,7 @@ body {
 }
 
 #nav-bar {
+  border: 0 !important;
   height: calc(var(--urlbar-container-height) + 6px) !important;
 }
 
@@ -94,7 +95,7 @@ body {
   border-radius: 9px !important;
   box-sizing: border-box !important;
   border-top-color: var(--browser-border-top-color) !important;
-  outline: 1px solid white !important;
+/*   outline: 1px solid white !important; */
 }
 
 #nav-bar-customization-target {

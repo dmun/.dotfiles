@@ -1,73 +1,99 @@
 {
-    "layer": "top",
-    "position": "bottom",
-    "spacing": 0,
-    "height": 0,
+  "layer": "overlay",
+  "position": "top",
+  "spacing": 2,
+  "height": 0,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "exclusive": false,
 
-    "margin-top": 0,
-    "margin-right": 0,
-    "margin-bottom": 0,
-    "margin-left": 0,
+  "margin-top": 96,
+  "margin-right": 196,
+  "margin-bottom": 16,
+  "margin-left": 196,
 
-    "modules-left": [
-        "hyprland/workspaces"
-    ],
+  "modules-left": ["hyprland/workspaces"],
 
-    "modules-center": [
-    ],
+  "modules-center": ["clock"],
 
-    "modules-right": [
-        "tray",
-        "cpu",
-        "memory",
-        "network",
-        "pulseaudio",
-        "clock"
-    ],
-
-    "tray": {
-        "spacing": 10,
-        "tooltip": false
+  "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "*": 5,
     },
+    // "format-icons": {
+    //   "1": "I",
+    //   "2": "II",
+    //   "3": "III",
+    //   "4": "IV",
+    //   "5": "V",
+    //   "6": "VI",
+    //   "7": "VII",
+    //   "8": "VIII",
+    //   "9": "IX",
+    //   "10": "X",
+    // },
+  },
 
-    "clock": {
-        //"format": "{:%I:%M %p - %a, %d %b %Y}",
-        "tooltip": false
+  "modules-right": ["tray", "cpu", "memory", "network", "pulseaudio"],
+
+  "tray": {
+    "spacing": 10,
+    "tooltip": false,
+  },
+
+  "clock": {
+    "format": "{:%H:%M - %a, %d %b %Y}",
+    "tooltip": false,
+  },
+
+  "cpu": {
+    "format": "    {usage}%",
+    "interval": 2,
+
+    "states": {
+      "critical": 90,
     },
+  },
 
-    "cpu": {
-        "format": "cpu {usage}%",
-        "interval": 2,
+  "memory": {
+    "format": "    {percentage}%",
+    "interval": 2,
 
-        "states": {
-            "critical": 90
-        }
+    "states": {
+      "critical": 80,
     },
+  },
 
-    "memory": {
-        "format": "mem {percentage}%",
-        "interval": 2,
+  "network": {
+    "format-wifi": "󰖩    {bandwidthDownBits}",
+    "format-ethernet": "󰈁   {bandwidthDownBits}",
+    "format-disconnected": "no network",
+    "interval": 5,
+    "tooltip": false,
+  },
 
-        "states": {
-            "critical": 80
-        }
+  "pulseaudio": {
+    "scroll-step": 5,
+    "max-volume": 150,
+    "format": "{icon}   {volume}%",
+    "format-muted": "󰸈 ",
+    "format-bluetooth": "󰸈   {volume}%",
+    "nospacing": 1,
+    "on-click": "pactl -- set-sink-mute 0 toggle",
+    "tooltip": false,
+    "format-icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾",
+      ],
     },
-
-    "network": {
-        "format-wifi" : "wifi {bandwidthDownBits}",
-        "format-ethernet": "enth {bandwidthDownBits}",
-        "format-disconnected" : "no network",
-        "interval": 5,
-        "tooltip": false
-    },
-
-    "pulseaudio": {
-        "scroll-step": 5,
-        "max-volume": 150,
-        "format": "vol {volume}%",
-        "format-bluetooth": "vol {volume}%",
-        "nospacing": 1,
-        "on-click": "pavucontrol",
-        "tooltip": false
-    }
+  },
 }
