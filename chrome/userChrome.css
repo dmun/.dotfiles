@@ -19,47 +19,26 @@
   --tab-selected-outline-color: transparent !important;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --browser-shadow: 0px 0px 3px 3px var(--shadow-color) !important;
-
-  --tab-textcolor: black !important;
-    --tab-selected-textcolor: black !important;
-    --toolbox-textcolor-inactive: black !important;
-    --toolbox-textcolor: black !important;
-/*     --toolbarbutton-icon-fill: black !important; */
   --sidebar-width: 240px;
+  --tabstrip-inner-border: 0px !important;
   --browser-border-color: rgba(255, 255, 255, 0.4);
   --browser-border-top-color: rgba(255, 255, 255, 0.6);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {    
-    --tab-textcolor: white !important;
-    --tab-selected-textcolor: white !important;
-    --toolbox-textcolor-inactive: white !important;
-    --toolbox-textcolor: white !important;
-    --toolbarbutton-icon-fill: white !important;
-    
-    --tabstrip-inner-border: 0px !important;
-    
     --sidebar-bgcolor: black !important;
     --browser-bgcolor: hsla(220, 20%, 10%, 0.3) !important;
     --tab-selected-bgcolor: color-mix(in oklab, rgba(0, 0, 0, 0.2), var(--sidebar-bgcolor) 40%) !important;
     --tab-selected-outline-color: color-mix(in oklch, rgba(255, 255, 255, 0.3), var(--sidebar-bgcolor) 30%) !important;
     --tab-selected-outline-top-color: color-mix(in oklch, rgba(255, 255, 255, 0.3), var(--sidebar-bgcolor) 1%) !important;
     --shadow-color: rgba(0, 0, 0, 0.12);
-    --browser-shadow: 0px 0px 3px 2px var(--shadow-color) !important;
+/*     --browser-shadow: 0px 0px 3px 2px var(--shadow-color) !important; */
     --browser-border-color: rgba(255, 255, 255, 0.1);
     --browser-border-top-color: rgba(255, 255, 255, 0.3);
   }
 }
-hbox:not(#nav-bar-customization-target) {
-  #nav-bar toolbaritem toolbarbutton,
-  toolbarbutton .toolbarbutton-icon {
-    fill: black !important;
-  }
-}
-#nav-bar > toolbaritem toolbarbutton {
-  fill: black !important;
-}
+
 toolbarbutton {
   transition: opacity 0.1s ease-in-out;
 }
@@ -67,42 +46,18 @@ toolbarbutton {
   margin-left: 18px !important;
 }
 #navigator-toolbox {
-/*   -moz-appearance: -moz-window-titlebar !important; */
-/*     backdrop-filter: blur(8px) !important; */
   background-color: var(--browser-bgcolor) !important;
 }
 body {
-/*   appearance: -moz-sidebar !important; */
-/*   backdrop-filter: blur(8px) !important; */
   background-color: var(--browser-bgcolor) !important;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-/*   -moz-appearance: -moz-window-titlebar !important; */
-/*   filter: saturate(200%) !important; */
-  background-image: url(https://grainy-gradients.vercel.app/noise.svg) !important;
-/*   background-color: var(--browser-bgcolor) !important; */
-  opacity: 0.1;
 }
 #main-window {
   background-color: var(--browser-bgcolor) !important;
-/*   appearance: -moz-sidebar !important; */
-/*   background-color: transparent !important; */
 }
 
 #browser {
-/*   appearance: -moz-sidebar !important; */
+  -moz-appearance: -moz-window-sidebar !important;
   background-color: var(--browser-bgcolor) !important;
-/* filter: sepia(90%) !important; */
-/*   background-color: var(--browser-bgcolor) !important; */
-/*   clip-path: circle(100%); */
 }
 
 
@@ -116,6 +71,7 @@ body::before {
   margin: var(--browser-padding) !important;
   margin-top: 0 !important;
   margin-left: 0 !important;
+  outline: none !important;
 
   clip-path: inset(0 -8px -8px -8px) !important;
   border-radius: 8px !important;
@@ -275,34 +231,34 @@ splitter {
 
 /* icons */
 .close-icon {
-  list-style-image: url("resources/stop.svg") !important;
+  /* list-style-image: url("resources/stop.svg") !important; */
   height: 28px !important;
   width: 28px !important;
 }
 
 #back-button {
-  list-style-image: url("resources/left.svg") !important;
+  /* list-style-image: url("resources/left.svg") !important; */
 }
 
 #forward-button {
-  list-style-image: url("resources/right.svg") !important;
+  /* list-style-image: url("resources/right.svg") !important; */
 }
 
 #reload-button {
-  list-style-image: url("resources/reload.svg") !important;
+  /* list-style-image: url("resources/reload.svg") !important; */
 }
 
 #stop-button {
-  list-style-image: url("resources/stop.svg") !important;
+  /* list-style-image: url("resources/stop.svg") !important; */
 }
 
 #new-tab-button, #tabs-newtab-button {
-  list-style-image: url("resources/newtab.svg") !important;
+  /* list-style-image: url("resources/newtab.svg") !important; */
   opacity: 0.5 !important;
 }
 
 #unified-extensions-button {
-  list-style-image: url("resources/extension.svg") !important;
+  /* list-style-image: url("resources/extension.svg") !important; */
 }
 
 #statuspanel {
