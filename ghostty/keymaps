@@ -1,3 +1,5 @@
+keybind = ctrl+enter=unbind
+
 keybind = cmd+a=esc:a
 keybind = cmd+b=esc:b
 keybind = cmd+c=esc:c
@@ -68,6 +70,17 @@ keybind = cmd+7=esc:7
 keybind = cmd+8=esc:8
 keybind = cmd+9=esc:9
 
+keybind = alt+0=esc:0
+keybind = alt+1=esc:1
+keybind = alt+2=esc:2
+keybind = alt+3=esc:3
+keybind = alt+4=esc:4
+keybind = alt+5=esc:5
+keybind = alt+6=esc:6
+keybind = alt+7=esc:7
+keybind = alt+8=esc:8
+keybind = alt+9=esc:9
+
 keybind = cmd+shift+0=esc:!
 keybind = cmd+shift+1=esc:@
 keybind = cmd+shift+2=esc:#
@@ -78,6 +91,17 @@ keybind = cmd+shift+6=esc:&
 keybind = cmd+shift+7=esc:*
 keybind = cmd+shift+8=esc:(
 keybind = cmd+shift+9=esc:)
+
+keybind = alt+shift+0=esc:!
+keybind = alt+shift+1=esc:@
+keybind = alt+shift+2=esc:#
+keybind = alt+shift+3=esc:$
+keybind = alt+shift+4=esc:%
+keybind = alt+shift+5=esc:^
+keybind = alt+shift+6=esc:&
+keybind = alt+shift+7=esc:*
+keybind = alt+shift+8=esc:(
+keybind = alt+shift+9=esc:)
 
 keybind = cmd+;=esc:;
 keybind = cmd+,=esc:,

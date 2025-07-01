@@ -64,7 +64,7 @@ alias v=nvim
 alias lg=lazygit
 alias pac='sudo pacman -S'
 alias pacu='sudo pacman -Syu'
-alias pacr='pacman -Rs'
+alias pacr='sudo pacman -Rs'
 alias pacs='pacman -Ss'
 alias paci='pacman -Si'
 alias paclo='pacman -Qdt'
@@ -72,12 +72,18 @@ alias pacro='paclo && sudo pacman -Rns $(pacman -Qtdq)'
 alias pacc='pacman -Scc'
 alias paclf='pacman -Ql'
 
+alias par='paru -S'
+alias pars='paru -Ss'
+alias parr='paru -R'
+
 export PATH
 export PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 export PATH=$PATH:$HOME/.cargo/bin
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+export ESCDELAY=1
 
 export VCPKG_ROOT="/Users/david/Development/vcpkg"
 export OBSIDIAN_VAULT="/Users/david/Library/Mobile Documents/iCloud~md~obsidian/Documents/iCloud"
@@ -90,3 +96,12 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/david/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
+
+if [[ -z $TMUX ]] && [[ ! $(tmux list-sessions) ]]
+then 
+  exec tmux
+elif [[ -z $TMUX ]]
+then
+  exec tmux a
+fi
+
