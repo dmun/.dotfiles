@@ -97,10 +97,10 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
-if [[ -z $TMUX ]] && [[ ! $(tmux list-sessions) ]]
+if [[ -n $TMUX_AUTOSTART ]] && [[ -z $TMUX ]] && [[ ! $(tmux list-sessions) ]]
 then 
   exec tmux
-elif [[ -z $TMUX ]]
+elif [[ -n $TMUX_AUTOSTART ]] && [[ -z $TMUX ]]
 then
   exec tmux a
 fi

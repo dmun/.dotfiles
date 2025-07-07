@@ -2,7 +2,7 @@ command = zsh
 shell-integration = zsh
 shell-integration-features = no-cursor
 
-theme = UltraDark
+theme = iTerm2 Default
 background = 071120
 
 font-family             = Iosevka SS14
@@ -18,10 +18,10 @@ font-thicken-strength = 255
 cursor-style = block
 cursor-style-blink = false
 adjust-cell-height = 0%
-adjust-cursor-height = 1%
+adjust-cursor-height = 10%
 adjust-cursor-thickness = 6
 adjust-box-thickness = 0
-adjust-underline-thickness = 1
+adjust-underline-thickness = 0
 bold-is-bright = true
 cursor-invert-fg-bg
 mouse-hide-while-typing

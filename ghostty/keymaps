@@ -1,3 +1,4 @@
+keybind = ctrl+0=text:\x1b[48;5u
 keybind = ctrl+enter=unbind
 
 keybind = cmd+a=esc:a
