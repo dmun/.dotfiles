@@ -1,3 +1,13 @@
+if [[ -z $TMUX ]]
+then 
+  if [[ ! $(tmux list-sessions) ]]
+  then
+    exec tmux
+  else
+    exec tmux a
+  fi
+fi
+
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
 then
@@ -77,11 +87,3 @@ alias pars='paru -Ss'
 alias parr='paru -R'
 
 eval "$(zoxide init zsh)"
-
-if [[ -n $TMUX_AUTOSTART ]] && [[ -z $TMUX ]] && [[ ! $(tmux list-sessions) ]]
-then 
-  exec tmux
-elif [[ -n $TMUX_AUTOSTART ]] && [[ -z $TMUX ]]
-then
-  exec tmux a
-fi
