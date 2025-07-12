@@ -3,21 +3,18 @@ shell-integration = zsh
 shell-integration-features = no-cursor
 
 theme = iTerm2 Default
-background = 071120
+background = 111111
 
-font-family             = Iosevka SS14
-# font-family-bold        = JetBrains Mono Medium
-# font-family-bold-italic = JetBrains Mono Medium Italic
+font-family             = monospace
 font-size = 18
 font-thicken
 font-thicken-strength = 255
-# font-feature = -calt, -liga, dlig
 
 # cursor-color = #FFFFFF
 # cursor-text = #000000
 cursor-style = block
 cursor-style-blink = false
-adjust-cell-height = 0%
+adjust-cell-height = 10%
 adjust-cursor-height = 10%
 adjust-cursor-thickness = 6
 adjust-box-thickness = 0
@@ -29,11 +26,11 @@ mouse-hide-while-typing
 window-vsync = true
 # macos-titlebar-style = hidden
 window-decoration = false
-window-padding-y = 2,4
+window-padding-y = 2,0
 window-padding-x = 4,0
 window-padding-balance = false
 # window-padding-color = extend-always
-# window-padding-color = extend
+window-padding-color = extend
 # window-colorspace = display-p3
 # window-step-resize
 
