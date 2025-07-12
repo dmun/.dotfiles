@@ -1,4 +1,5 @@
 notARepository: skip
+promptToReturnFromSubprocess: false
 gui:
     border: 'single'
     showListFooter: true

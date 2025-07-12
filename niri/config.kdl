@@ -119,7 +119,7 @@ output "HDMI-A-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 12
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -164,7 +164,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+        off
 
         // How many logical pixels the ring extends out from the windows.
         width 2
@@ -200,23 +200,23 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        off
+        // off
 
-        width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        width 2
+        // active-color "gray"
+        inactive-color "black"
 
         // Color of the border around windows that request your attention.
         urgent-color "#9b0000"
 
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+        active-gradient from="#1488CC" to="#2B32B2" angle=180 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // You can enable drop shadows for windows.
     shadow {
         // Uncomment the next line to enable shadows.
-        // on
+        on
 
         // By default, the shadow draws only around its window, and not behind it.
         // Uncomment this setting to make the shadow draw behind its window.
@@ -270,8 +270,9 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-c" "#7487D9"
+spawn-at-startup "swaybg" "-c" "#57565E"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "qs"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -326,9 +327,9 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
+
 window-rule {
     match app-id="vlc" is-floating=true
-    
 }
 
 // Example: block out two password managers from screen capture.
@@ -346,7 +347,7 @@ window-rule {
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
-    geometry-corner-radius 12
+    geometry-corner-radius 8
     clip-to-geometry true
 }
 
@@ -366,7 +367,7 @@ binds {
     Alt+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Alt+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Alt+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Alt+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
@@ -385,6 +386,8 @@ binds {
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
     Alt+O repeat=false { toggle-overview; }
+
+    Alt+Shift+C repeat=false { spawn "hyprpicker" "-a"; }
 
     Alt+Q { close-window; }
 
@@ -476,6 +479,12 @@ binds {
     Alt+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Alt+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
+    // Ctrl+2 { focus-column-left; }
+    // Ctrl+3 { focus-column-right; }
+
+    // Mod+2 { focus-workspace-up; }
+    // Mod+3 { focus-workspace-down; }
+
     Ctrl+WheelScrollDown      { focus-column-right; }
     Ctrl+WheelScrollUp        { focus-column-left; }
     Alt+Ctrl+WheelScrollRight { move-column-right; }
@@ -510,7 +519,7 @@ binds {
     Ctrl+2 { focus-workspace 2; }
     Ctrl+3 { focus-workspace 3; }
     Ctrl+4 { focus-workspace 4; }
-    // Ctrl+5 { focus-workspace 5; }
+    Ctrl+5 { focus-workspace 5; }
     // Ctrl+6 { focus-workspace 6; }
     // Ctrl+7 { focus-workspace 7; }
     // Ctrl+8 { focus-workspace 8; }
@@ -541,6 +550,8 @@ binds {
     Alt+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
     Alt+Period { expel-window-from-column; }
+
+    // Ctrl+4 { switch-preset-column-width; }
 
     Alt+R { switch-preset-column-width; }
     Alt+Shift+R { switch-preset-window-height; }
