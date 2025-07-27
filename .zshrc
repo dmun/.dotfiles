@@ -1,12 +1,12 @@
-if [[ -z $TMUX ]]
-then 
-  if [[ ! $(tmux list-sessions) ]]
-  then
-    exec tmux
-  else
-    exec tmux a
-  fi
-fi
+# if [[ -z $TMUX ]]
+# then 
+#   if [[ ! $(tmux list-sessions) ]]
+#   then
+#     exec tmux
+#   else
+#     exec tmux a
+#   fi
+# fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
@@ -76,6 +76,7 @@ export _ZO_FZF_OPTS=$FZF_DEFAULT_OPTS
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias v=nvim
+alias em='emacsclient -nw'
 alias lg=lazygit
 alias pac='sudo pacman -S'
 alias par='paru -S'
