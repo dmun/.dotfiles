@@ -46,53 +46,76 @@
 ;;; Packages
 (require 'package)
 (require 'use-package)
-(setq use-package-always-ensure t)
+(setq use-package-always-ensure nil)
 (setq inhibit-startup-message t)
 
 (package-initialize)
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
-(use-package sudo-edit)
-(use-package vterm)
+(use-package sudo-edit :ensure t)
+(use-package vterm :ensure t)
+(use-package magit :ensure t)
+
+(use-package org-bullets
+  :ensure t
+  :hook (org-mode))
+
+(use-package org-tempo
+  :ensure nil
+  :config
+  (setq org-hide-emphasis-markers t)
+  (setq org-hide-leading-stars t))
+
+(custom-theme-set-faces 'user '(org-indent ((t (:inherit (org-hide fixed-pitch))))))
+(custom-theme-set-faces
+ 'user
+ '(org-level-8 ((t (,@headline ,@variable-tuple))))
+ '(org-level-7 ((t (,@headline ,@variable-tuple))))
+ '(org-level-6 ((t (,@headline ,@variable-tuple))))
+ '(org-level-5 ((t (,@headline ,@variable-tuple))))
+ '(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+ '(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
+ '(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
+ '(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+ '(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil)))))
 
 (use-package treesit-auto
   :config
   (treesit-auto-add-to-auto-mode-alist 'all))
-(use-package eglot)
-(use-package org)
-(use-package lsp-mode)
-(use-package lua-mode)
+(use-package eglot :ensure t)
+(use-package org :ensure t)
+(use-package lsp-mode :ensure t)
+(use-package lua-mode :ensure t)
 
 (use-package evil
   :demand
+  :ensure t
   :bind ("<escape>" . keyboard-escape-quit)
   :init
   (setq evil-want-keybinding nil
-	;; evil-disable-insert-state-bindings t
-	evil-want-C-u-scroll t
-	evil-undo-system 'undo-fu
-	evil-move-beyond-eol nil
-	evil-move-cursor-back t)
+  ;; evil-disable-insert-state-bindings t
+   evil-want-C-u-scroll t
+   evil-undo-system 'undo-fu
+   evil-move-beyond-eol nil
+   evil-move-cursor-back t)
   :config
   (setq evil-insert-state-cursor '(box))
   (evil-mode 1))
 
-(use-package key-chord
-  :config
-  (key-chord-mode 1)
-  (key-chord-define evil-insert-state-map "jk" 'evil-normal-state))
-
 (use-package evil-collection :after evil
+  :ensure t
   :config
   (setq evil-want-integration t)
   (evil-collection-init))
 
 (use-package marginalia
+  :ensure t
   :init
   (marginalia-mode))
 
 (use-package orderless
+  :ensure t
   :custom
   (orderless-flex)
   (completion-styles '(orderless basic))
@@ -104,41 +127,44 @@
 ;; (add-hook 'minibuffer-setup-hook #'rc/disable-window-fringes)
 
 (use-package spacious-padding
+  :ensure t
   :config
   (spacious-padding-mode))
 
-(use-package consult)
+(use-package consult :ensure t)
 (use-package vertico
+  :ensure t
   :bind (:map vertico-map
-	      ("C-w" . 'evil-delete-backward-word))
+         ("C-w" . 'evil-delete-backward-word))
   :config
   (setq vertico-preselect 'first)
   (vertico-mode)
   (savehist-mode))
 
 (use-package paredit
+  :ensure t
   :hook ((lisp-mode emacs-lisp-mode) . paredit-mode))
 
 (use-package enhanced-evil-paredit
-  :hook (paredit-mode . enhanced-evil-paredit-mode))
+  :ensure t
+  :hook (paredit-mode))
 
-(use-package dabbrev)
-(use-package transient)
+(use-package dabbrev :ensure t)
+(use-package transient :ensure t)
 
 (use-package doom-modeline
-  :init
+  :ensure t
   :config
   (doom-modeline-mode 1)
   (setq doom-modeline-icon nil
-	doom-modeline-major-mode-color-icon nil
-	doom-modeline-bar-width 0
-	doom-modeline-modal nil))
-;; (set-face-attribute 'mode-line nil :box nil)
-;; (set-face-attribute 'mode-line-inactive nil :box nil)
+   doom-modeline-major-mode-color-icon nil
+   doom-modeline-bar-width 0
+   doom-modeline-modal nil))
 
 (keymap-global-set "C-x C-o" 'recentf)
 
 (use-package adaptive-wrap
+  :ensure t
   :config
   (word-wrap-whitespace-mode)
   (setq adaptive-wrap-extra-indent 2)
@@ -146,40 +172,45 @@
 
 ;;; LLM
 (use-package gptel
+  :ensure t
   :config
   (setf (alist-get 'markdown-mode gptel-prompt-prefix-alist) "# ")
   (setf (alist-get 'markdown-mode gptel-response-prefix-alist) "")
+  (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "*** ")
+  (setf (alist-get 'org-mode gptel-response-prefix-alist) "\n")
   (add-hook 'gptel-mode-hook (lambda () (variable-pitch-mode)))
   (setq rc/gptel-mistral
-	(gptel-make-openai "MistralLeChat"
-	  :host "api.mistral.ai"
-	  :stream t
-	  :endpoint "/v1/chat/completions"
-	  :protocol "https"
-	  :key (getenv "MISTRAL_API_KEY")
-	  :models '("mistral-large-latest")))
+   (gptel-make-openai "MistralLeChat"
+      :host "api.mistral.ai"
+      :stream t
+      :endpoint "/v1/chat/completions"
+      :protocol "https"
+      :key (getenv "MISTRAL_API_KEY")
+      :models '("mistral-large-latest")))
   (setq rc/gptel-deepseek
-	(gptel-make-deepseek "Deepseek"
-	  :stream t
-	  :key (getenv "DEEPSEEK_API_KEY")
-	  :models '("deepseek-chat")))
+   (gptel-make-deepseek "Deepseek"
+      :stream t
+      :key (getenv "DEEPSEEK_API_KEY")
+      :models '("deepseek-chat")))
   (setq gptel-default-mode 'org-mode
-	gptel-backend rc/gptel-mistral))
+   gptel-backend rc/gptel-mistral))
 
 (use-package corfu
+  :ensure t
   :custom
   (corfu-auto t)
-  (corfu-auto-prefix 2)
-  (corfu-auto-delay 0)
+  (corfu-auto-prefix 1)
+  (corfu-auto-delay 0.05)
   (corfu-quit-no-match 'separator)
   :bind (:map corfu-map
-	      ("RET" . nil))
+	 ("RET" . nil))
   :init
   (global-corfu-mode 1)
   (corfu-history-mode 1)
   :hook (evil-insert-exit . corfu-quit))
 
 (use-package which-key
+  :ensure t
   :config
   (which-key-mode -1))
 
