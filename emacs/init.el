@@ -20,7 +20,7 @@
 
 ;;; UI
 (setq modus-themes-common-palette-overrides '((fringe unspecified)))
-(load-theme 'modus-vivendi)
+(load-theme 'ef-autumn)
 (set-face-attribute 'default nil :family "Iosevka SS11" :height 170)
 (set-face-attribute 'fixed-pitch nil :family "Iosevka SS11" :height 140)
 (set-face-attribute 'modus-themes-fixed-pitch nil :family "Iosevka SS11" :height 140)
@@ -157,9 +157,9 @@
   :config
   (doom-modeline-mode 1)
   (setq doom-modeline-icon nil
-   doom-modeline-major-mode-color-icon nil
-   doom-modeline-bar-width 0
-   doom-modeline-modal nil))
+	doom-modeline-major-mode-color-icon nil
+	doom-modeline-bar-width 0
+	doom-modeline-modal nil))
 
 (keymap-global-set "C-x C-o" 'recentf)
 
@@ -200,10 +200,10 @@
   :custom
   (corfu-auto t)
   (corfu-auto-prefix 1)
-  (corfu-auto-delay 0.05)
+  (corfu-auto-delay 0.03)
   (corfu-quit-no-match 'separator)
   :bind (:map corfu-map
-	 ("RET" . nil))
+         ("RET" . nil))
   :init
   (global-corfu-mode 1)
   (corfu-history-mode 1)
