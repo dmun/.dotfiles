@@ -58,7 +58,10 @@
 (setq use-short-answers t)
 (setq mouse-wheel-scroll-amount '(5)
       mouse-wheel-progressive-speed nil)
-(setq scroll-conservatively 1)
+(setq scroll-conservatively 1
+      scroll-margin 0
+      maximum-scroll-margin 0
+      scroll-preserve-screen-position t)
 (setq use-file-dialog nil)
 (setq use-dialog-box nil)
 (setq word-wrap t)
@@ -92,8 +95,6 @@
 	 nil
 	 (body-function . select-window))
 	))
-
-(use-package helpful :ensure t)
 
 (use-package org-tempo
   :ensure nil
@@ -248,9 +249,11 @@
   (corfu-auto-delay 0.03)
   (corfu-quit-no-match 'separator)
   :bind (:map corfu-map
-         ("RET" . nil))
+	      ("C-SPC" . 'corfu-info-documentation)
+	      ("RET" . nil))
   :init
   (global-corfu-mode 1)
+  (corfu-popupinfo-mode 1)
   (corfu-history-mode 1)
   :hook ((evil-insert-exit . corfu-quit)
 	 (corfu-mode . (lambda () (face-remap-add-relative 'fringe :background nil)))))
