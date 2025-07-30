@@ -94,6 +94,10 @@
 	("\\*Help\\*"
 	 nil
 	 (body-function . select-window))
+
+	("\\*Man"
+	 nil
+	 (body-function . select-window))
 	))
 
 (use-package org-tempo
@@ -101,11 +105,6 @@
   :config
   (setq org-hide-emphasis-markers t)
   (setq org-hide-leading-stars t))
-
-(add-hook 'org-mode-hook (lambda ()
-			   (org-indent-mode)
-			   (visual-line-mode)
-			   (word-wrap-whitespace-mode)))
 
 (setq org-agenda-files '("~/.config/emacs/"))
 
@@ -121,8 +120,9 @@
 (use-package treesit-auto
   :config
   (treesit-auto-add-to-auto-mode-alist 'all))
-(use-package eglot :ensure t)
-(use-package org :ensure t)
+(use-package eglot)
+(use-package org)
+(use-package org-indent :hook org-mode)
 (use-package lsp-mode :ensure t)
 (use-package lua-mode :ensure t)
 (use-package kdl-mode :ensure t)
@@ -136,7 +136,7 @@
 	;; evil-disable-insert-state-bindings t
 	evil-want-C-i-jump t
 	evil-want-C-u-scroll t
-	evil-undo-system nil
+	evil-undo-system 'undo-fu
 	evil-move-beyond-eol nil
 	evil-move-cursor-back t)
   :config
@@ -153,6 +153,8 @@
   :ensure t
   :hook (org-mode)
   :config
+  (require 'evil-org)
+  (evil-org-set-key-theme '(navigation insert textobjects additional calendar))
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys)) 
 
@@ -194,7 +196,7 @@
 
 (use-package enhanced-evil-paredit
   :ensure t
-  :hook (paredit-mode))
+  :hook paredit-mode)
 
 (use-package dabbrev :ensure t)
 (use-package transient :ensure t)
@@ -225,21 +227,26 @@
   (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "*** ")
   (setf (alist-get 'org-mode gptel-response-prefix-alist) "")
   (add-hook 'gptel-mode-hook (lambda () (variable-pitch-mode)))
+  (setq rc/gptel-anthropic
+	(gptel-make-anthropic "Claude"
+	  :stream t
+	  :key (getenv "ANTHROPIC_API_KEY")
+	  :models '("claude-sonnet-4-0")))
   (setq rc/gptel-mistral
-   (gptel-make-openai "MistralLeChat"
-      :host "api.mistral.ai"
-      :stream t
-      :endpoint "/v1/chat/completions"
-      :protocol "https"
-      :key (getenv "MISTRAL_API_KEY")
-      :models '("mistral-large-latest")))
+	(gptel-make-openai "MistralLeChat"
+	  :host "api.mistral.ai"
+	  :stream t
+	  :endpoint "/v1/chat/completions"
+	  :protocol "https"
+	  :key (getenv "MISTRAL_API_KEY")
+	  :models '("mistral-large-latest")))
   (setq rc/gptel-deepseek
-   (gptel-make-deepseek "Deepseek"
-      :stream t
-      :key (getenv "DEEPSEEK_API_KEY")
-      :models '("deepseek-chat")))
+	(gptel-make-deepseek "Deepseek"
+	  :stream t
+	  :key (getenv "DEEPSEEK_API_KEY")
+	  :models '("deepseek-chat")))
   (setq gptel-default-mode 'org-mode
-   gptel-backend rc/gptel-mistral))
+	gptel-backend rc/gptel-anthropic))
 
 (use-package corfu
   :ensure t
@@ -252,30 +259,33 @@
 	      ("C-SPC" . 'corfu-info-documentation)
 	      ("RET" . nil))
   :init
-  (global-corfu-mode 1)
-  (corfu-popupinfo-mode 1)
-  (corfu-history-mode 1)
-  :hook ((evil-insert-exit . corfu-quit)
-	 (corfu-mode . (lambda () (face-remap-add-relative 'fringe :background nil)))))
+  (global-corfu-mode)
+  (corfu-popupinfo-mode)
+  (corfu-history-mode)
+  :hook (evil-insert-exit . corfu-quit))
+
+(use-package dired
+  :config
+  (setq dired-listing-switches "-Alh --group-directories-first"))
+
+(use-package dired-hide-details :hook dired-mode)
+(use-package nerd-icons-dired :ensure t :hook dired-mode)
 
 (use-package which-key
   :ensure t
-  :config
-  (which-key-mode 1))
+  :config (which-key-mode))
 
 ;;; Leader
 (define-prefix-command 'evil-leader)
-
 (evil-define-key '(motion normal) 'global
-  (kbd "SPC") 'evil-leader
-  (kbd "SPC") 'evil-leader
-  "j" 'evil-next-visual-line
-  "k" 'evil-previous-visual-line)
+  (kbd "SPC") 'evil-leader)
 
 (evil-define-key 'insert 'global
   (kbd "C-w") 'evil-delete-backward-word)
 
 (evil-define-key 'normal 'global
+  "j" 'evil-next-visual-line
+  "k" 'evil-previous-visual-line
   "-"  'project-dired
   "g/" 'consult-grep
   "gs" 'consult-outline
