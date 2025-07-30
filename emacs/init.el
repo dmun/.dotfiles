@@ -19,27 +19,48 @@
 (setq read-process-output-max (* 8 1024 1024))
 
 ;;; UI
-(setq modus-themes-common-palette-overrides '((fringe unspecified)))
-(load-theme 'ef-autumn)
-(set-face-attribute 'default nil :family "Iosevka SS11" :height 170)
-(set-face-attribute 'fixed-pitch nil :family "Iosevka SS11" :height 140)
-(set-face-attribute 'modus-themes-fixed-pitch nil :family "Iosevka SS11" :height 140)
-(set-face-attribute 'variable-pitch nil :family "Aporetic Serif" :height 140)
-(set-face-attribute 'fringe nil :foreground (face-attribute 'shadow :foreground))
+(setq ef-themes-mixed-fonts t)
+(setq ef-themes-variable-pitch-ui t)
+(setq ef-themes-headings
+      '((0 default 1.2)
+	(1 default 1.1)
+	(2 default 1.0)
+	(3 default 1.0)
+	(4 default 1.0)
+	(5 default 1.0)
+	(6 default 1.0)
+	(7 default 1.0)
+	(t default 1.0)))
+
+(custom-set-faces
+ `(default
+   ((t :family "Aporetic Sans Mono"
+       :height 170)))
+ `(fixed-pitch
+   ((t :family "Aporetic Sans Mono"
+       :height 150)))
+ `(variable-pitch
+   ((t :family "Aporetic Serif"
+       :height 150)))
+ `(fringe ((t :background nil))))
+
+(load-theme 'ef-autumn t)
 
 (global-display-line-numbers-mode -1)
 
-(recentf-mode 1)
-(savehist-mode 1)
-(save-place-mode 1)
-(global-auto-revert-mode 1)
+(visual-line-mode -1)
+(word-wrap-whitespace-mode)
+(recentf-mode)
+(savehist-mode)
+(save-place-mode)
+(global-auto-revert-mode)
 
+(setq use-short-answers t)
 (setq mouse-wheel-scroll-amount '(5)
       mouse-wheel-progressive-speed nil)
 (setq scroll-conservatively 1)
 (setq use-file-dialog nil)
 (setq use-dialog-box nil)
-(setq yes-or-no-p 'y-or-n-p)
 (setq word-wrap t)
 (blink-cursor-mode 0)
 
@@ -57,9 +78,22 @@
 (use-package vterm :ensure t)
 (use-package magit :ensure t)
 
-(use-package org-bullets
-  :ensure t
-  :hook (org-mode))
+(setq display-buffer-alist nil)
+(setq display-buffer-alist
+      '(("\\*compilation\\*"
+	 (display-buffer-reuse-mode-window
+	  display-buffer-below-selected)
+	 (window-height . fit-window-to-buffer))
+
+	("magit: "
+	 (display-buffer-same-window))
+
+	("\\*Help\\*"
+	 nil
+	 (body-function . select-window))
+	))
+
+(use-package helpful :ensure t)
 
 (use-package org-tempo
   :ensure nil
@@ -67,18 +101,21 @@
   (setq org-hide-emphasis-markers t)
   (setq org-hide-leading-stars t))
 
-(custom-theme-set-faces 'user '(org-indent ((t (:inherit (org-hide fixed-pitch))))))
-(custom-theme-set-faces
- 'user
- '(org-level-8 ((t (,@headline ,@variable-tuple))))
- '(org-level-7 ((t (,@headline ,@variable-tuple))))
- '(org-level-6 ((t (,@headline ,@variable-tuple))))
- '(org-level-5 ((t (,@headline ,@variable-tuple))))
- '(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
- '(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
- '(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
- '(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
- '(org-document-title ((t (,@headline ,@variable-tuple :height 2.0 :underline nil)))))
+(add-hook 'org-mode-hook (lambda ()
+			   (org-indent-mode)
+			   (visual-line-mode)
+			   (word-wrap-whitespace-mode)))
+
+(setq org-agenda-files '("~/.config/emacs/"))
+
+(use-package multiple-cursors
+  :ensure t
+  :bind (("C->" . 'mc/mark-next-lines)
+	 ("C-<" . 'mc/mark-previous-lines))
+  :config
+  (setq mc/always-run-for-all t)
+  (add-to-list 'mc/cmds-to-run-once 'mc/mark-previous-lines)
+  (add-to-list 'mc/cmds-to-run-once 'mc/mark-next-lines)) 
 
 (use-package treesit-auto
   :config
@@ -87,6 +124,7 @@
 (use-package org :ensure t)
 (use-package lsp-mode :ensure t)
 (use-package lua-mode :ensure t)
+(use-package kdl-mode :ensure t)
 
 (use-package evil
   :demand
@@ -94,11 +132,12 @@
   :bind ("<escape>" . keyboard-escape-quit)
   :init
   (setq evil-want-keybinding nil
-  ;; evil-disable-insert-state-bindings t
-   evil-want-C-u-scroll t
-   evil-undo-system 'undo-fu
-   evil-move-beyond-eol nil
-   evil-move-cursor-back t)
+	;; evil-disable-insert-state-bindings t
+	evil-want-C-i-jump t
+	evil-want-C-u-scroll t
+	evil-undo-system nil
+	evil-move-beyond-eol nil
+	evil-move-cursor-back t)
   :config
   (setq evil-insert-state-cursor '(box))
   (evil-mode 1))
@@ -108,6 +147,13 @@
   :config
   (setq evil-want-integration t)
   (evil-collection-init))
+
+(use-package evil-org :after evil
+  :ensure t
+  :hook (org-mode)
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys)) 
 
 (use-package marginalia
   :ensure t
@@ -122,20 +168,20 @@
   (completion-category-defaults nil)
   (completion-category-overrides '((file (styles basic partial-completion)))))
 
-(defun rc/disable-window-fringes ()
-  (set-window-fringes (selected-window) 0 0))
-;; (add-hook 'minibuffer-setup-hook #'rc/disable-window-fringes)
+(advice-add 'spacious-padding-set-faces
+	    :after
+	    (lambda () (custom-set-faces `(fringe ((t :background nil))))))
 
 (use-package spacious-padding
   :ensure t
   :config
-  (spacious-padding-mode))
+  (spacious-padding-mode 1))
 
 (use-package consult :ensure t)
 (use-package vertico
   :ensure t
   :bind (:map vertico-map
-         ("C-w" . 'evil-delete-backward-word))
+	      ("C-w" . 'evil-delete-backward-word))
   :config
   (setq vertico-preselect 'first)
   (vertico-mode)
@@ -143,7 +189,7 @@
 
 (use-package paredit
   :ensure t
-  :hook ((lisp-mode emacs-lisp-mode) . paredit-mode))
+  :hook (lisp-mode emacs-lisp-mode))
 
 (use-package enhanced-evil-paredit
   :ensure t
@@ -166,7 +212,6 @@
 (use-package adaptive-wrap
   :ensure t
   :config
-  (word-wrap-whitespace-mode)
   (setq adaptive-wrap-extra-indent 2)
   (adaptive-wrap-prefix-mode))
 
@@ -177,7 +222,7 @@
   (setf (alist-get 'markdown-mode gptel-prompt-prefix-alist) "# ")
   (setf (alist-get 'markdown-mode gptel-response-prefix-alist) "")
   (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "*** ")
-  (setf (alist-get 'org-mode gptel-response-prefix-alist) "\n")
+  (setf (alist-get 'org-mode gptel-response-prefix-alist) "")
   (add-hook 'gptel-mode-hook (lambda () (variable-pitch-mode)))
   (setq rc/gptel-mistral
    (gptel-make-openai "MistralLeChat"
@@ -207,12 +252,13 @@
   :init
   (global-corfu-mode 1)
   (corfu-history-mode 1)
-  :hook (evil-insert-exit . corfu-quit))
+  :hook ((evil-insert-exit . corfu-quit)
+	 (corfu-mode . (lambda () (face-remap-add-relative 'fringe :background nil)))))
 
 (use-package which-key
   :ensure t
   :config
-  (which-key-mode -1))
+  (which-key-mode 1))
 
 ;;; Leader
 (define-prefix-command 'evil-leader)
@@ -237,6 +283,7 @@
 (evil-define-key nil evil-leader
   "t"  'vterm
   "h"  'customize-face
+  "a"  'org-agenda
   "c"  'gptel
   "g"  'magit
   "mR" 'compile
