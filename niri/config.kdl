@@ -51,7 +51,7 @@ layout {
     focus-ring {
         width 2
 
-        active-color "hsl(35 90% 70%)"
+        active-color "hsl(35, 90%, 70%)"
     }
 
     shadow {

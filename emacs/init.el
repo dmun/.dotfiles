@@ -33,7 +33,7 @@
 (custom-set-faces
  '(default ((t :family "Aporetic Sans Mono" :height 170)))
  '(fixed-pitch ((t :family "Aporetic Sans Mono" :height 150)))
- '(variable-pitch ((t :family "Aporetic Sans" :height 150)))
+ '(variable-pitch ((t :family "Aporetic Serif" :height 150)))
  '(fringe ((t :background nil))))
 
 (load-theme 'ef-autumn t)
