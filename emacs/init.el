@@ -1,24 +1,29 @@
-(setq custom-file "~/.emacs.custom")
 (menu-bar-mode -1)
+
+(setq create-lockfiles nil
+      make-backup-files nil
+      delete-by-moving-to-trash t
+      ring-bell-function 'ignore
+      auto-save-default nil
+      use-dialog-box nil)
 
 (setq frame-resize-pixelwise t
       frame-inhibit-implied-resize t
       use-short-answers t)
 
-(defun rc/new-frame-setup (&optional frame)
-  (when (display-graphic-p frame)
-    (tool-bar-mode -1)
-    (scroll-bar-mode -1)))
-(mapc 'rc/new-frame-setup (frame-list))
-(add-hook 'after-make-frame-functions 'rc/new-frame-setup)
+;; (defun setup-new-frame (&optional frame)
+;;   (when (display-graphic-p frame)
+;;     (tool-bar-mode -1)
+;;     (scroll-bar-mode -1)))
+;; (mapc 'rc/new-frame-setup (frame-list))
+;; (add-hook 'after-make-frame-functions setup-new-frame)
 
 (if (and (fboundp 'native-comp-available-p) (native-comp-available-p))
     (message "Native compilation is available")
   (message "Native compilation is NOT available"))
-(setq gc-cons-threshold (* 64 1000 1000))
-(setq read-process-output-max (* 8 1024 1024))
 
 ;;; UI
+(use-package ef-themes :ensure t)
 (setq ef-themes-mixed-fonts t)
 (setq ef-themes-variable-pitch-ui t)
 (setq ef-themes-headings
@@ -33,16 +38,10 @@
 	(t default 1.0)))
 
 (custom-set-faces
- `(default
-   ((t :family "Aporetic Sans Mono"
-       :height 170)))
- `(fixed-pitch
-   ((t :family "Aporetic Sans Mono"
-       :height 150)))
- `(variable-pitch
-   ((t :family "Aporetic Serif"
-       :height 150)))
- `(fringe ((t :background nil))))
+ '(default ((t :family "Aporetic Sans Mono" :height 170)))
+ '(fixed-pitch ((t :family "Aporetic Sans Mono" :height 150)))
+ '(variable-pitch ((t :family "Aporetic Sans" :height 150)))
+ '(fringe ((t :background nil))))
 
 (load-theme 'ef-autumn t)
 
@@ -55,6 +54,7 @@
 (save-place-mode)
 (global-auto-revert-mode)
 
+(setq inhibit-startup-message t)
 (setq use-short-answers t)
 (setq mouse-wheel-scroll-amount '(5)
       mouse-wheel-progressive-speed nil)
@@ -62,21 +62,12 @@
       scroll-margin 0
       maximum-scroll-margin 0
       scroll-preserve-screen-position t)
-(setq use-file-dialog nil)
-(setq use-dialog-box nil)
-(setq word-wrap t)
+(setq use-file-dialog nil
+      use-dialog-box nil)
+
 (blink-cursor-mode 0)
 
 ;;; Packages
-(require 'package)
-(require 'use-package)
-(setq use-package-always-ensure nil)
-(setq inhibit-startup-message t)
-
-(package-initialize)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-
 (use-package sudo-edit :ensure t)
 (use-package vterm :ensure t)
 (use-package magit :ensure t)
@@ -86,7 +77,8 @@
       '(("\\*compilation\\*"
 	 (display-buffer-reuse-mode-window
 	  display-buffer-below-selected)
-	 (window-height . fit-window-to-buffer))
+	 (window-height . 12)
+	 (body-function . select-window))
 
 	("magit: "
 	 (display-buffer-same-window))
@@ -118,6 +110,7 @@
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-next-lines)) 
 
 (use-package treesit-auto
+  :ensure t
   :config
   (treesit-auto-add-to-auto-mode-alist 'all))
 (use-package eglot)
@@ -127,18 +120,17 @@
 (use-package lua-mode :ensure t)
 (use-package kdl-mode :ensure t)
 
+(use-package undo-fu :ensure t)
 (use-package evil
   :demand
   :ensure t
   :bind ("<escape>" . keyboard-escape-quit)
   :init
   (setq evil-want-keybinding nil
-	;; evil-disable-insert-state-bindings t
+	evil-disable-insert-state-bindings t
 	evil-want-C-i-jump t
 	evil-want-C-u-scroll t
-	evil-undo-system 'undo-fu
-	evil-move-beyond-eol nil
-	evil-move-cursor-back t)
+	evil-undo-system 'undo-fu)
   :config
   (setq evil-insert-state-cursor '(box))
   (evil-mode 1))
@@ -149,7 +141,7 @@
   (setq evil-want-integration t)
   (evil-collection-init))
 
-(use-package evil-org :after evil
+(use-package evil-org
   :ensure t
   :hook (org-mode)
   :config
@@ -212,6 +204,8 @@
 
 (keymap-global-set "C-x C-o" 'recentf)
 
+(use-package visual-line :hook org-mode)
+(use-package variable-pitch :hook (gptel-mode help-mode))
 (use-package adaptive-wrap
   :ensure t
   :config
@@ -226,7 +220,6 @@
   (setf (alist-get 'markdown-mode gptel-response-prefix-alist) "")
   (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "*** ")
   (setf (alist-get 'org-mode gptel-response-prefix-alist) "")
-  (add-hook 'gptel-mode-hook (lambda () (variable-pitch-mode)))
   (setq rc/gptel-anthropic
 	(gptel-make-anthropic "Claude"
 	  :stream t
@@ -266,6 +259,9 @@
 
 (use-package dired
   :config
+  (setq dired-mouse-drag-files t)
+  (setq dired-free-space nil)
+  (setq dired-kill-when-opening-new-dired-buffer t)
   (setq dired-listing-switches "-Alh --group-directories-first"))
 
 (use-package dired-hide-details :hook dired-mode)
