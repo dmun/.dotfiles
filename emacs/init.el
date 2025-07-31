@@ -11,13 +11,6 @@
       frame-inhibit-implied-resize t
       use-short-answers t)
 
-;; (defun setup-new-frame (&optional frame)
-;;   (when (display-graphic-p frame)
-;;     (tool-bar-mode -1)
-;;     (scroll-bar-mode -1)))
-;; (mapc 'rc/new-frame-setup (frame-list))
-;; (add-hook 'after-make-frame-functions setup-new-frame)
-
 (if (and (fboundp 'native-comp-available-p) (native-comp-available-p))
     (message "Native compilation is available")
   (message "Native compilation is NOT available"))
