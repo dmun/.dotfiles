@@ -1,9 +1,9 @@
-(menu-bar-mode -1)
-
-(setq frame-resize-pixelwise t)
-(setq frame-inhibit-implied-resize t)
+(defmacro load-module (module)
+  `(load-file (expand-file-name ,(format "modules/%s.el" (symbol-name module)) user-emacs-directory)))
 
 (setq-default tab-width 4)
+(setq frame-resize-pixelwise t)
+(setq frame-inhibit-implied-resize t)
 (setq create-lockfiles nil)
 (setq make-backup-files nil)
 (setq delete-by-moving-to-trash t)
@@ -21,9 +21,6 @@
 (setq scroll-preserve-screen-position t)
 (setq use-file-dialog nil)
 (setq use-dialog-box nil)
-
-(defmacro load-module (module)
-  `(load-file (expand-file-name ,(format "modules/%s.el" (symbol-name module)) user-emacs-directory)))
 
 (load-module ui)
 (load-module editor)
