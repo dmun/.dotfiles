@@ -5,9 +5,7 @@
 (require 'package)
 (require 'use-package)
 
-(defmacro expand-xdg-data-home (file)
-  (expand-file-name (concat "emacs/" file) (xdg-data-home)))
-
+(setq treesit-extra-load-path '((expand-file-name "emacs/tree-sitter" (xdg-data-home))))
 (setq package-user-dir (expand-file-name "emacs/elpa" (xdg-data-home)))
 (startup-redirect-eln-cache (expand-file-name "emacs/eln-cache" (xdg-cache-home)))
 (package-initialize)

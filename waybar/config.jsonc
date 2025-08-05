@@ -1,6 +1,6 @@
 {
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
   "spacing": 0,
   "height": 0,
   "passthrough": false,
@@ -13,7 +13,7 @@
   "margin-left": 0,
 
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
+  // "modules-center": ["niri/window"],
   // "modules-right": ["tray", "cpu", "memory", "network", "pulseaudio"],
   "modules-right": ["tray", "pulseaudio", "clock"],
 
@@ -36,18 +36,18 @@
     "persistent-workspaces": {
       "*": 5,
     },
-    // "format-icons": {
-    //   "1": "I",
-    //   "2": "II",
-    //   "3": "III",
-    //   "4": "IV",
-    //   "5": "V",
-    //   "6": "VI",
-    //   "7": "VII",
-    //   "8": "VIII",
-    //   "9": "IX",
-    //   "10": "X",
-    // },
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "VI",
+      "7": "VII",
+      "8": "VIII",
+      "9": "IX",
+      "10": "X",
+    },
   },
 
   "tray": {

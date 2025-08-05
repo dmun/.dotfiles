@@ -1,14 +1,16 @@
 @define-color bg #000000;
 @define-color bg_alt rgba(255, 255, 255, 0.15);
 @define-color border #3e74b2;
-@define-color fg #ffffff;
+@define-color fg #9D5576;
 
 * {
+	/* all: initial; */
     border: none;
     border-radius: 0;
     min-height: 0;
     font-family: "Iosevka SS14";
-    font-size: 18px;
+	font-weight: normal;
+    font-size: 20px;
 }
 
 window#waybar {
@@ -16,24 +18,28 @@ window#waybar {
 }
 
 #clock,
-#tray,
 #cpu,
 #memory,
 #battery,
 #network,
 #window,
 #pulseaudio {
-    margin: 0px 8px;
-    padding: 0px 8px;
+    margin: 0px 4px;
+    padding: 0px 4px;
     min-width: 96px;
     color: @fg;
 }
+
+#tray {
+    margin: 0;
+}
+
 #custom-os-icon {
     background-image: url("/home/david/Downloads/penguin.png");
     background-repeat: no-repeat;
     background-size: 28px;
     min-width: 24px;
-    margin: 1px 12px 0px 24px;
+    /* margin: 1px 12px 0px 24px; */
 }
 #window {
     font-weight: bold;
@@ -46,11 +52,13 @@ window#waybar {
 
 #workspaces button {
     transition: 0;
-    color: grey;
+    color: @fg;
+    padding: 4px 16px 4px 16px;
 }
 
 #workspaces button.active {
     color: black;
+	background-color: @fg;
 }
 
 #workspaces button:hover {
