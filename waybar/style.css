@@ -4,17 +4,16 @@
 @define-color fg #9D5576;
 
 * {
-	/* all: initial; */
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    font-family: "Iosevka SS14";
-	font-weight: normal;
-    font-size: 20px;
+  /* all: initial; */
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "Iosevka SS14";
+  font-size: 20px;
 }
 
 window#waybar {
-    background: @bg;
+  background: @bg;
 }
 
 #clock,
@@ -23,60 +22,62 @@ window#waybar {
 #battery,
 #network,
 #window,
+#custom-gpu-recorder,
 #pulseaudio {
-    margin: 0px 4px;
-    padding: 0px 4px;
-    min-width: 96px;
-    color: @fg;
+  margin: 0px 4px;
+  padding: 0px 4px;
+  min-width: 96px;
+  color: @fg;
 }
 
 #tray {
-    margin: 0;
+  margin: 0;
 }
 
 #custom-os-icon {
-    background-image: url("/home/david/Downloads/penguin.png");
-    background-repeat: no-repeat;
-    background-size: 28px;
-    min-width: 24px;
-    /* margin: 1px 12px 0px 24px; */
+  background-image: url("/home/david/Downloads/penguin.png");
+  background-repeat: no-repeat;
+  background-size: 28px;
+  min-width: 24px;
+  /* margin: 1px 12px 0px 24px; */
 }
+
 #window {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #pulseaudio:hover {
-    color: white;
-    background-color: black;
+  color: white;
+  background-color: black;
 }
 
 #workspaces button {
-    transition: 0;
-    color: @fg;
-    padding: 4px 16px 4px 16px;
+  transition: 0;
+  color: @fg;
+  padding: 4px 16px 4px 16px;
 }
 
 #workspaces button.active {
-    color: black;
-	background-color: @fg;
+  color: black;
+  background-color: @fg;
 }
 
 #workspaces button:hover {
-    color: white;
-    background-color: black;
+  color: white;
+  background-color: black;
 }
 
 #workspaces button.urgent {
-    background-color: #e78a4e;
+  background-color: #e78a4e;
 }
 
 #cpu.critical,
 #memory.critical {
-    color: #c14a4a;
+  color: #c14a4a;
 }
 
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-    color: #c14a4a;
+  color: #c14a4a;
 }

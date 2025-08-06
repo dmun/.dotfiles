@@ -3,9 +3,9 @@ shell-integration = zsh
 shell-integration-features = no-cursor
 
 theme = iTerm2 Default
-background = 111111
+background = 170D1D
 
-font-family             = monospace
+font-family             = Iosevka Term Nerd Font
 font-size = 18
 font-thicken
 font-thicken-strength = 255
@@ -14,8 +14,8 @@ font-thicken-strength = 255
 # cursor-text = #000000
 cursor-style = block
 cursor-style-blink = false
-adjust-cell-height = 10%
-adjust-cursor-height = 10%
+adjust-cell-height = 0%
+adjust-cursor-height = 5%
 adjust-cursor-thickness = 6
 adjust-box-thickness = 0
 adjust-underline-thickness = 0
@@ -23,11 +23,11 @@ bold-is-bright = true
 cursor-invert-fg-bg
 mouse-hide-while-typing
 
-window-vsync = true
+window-vsync = false
 # macos-titlebar-style = hidden
-window-decoration = false
-window-padding-y = 2,0
-window-padding-x = 4,0
+window-decoration = true
+window-padding-y = 0,4
+window-padding-x = 2,0
 window-padding-balance = false
 # window-padding-color = extend-always
 window-padding-color = extend
