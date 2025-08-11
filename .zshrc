@@ -21,11 +21,6 @@ SAVEHIST=10000
 parse_git_branch() {
     git branch --show 2> /dev/null | sed -E 's/(.+)/ (\1)/g'
 }
-precmd() {
-    precmd() {
-        echo
-    }
-}
 
 setopt PROMPT_SUBST
 PROMPT=""
