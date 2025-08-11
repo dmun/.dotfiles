@@ -67,7 +67,7 @@
   "k" 'evil-previous-visual-line
   "-"  'dired-jump
   "g/" 'consult-grep
-  "gs" 'consult-outline
+  "gs" 'consult-imenu
   "gl" 'evil-end-of-line
   "gh" 'evil-first-non-blank
   "gw" 'other-window)
@@ -105,3 +105,13 @@
 			 (lambda ()
 				(modify-syntax-entry ?_ "w")
 				(modify-syntax-entry ?- "w")))
+
+(use-package evil-textobj-tree-sitter :ensure t)
+
+;; bind `function.outer`(entire function block) to `f` for use in things like `vaf`, `yaf`
+(define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
+;; bind `function.inner`(function block without name and args) to `f` for use in things like `vif`, `yif`
+(define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner"))
+
+;; You can also bind multiple items and we will match the first one we can find
+(define-key evil-outer-text-objects-map "a" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer")))
