@@ -21,6 +21,11 @@ SAVEHIST=10000
 parse_git_branch() {
     git branch --show 2> /dev/null | sed -E 's/(.+)/ (\1)/g'
 }
+precmd() {
+    precmd() {
+        echo
+    }
+}
 
 setopt PROMPT_SUBST
 PROMPT=""
@@ -80,6 +85,7 @@ alias em='emacsclient -nw'
 alias lg=lazygit
 alias pac='sudo pacman -S'
 alias par='paru -S'
+alias ls="ls --color=auto"
 
 alias pacs="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pacr="pacman -Qeq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"

@@ -21,8 +21,8 @@
 
 (dolist (variable '(initial-frame-alist default-frame-alist))
   (set variable `((horizontal-scroll-bars . nil)
-						(vertical-scroll-bars . nil)
-						(menu-bar-lines . 0)
-						(tool-bar-lines . 0))))
+                  (vertical-scroll-bars . nil)
+                  (menu-bar-lines . 0)
+                  (tool-bar-lines . 0))))
 
 (use-package exec-path-from-shell :ensure t)
