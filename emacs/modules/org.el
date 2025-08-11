@@ -7,3 +7,4 @@
 
 (use-package org-indent :hook org-mode)
 (use-package org-tempo)
+(use-package org-habit)

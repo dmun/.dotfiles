@@ -19,16 +19,19 @@
   :demand
   :ensure t
   :bind ("<escape>" . keyboard-escape-quit)
+  :hook
+  (after-init . evil-mode)
   :init
-  (setq evil-want-keybinding nil
-   evil-disable-insert-state-bindings t
-   evil-want-C-i-jump t
-   evil-want-C-u-scroll t
-   evil-want-fine-undo nil
-   evil-undo-system 'undo-tree)
-  :config
+  (setq evil-want-keybinding nil)
+  (setq evil-disable-insert-state-bindings t)
+  (setq evil-want-C-i-jump t)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-fine-undo nil)
+  (setq evil-undo-system 'undo-tree)
   (setq evil-insert-state-cursor '(box))
-  (evil-mode 1))
+  (setq evil-leader/in-all-states t)
+  :config
+  (evil-set-undo-system 'undo-tree))
 
 (use-package evil-collection :after evil
   :ensure t
@@ -97,3 +100,8 @@
   (setq mc/always-run-for-all t)
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-previous-lines)
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-next-lines)) 
+
+(add-hook 'prog-mode-hook 
+			 (lambda ()
+				(modify-syntax-entry ?_ "w")
+				(modify-syntax-entry ?- "w")))

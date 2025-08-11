@@ -1,3 +1,5 @@
+(add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+
 (custom-set-faces
  '(default ((t :family "Iosevka Term" :height 180)))
  '(fixed-pitch ((t :family "Iosevka Term")))
@@ -5,6 +7,7 @@
  '(line-number ((t :background nil)))
  '(line-number-current-line ((t :background nil)))
  '(fringe ((t :background nil)))
+ '(default ((t :foreground "white")))
  '(mode-line ((t :box (:line-width 4 :color "#5F1F5F" :style nil))))
  '(mode-line-inactive ((t :box (:line-width 4 :color "#2A2F42" :style nil)))))
 
@@ -12,6 +15,7 @@
 (word-wrap-whitespace-mode)
 (blink-cursor-mode 0)
 (set-fringe-style -1)
+(set-fringe-mode 0)
 
 (use-package show-font :ensure t)
 
@@ -89,7 +93,7 @@
   (vertico-mode))
 
 (use-package doom-modeline
-  :disabled
+  ;; :disabled
   :ensure t
   :config
   (doom-modeline-mode 1)
@@ -116,6 +120,8 @@
   (corfu-auto-prefix 1)
   (corfu-auto-delay 0.03)
   (corfu-quit-no-match 'separator)
+  (corfu-max-width 36)
+  (corfu-min-width 36)
   :bind (:map corfu-map
          ("C-SPC" . 'corfu-info-documentation)
          ("RET" . nil))

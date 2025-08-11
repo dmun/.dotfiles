@@ -5,7 +5,7 @@ shell-integration-features = no-cursor
 theme = iTerm2 Default
 background = 170D1D
 
-font-family             = Iosevka Term Nerd Font
+font-family = Iosevka Term Nerd Font
 font-size = 18
 font-thicken
 font-thicken-strength = 255
@@ -26,11 +26,11 @@ mouse-hide-while-typing
 window-vsync = false
 # macos-titlebar-style = hidden
 window-decoration = true
-window-padding-y = 0,4
-window-padding-x = 2,0
+window-padding-y = 4,6
+window-padding-x = 6,4
 window-padding-balance = false
 # window-padding-color = extend-always
-window-padding-color = extend
+# window-padding-color = extend
 # window-colorspace = display-p3
 # window-step-resize
 

@@ -2,8 +2,17 @@
   :ensure t
   :config
   (setq treesit-auto-install 'prompt)
+  (add-to-list 'treesit-auto-recipe-list
+					(make-treesit-auto-recipe
+					 :lang 'hyprlang
+					 :ts-mode 'hyprlang-ts-mode
+					 :remap 'conf-mode
+					 :url "https://github.com/tree-sitter-grammars/tree-sitter-hyprlang"
+					 :ext "\\.conf\\'"))
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
+
+
 (use-package lsp-mode
   :ensure t
   :config
@@ -11,6 +20,7 @@
 (use-package lua-mode :ensure t)
 (use-package kdl-mode :ensure t)
 (use-package sxhkdrc-mode :ensure t)
+(use-package qml-mode :ensure t)
 
 (use-package markdown-mode
   :config
@@ -24,3 +34,11 @@
     :new-connection (lsp-stdio-connection '("pyrefly" "lsp"))
     :major-modes '(python-mode python-ts-mode)
     :server-id 'pyrefly)))
+
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-language-id-configuration '(qml-mode . "qml"))
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection '("qmlls"))
+    :major-modes '(qml-mode qml-ts-mode)
+    :server-id 'qmlls)))
