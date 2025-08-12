@@ -6,6 +6,11 @@
   :ensure t
   :config (which-key-mode))
 
+(use-package dtrt-indent
+  :ensure t
+  :config
+  (dtrt-indent-global-mode))
+
 (use-package undo-fu :ensure t)
 (use-package undo-tree
   :ensure t
@@ -22,6 +27,9 @@
   :hook
   (after-init . evil-mode)
   :init
+  ;; (setq evil-highlight-closing-paren-at-point-states nil)
+  (setq evil-search-module 'evil-search)
+  (setq evil-want-Y-yank-to-eol t)
   (setq evil-want-keybinding nil)
   (setq evil-disable-insert-state-bindings t)
   (setq evil-want-C-i-jump t)
@@ -53,6 +61,7 @@
   :hook (lisp-mode emacs-lisp-mode))
 
 (use-package enhanced-evil-paredit
+  :disabled
   :ensure t
   :hook paredit-mode)
 (define-prefix-command 'evil-leader)
@@ -63,6 +72,8 @@
   (kbd "C-w") 'evil-delete-backward-word)
 
 (evil-define-key 'normal 'global
+  "u" 'undo
+  (kbd "C-r") 'redo
   "j" 'evil-next-visual-line
   "k" 'evil-previous-visual-line
   "-"  'dired-jump
@@ -91,27 +102,65 @@
 (evil-set-initial-state 'eat-mode 'emacs)
 (evil-set-initial-state 'gptel-mode 'emacs)
 
-;;; Multiple Cursors
 (use-package multiple-cursors
+  :disabled
   :ensure t
   :bind (("C->" . 'mc/mark-next-lines)
          ("C-<" . 'mc/mark-previous-lines))
   :config
   (setq mc/always-run-for-all t)
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-previous-lines)
-  (add-to-list 'mc/cmds-to-run-once 'mc/mark-next-lines)) 
+  (add-to-list 'mc/cmds-to-run-once 'mc/mark-next-lines))
+
+(use-package evil-mc
+  :ensure t
+  :config
+  (global-evil-mc-mode)
+  (evil-define-key 'visual evil-mc-key-map
+    "A" #'evil-mc-make-cursor-in-visual-selection-end
+    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
+  (evil-define-key 'normal evil-mc-key-map
+    (kbd "C-n") 'evil-mc-make-and-goto-next-match
+    (kbd "C-p") 'evil-mc-make-and-goto-prev-match))
 
 (add-hook 'prog-mode-hook 
-			 (lambda ()
-				(modify-syntax-entry ?_ "w")
-				(modify-syntax-entry ?- "w")))
+	  (lambda ()
+	    (modify-syntax-entry ?_ "w")
+	    (modify-syntax-entry ?- "w")))
 
-(use-package evil-textobj-tree-sitter :ensure t)
+(defvar my/evil-mc-blacklisted-commands
+  '(evil-search-next
+    evil-search-previous
+    evil-ex
+    undo
+    redo
+    evil-undo
+    evil-redo
+    evil-goto-line
+    evil-goto-first-line
+    evil-jump-backward
+    evil-jump-forward
+    )
+  "Commands that should NOT be executed across multiple cursors.")
 
-;; bind `function.outer`(entire function block) to `f` for use in things like `vaf`, `yaf`
-(define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
-;; bind `function.inner`(function block without name and args) to `f` for use in things like `vif`, `yif`
-(define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner"))
+(defun my/evil-mc-known-command-p (cmd)
+  "Return t if CMD should be executed across cursors (whitelist approach)."
+  (and (commandp cmd)
+       (not (memq cmd my/evil-mc-blacklisted-commands))
+       (or (eq (evil-get-command-property cmd :repeat) 'motion)
+           t)))
 
-;; You can also bind multiple items and we will match the first one we can find
-(define-key evil-outer-text-objects-map "a" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer")))
+(advice-add 'evil-mc-known-command-p :override #'my/evil-mc-known-command-p)
+(advice-add 'newline :after (lambda (&rest args) (indent-according-to-mode)))
+(advice-add 'evil-open-below :after (lambda (&rest args) (indent-according-to-mode)))
+(advice-add 'evil-open-above :after (lambda (&rest args) (indent-according-to-mode)))
+
+(defun my/evil-mc-quit-or-q ()
+  "If evil-mc has active cursors, undo them, otherwise run normal `q`."
+  (interactive)
+  (if (evil-mc-has-cursors-p)
+      (evil-mc-undo-all-cursors)
+    (call-interactively (keymap-lookup evil-normal-state-map "q"))))
+
+(evil-define-key 'normal evil-mc-key-map
+  "q" 'my/evil-mc-quit-or-q)

@@ -1,21 +1,22 @@
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
 
 (custom-set-faces
- '(default ((t :family "Iosevka Term" :height 180)))
- '(fixed-pitch ((t :family "Iosevka Term")))
+ '(default ((t :family "Iosevka SS14" :height 180)))
+ '(fixed-pitch ((t :family "Iosevka SS14")))
  '(variable-pitch ((t :family "Aporetic Serif")))
  '(line-number ((t :background nil)))
  '(line-number-current-line ((t :background nil)))
  '(fringe ((t :background nil)))
  '(default ((t :foreground "white")))
- '(mode-line ((t :box (:line-width 4 :color "#5F1F5F" :style nil))))
- '(mode-line-inactive ((t :box (:line-width 4 :color "#2A2F42" :style nil)))))
+ '(corfu-border ((t :background nil)))
+ '(mode-line ((t :box nil)))
+ '(mode-line-inactive ((t :box nil))))
 
 (visual-line-mode -1)
+(pixel-scroll-precision-mode)
 (word-wrap-whitespace-mode)
 (blink-cursor-mode 0)
-(set-fringe-style -1)
-(set-fringe-mode 0)
+;; (set-fringe-style 0)
 
 (use-package show-font :ensure t)
 
@@ -32,7 +33,7 @@
       (6 default 1.0)
       (7 default 1.0)
       (t default 1.0)))
-(load-theme 'ef-winter t)
+(load-theme 'modus-vivendi t)
 
 (global-display-line-numbers-mode -1)
 (use-package display-line-numbers
@@ -55,7 +56,7 @@
       ("magit: "
          (display-buffer-same-window))
 
-      ("\\*Help\\*"
+      ((derived-mode . help-mode)
          nil
          (body-function . select-window))
 
@@ -93,14 +94,15 @@
   (vertico-mode))
 
 (use-package doom-modeline
-  ;; :disabled
+  :disabled
   :ensure t
   :config
   (doom-modeline-mode 1)
   (setq doom-modeline-icon nil
-   doom-modeline-major-mode-color-icon nil
-   doom-modeline-bar-width 0
-   doom-modeline-modal nil))
+        doom-modeline-major-mode-color-icon nil
+        doom-modeline-height 20
+        doom-modeline-bar-width 0
+        doom-modeline-modal nil))
 
 (use-package adaptive-wrap
   :ensure t
