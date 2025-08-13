@@ -122,8 +122,8 @@
   (corfu-auto-prefix 1)
   (corfu-auto-delay 0.03)
   (corfu-quit-no-match 'separator)
-  (corfu-max-width 36)
-  (corfu-min-width 36)
+  ;; (corfu-max-width 36)
+  ;; (corfu-min-width 36)
   :bind (:map corfu-map
          ("C-SPC" . 'corfu-info-documentation)
          ("RET" . nil))

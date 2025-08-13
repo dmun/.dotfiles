@@ -15,7 +15,7 @@
 (setq no-littering-var-directory (expand-file-name "emacs" (xdg-state-home)))
 (use-package no-littering :ensure t)
 
-(setq custom-file (expand-file-name "emacs/custom.el" (xdg-state-home)))
+(setq custom-file (expand-file-name "emacs/custom.el" (xdg-config-home)))
 (if (file-exists-p custom-file)
     (load custom-file))
 

@@ -112,16 +112,25 @@
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-previous-lines)
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-next-lines))
 
+(defun my/evil-mc-quit-or-q ()
+  (interactive)
+  (if (evil-mc-has-cursors-p)
+      (evil-mc-undo-all-cursors)
+    (call-interactively (keymap-lookup nil "q"))))
+
 (use-package evil-mc
   :ensure t
+  :hook (prog-mode text-mode)
   :config
-  (global-evil-mc-mode)
   (evil-define-key 'visual evil-mc-key-map
-    "A" #'evil-mc-make-cursor-in-visual-selection-end
-    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
+    "q" 'evil-mc-make-cursor-in-visual-selection-beg)
   (evil-define-key 'normal evil-mc-key-map
     (kbd "C-n") 'evil-mc-make-and-goto-next-match
     (kbd "C-p") 'evil-mc-make-and-goto-prev-match))
+
+(add-hook 'evil-mc-mode-hook
+          (lambda ()
+            (evil-local-set-key 'normal (kbd "q") 'my/evil-mc-quit-or-q)))
 
 (add-hook 'prog-mode-hook 
 	  (lambda ()
@@ -154,13 +163,3 @@
 (advice-add 'newline :after (lambda (&rest args) (indent-according-to-mode)))
 (advice-add 'evil-open-below :after (lambda (&rest args) (indent-according-to-mode)))
 (advice-add 'evil-open-above :after (lambda (&rest args) (indent-according-to-mode)))
-
-(defun my/evil-mc-quit-or-q ()
-  "If evil-mc has active cursors, undo them, otherwise run normal `q`."
-  (interactive)
-  (if (evil-mc-has-cursors-p)
-      (evil-mc-undo-all-cursors)
-    (call-interactively (keymap-lookup evil-normal-state-map "q"))))
-
-(evil-define-key 'normal evil-mc-key-map
-  "q" 'my/evil-mc-quit-or-q)
