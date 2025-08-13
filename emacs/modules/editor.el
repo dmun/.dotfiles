@@ -1,3 +1,19 @@
+(defun my/evil-save-nohl ()
+  (interactive)
+  (save-buffer)
+  (evil-ex-nohighlight))
+
+(defun my/evil-mc-quit-or-q ()
+  (interactive)
+  (cond ((evil-mc-has-cursors-p) (evil-mc-undo-all-cursors))
+        ((or (derived-mode-p 'special-mode) 'dired-mode) (quit-window))
+        (evil-mode (call-interactively 'evil-record-macro))))
+
+(defun my/evil-mc-visual-cursors ()
+  (interactive)
+  (evil-mc-make-cursor-in-visual-selection-beg)
+  (evil-normal-state))
+
 (electric-pair-mode)
 
 (use-package dabbrev :ensure t)
@@ -28,6 +44,7 @@
   (after-init . evil-mode)
   :init
   ;; (setq evil-highlight-closing-paren-at-point-states nil)
+  ;; (setq evil-want-C-w-delete t)
   (setq evil-search-module 'evil-search)
   (setq evil-want-Y-yank-to-eol t)
   (setq evil-want-keybinding nil)
@@ -74,6 +91,7 @@
 (evil-define-key 'normal 'global
   "u" 'undo
   (kbd "C-r") 'redo
+  (kbd "<escape>") 'my/evil-save-nohl
   "j" 'evil-next-visual-line
   "k" 'evil-previous-visual-line
   "-"  'dired-jump
@@ -88,6 +106,7 @@
   "h"  'customize-face
   "a"  'org-agenda
   "c"  'gptel
+  "/"  'occur
   "g"  'magit
   "mR" 'compile
   "mr" 'recompile
@@ -112,31 +131,23 @@
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-previous-lines)
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-next-lines))
 
-(defun my/evil-mc-quit-or-q ()
-  (interactive)
-  (if (evil-mc-has-cursors-p)
-      (evil-mc-undo-all-cursors)
-    (call-interactively (keymap-lookup nil "q"))))
-
 (use-package evil-mc
   :ensure t
-  :hook (prog-mode text-mode)
-  :config
+  :config 
+  (global-evil-mc-mode)
   (evil-define-key 'visual evil-mc-key-map
-    "q" 'evil-mc-make-cursor-in-visual-selection-beg)
+    "q" 'my/evil-mc-visual-cursors)
   (evil-define-key 'normal evil-mc-key-map
+    "q" 'my/evil-mc-quit-or-q
+    "ga" 'evil-mc-make-all-cursors
     (kbd "C-n") 'evil-mc-make-and-goto-next-match
     (kbd "C-p") 'evil-mc-make-and-goto-prev-match))
-
-(add-hook 'evil-mc-mode-hook
-          (lambda ()
-            (evil-local-set-key 'normal (kbd "q") 'my/evil-mc-quit-or-q)))
 
 (add-hook 'prog-mode-hook 
 	  (lambda ()
 	    (modify-syntax-entry ?_ "w")
 	    (modify-syntax-entry ?- "w")))
-
+        
 (defvar my/evil-mc-blacklisted-commands
   '(evil-search-next
     evil-search-previous
