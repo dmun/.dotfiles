@@ -1,7 +1,29 @@
+(defvar my/evil-mc-blacklisted-commands
+  '(evil-search-next
+    evil-search-previous
+    evil-ex
+    undo
+    redo
+    evil-undo
+    evil-redo
+    evil-goto-line
+    evil-goto-first-line
+    evil-jump-backward
+    evil-jump-forward
+    )
+  "Commands that should NOT be executed across multiple cursors.")
+
 (defun my/evil-save-nohl ()
   (interactive)
   (save-buffer)
   (evil-ex-nohighlight))
+
+(defun my/evil-mc-known-command-p (cmd)
+  "Return t if CMD should be executed across cursors (whitelist approach)."
+  (and (commandp cmd)
+       (not (memq cmd my/evil-mc-blacklisted-commands))
+       (or (eq (evil-get-command-property cmd :repeat) 'motion)
+           t)))
 
 (defun my/evil-mc-quit-or-q ()
   (interactive)
@@ -14,9 +36,23 @@
   (evil-mc-make-cursor-in-visual-selection-beg)
   (evil-normal-state))
 
-(electric-pair-mode)
+(defvar my/autosave-timer nil)
+(defvar my/autosave-delay 0.2)
 
-(use-package dabbrev :ensure t)
+(defun my/auto-save (&rest args)
+  (interactive)
+  (when (and buffer-file-name (buffer-modified-p))
+    (when my/autosave-timer
+      (cancel-timer my/autosave-timer))
+    (setq my/autosave-timer
+          (run-with-timer my/autosave-delay nil
+                          (lambda ()
+                            (when (and buffer-file-name (evil-normal-state-p))
+                              (let ((inhibit-message t))
+                                (evil-update)))
+                            (setq my/autosave-timer nil))))))
+
+(electric-pair-mode)
 
 (use-package which-key
   :ensure t
@@ -45,8 +81,6 @@
   :demand
   :ensure t
   :bind ("<escape>" . keyboard-escape-quit)
-  :hook
-  (after-init . evil-mode)
   :init
   ;; (setq evil-highlight-closing-paren-at-point-states nil)
   ;; (setq evil-want-C-w-delete t)
@@ -59,7 +93,51 @@
   (setq evil-want-fine-undo nil)
   (setq evil-undo-system 'undo-fu)
   (setq evil-insert-state-cursor '(box))
-  (setq evil-leader/in-all-states t))
+  (setq evil-leader/in-all-states t)
+  :config
+  (evil-mode)
+  (define-prefix-command 'evil-leader)
+  (evil-define-key '(motion normal) 'global
+    (kbd "SPC") 'evil-leader)
+
+  (evil-define-key 'insert 'global
+    (kbd "C-w") 'evil-delete-backward-word)
+
+  (evil-define-key 'normal 'global
+    ;; "u" 'undo
+    ;; (kbd "C-r") 'redo
+    (kbd "<escape>") 'my/evil-save-nohl
+    "j" 'evil-next-visual-line
+    "k" 'evil-previous-visual-line
+    "-"  'dired-jump
+    "g/" 'consult-grep
+    "gs" 'consult-imenu
+    "gl" 'evil-end-of-line
+    "gh" 'evil-first-non-blank
+    "gw" 'other-window)
+
+  (evil-define-key nil evil-leader
+    "t"  'vterm
+    "h"  'customize-face
+    "a"  'org-agenda
+    "c"  'gptel
+    "/"  'occur
+    "g"  'magit
+    "mR" 'compile
+    "mr" 'recompile
+    "e"  'find-file
+    "f"  'project-find-file
+    "b"  'switch-to-buffer
+    "o"  'recentf
+    "pf" 'project-switch-project
+    "ps" 'shell-command)
+
+  (add-hook 'evil-insert-state-exit-hook #'my/auto-save)
+  (add-hook 'after-change-functions #'my/auto-save)
+
+  (evil-set-initial-state 'vterm-mode 'emacs)
+  (evil-set-initial-state 'eat-mode 'emacs)
+  (evil-set-initial-state 'gptel-mode 'emacs))
 
 (use-package evil-collection :after evil
   :ensure t
@@ -84,46 +162,7 @@
   :disabled
   :ensure t
   :hook paredit-mode)
-(define-prefix-command 'evil-leader)
-(evil-define-key '(motion normal) 'global
-  (kbd "SPC") 'evil-leader)
 
-(evil-define-key 'insert 'global
-  (kbd "C-SPC") 'completion-at-point
-  (kbd "C-w") 'evil-delete-backward-word)
-
-(evil-define-key 'normal 'global
-  ;; "u" 'undo
-  ;; (kbd "C-r") 'redo
-  (kbd "<escape>") 'my/evil-save-nohl
-  "j" 'evil-next-visual-line
-  "k" 'evil-previous-visual-line
-  "-"  'dired-jump
-  "g/" 'consult-grep
-  "gs" 'consult-imenu
-  "gl" 'evil-end-of-line
-  "gh" 'evil-first-non-blank
-  "gw" 'other-window)
-
-(evil-define-key nil evil-leader
-  "t"  'vterm
-  "h"  'customize-face
-  "a"  'org-agenda
-  "c"  'gptel
-  "/"  'occur
-  "g"  'magit
-  "mR" 'compile
-  "mr" 'recompile
-  "e"  'find-file
-  "f"  'project-find-file
-  "b"  'switch-to-buffer
-  "o"  'recentf
-  "pf" 'project-switch-project
-  "ps" 'shell-command)
-
-(evil-set-initial-state 'vterm-mode 'emacs)
-(evil-set-initial-state 'eat-mode 'emacs)
-(evil-set-initial-state 'gptel-mode 'emacs)
 
 (use-package multiple-cursors
   :disabled
@@ -135,7 +174,7 @@
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-previous-lines)
   (add-to-list 'mc/cmds-to-run-once 'mc/mark-next-lines))
 
-(use-package evil-mc
+(use-package evil-mc :after evil
   :ensure t
   :config 
   (global-evil-mc-mode)
@@ -145,55 +184,14 @@
     "q" 'my/evil-mc-quit-or-q
     "ga" 'evil-mc-make-all-cursors
     (kbd "C-n") 'evil-mc-make-and-goto-next-match
-    (kbd "C-p") 'evil-mc-make-and-goto-prev-match))
+    (kbd "C-p") 'evil-mc-make-and-goto-prev-match)
+  (advice-add 'evil-mc-known-command-p :override #'my/evil-mc-known-command-p)
+  (advice-add 'newline :after (lambda (&rest args) (indent-according-to-mode)))
+  (advice-add 'evil-open-below :after (lambda (&rest args) (indent-according-to-mode)))
+  (advice-add 'evil-open-above :after (lambda (&rest args) (indent-according-to-mode))))
+
 
 (add-hook 'prog-mode-hook 
-	  (lambda ()
-	    (modify-syntax-entry ?_ "w")
-	    (modify-syntax-entry ?- "w")))
-        
-(defvar my/evil-mc-blacklisted-commands
-  '(evil-search-next
-    evil-search-previous
-    evil-ex
-    undo
-    redo
-    evil-undo
-    evil-redo
-    evil-goto-line
-    evil-goto-first-line
-    evil-jump-backward
-    evil-jump-forward
-    )
-  "Commands that should NOT be executed across multiple cursors.")
-
-(defun my/evil-mc-known-command-p (cmd)
-  "Return t if CMD should be executed across cursors (whitelist approach)."
-  (and (commandp cmd)
-       (not (memq cmd my/evil-mc-blacklisted-commands))
-       (or (eq (evil-get-command-property cmd :repeat) 'motion)
-           t)))
-
-(advice-add 'evil-mc-known-command-p :override #'my/evil-mc-known-command-p)
-(advice-add 'newline :after (lambda (&rest args) (indent-according-to-mode)))
-(advice-add 'evil-open-below :after (lambda (&rest args) (indent-according-to-mode)))
-(advice-add 'evil-open-above :after (lambda (&rest args) (indent-according-to-mode)))
-
-(defvar my/autosave-timer nil)
-(defvar my/autosave-delay 0.2)
-
-(defun my/auto-save (&rest args)
-  (interactive)
-  (when (and buffer-file-name (buffer-modified-p))
-    (when my/autosave-timer
-      (cancel-timer my/autosave-timer))
-    (setq my/autosave-timer
-          (run-with-timer my/autosave-delay nil
-                          (lambda ()
-                            (when (and buffer-file-name (evil-normal-state-p))
-                              (let ((inhibit-message t))
-                                (evil-update)))
-                            (setq my/autosave-timer nil))))))
-
-(add-hook 'evil-insert-state-exit-hook #'my/auto-save)
-(add-hook 'after-change-functions #'my/auto-save)
+          (lambda ()
+            (modify-syntax-entry ?_ "w")
+            (modify-syntax-entry ?- "w")))

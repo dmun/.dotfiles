@@ -1,3 +1,4 @@
+(setq treesit-font-lock-level 4)
 (use-package treesit-auto
   :ensure t
   :config
@@ -16,8 +17,9 @@
 (use-package kdl-mode :ensure t)
 (use-package sxhkdrc-mode :ensure t)
 (use-package qml-mode :ensure t)
-
-(use-package markdown-mode
+(use-package treesit-langs
+  :ensure (:host github
+           :repo "emacs-tree-sitter/treesit-langs")
   :config
-  (setq markdown-header-scaling t)
-  (setq markdown-list-indent-width 20))
+  (require 'treesit-langs))
+

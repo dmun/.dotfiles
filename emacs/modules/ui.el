@@ -22,28 +22,31 @@
 (visual-line-mode -1)
 (pixel-scroll-precision-mode)
 (word-wrap-whitespace-mode)
-(setq whitespace-style '(face tabs tab-mark))
-(global-whitespace-mode)
+(use-package whitespace-mode
+  :hook (prog-mode text-mode)
+  :init
+  (setq whitespace-style '(face tabs tab-mark)))
 (blink-cursor-mode 0)
 ;; (set-fringe-style 0)
 
 (use-package show-font :ensure t)
 
-(use-package ef-themes :ensure t)
-(setq ef-themes-mixed-fonts t)
-(setq ef-themes-variable-pitch-ui t)
-(setq ef-themes-headings
-    '((0 default 1.2)
-      (1 default 1.1)
-      (2 default 1.0)
-      (3 default 1.0)
-      (4 default 1.0)
-      (5 default 1.0)
-      (6 default 1.0)
-      (7 default 1.0)
-      (t default 1.0)))
-(setq modus-themes-mode-line '(accented borderless padded))
-(load-theme 'modus-vivendi t)
+(use-package ef-themes :ensure t
+  :config
+  (setq ef-themes-mixed-fonts t)
+  (setq ef-themes-variable-pitch-ui t)
+  (setq ef-themes-headings
+      '((0 default 1.2)
+        (1 default 1.1)
+        (2 default 1.0)
+        (3 default 1.0)
+        (4 default 1.0)
+        (5 default 1.0)
+        (6 default 1.0)
+        (7 default 1.0)
+        (t default 1.0)))
+  (setq modus-themes-mode-line '(accented borderless padded))
+  (load-theme 'ef-autumn t))
 
 (global-display-line-numbers-mode -1)
 (use-package display-line-numbers
