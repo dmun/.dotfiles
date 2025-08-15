@@ -22,6 +22,8 @@
 (visual-line-mode -1)
 (pixel-scroll-precision-mode)
 (word-wrap-whitespace-mode)
+(setq whitespace-style '(face tabs tab-mark))
+(global-whitespace-mode)
 (blink-cursor-mode 0)
 ;; (set-fringe-style 0)
 
@@ -126,13 +128,13 @@
 (use-package variable-pitch :hook (gptel-mode help-mode))
 
 (use-package transient :ensure t)
-(setq completions-preview-minimum-symbol 2)
-(global-completion-preview-mode)
+;; (setq completions-preview-minimum-symbol 2)
+;; (global-completion-preview-mode)
 
 (use-package corfu
   :ensure t
   :custom
-  (corfu-auto nil)
+  (corfu-auto t)
   (corfu-auto-prefix 1)
   (corfu-auto-delay 0.03)
   (corfu-quit-no-match 'separator)
@@ -142,6 +144,7 @@
          ("C-SPC" . 'corfu-info-documentation)
          ("RET" . nil))
   :init
+  (setq corfu-count 6)
   (global-corfu-mode)
   (corfu-popupinfo-mode)
   (corfu-history-mode)

@@ -2,7 +2,7 @@
   `(load-file (expand-file-name ,(format "modules/%s.el" (symbol-name module)) user-emacs-directory)))
 
 (setq-default tab-width 8)
-(setq-default indent-tabs-mode t)
+(setq-default indent-tabs-mode nil)
 (setq frame-resize-pixelwise t)
 (setq frame-inhibit-implied-resize t)
 (setq create-lockfiles nil)

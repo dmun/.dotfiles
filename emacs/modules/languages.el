@@ -3,12 +3,12 @@
   :config
   (setq treesit-auto-install 'prompt)
   (add-to-list 'treesit-auto-recipe-list
-					(make-treesit-auto-recipe
-					 :lang 'hyprlang
-					 :ts-mode 'hyprlang-ts-mode
-					 :remap 'conf-mode
-					 :url "https://github.com/tree-sitter-grammars/tree-sitter-hyprlang"
-					 :ext "\\.conf\\'"))
+               (make-treesit-auto-recipe
+                :lang 'hyprlang
+                :ts-mode 'hyprlang-ts-mode
+                :remap 'conf-mode
+                :url "https://github.com/tree-sitter-grammars/tree-sitter-hyprlang"
+                :ext "\\.conf\\'"))
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))
 
