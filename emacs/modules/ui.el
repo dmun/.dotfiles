@@ -8,9 +8,16 @@
  '(line-number-current-line ((t :background nil)))
  '(fringe ((t :background nil)))
  '(default ((t :foreground "white")))
- '(corfu-border ((t :background nil)))
- '(mode-line ((t :box nil)))
- '(mode-line-inactive ((t :box nil))))
+ '(corfu-border ((t :background nil))))
+
+(defun my/custom-faces ()
+  "Theme tweaks that require references to other colors."
+  (let ((active-bg (face-attribute 'mode-line :background))
+        (inactive-bg (face-attribute 'mode-line-inactive :background)))
+    (set-face-attribute 'mode-line nil
+                        :box `(:line-width 4 :color ,active-bg))
+    (set-face-attribute 'mode-line-inactive nil
+                        :box `(:line-width 4 :color ,inactive-bg))))
 
 (visual-line-mode -1)
 (pixel-scroll-precision-mode)
@@ -33,6 +40,7 @@
       (6 default 1.0)
       (7 default 1.0)
       (t default 1.0)))
+(setq modus-themes-mode-line '(accented borderless padded))
 (load-theme 'modus-vivendi t)
 
 (global-display-line-numbers-mode -1)
@@ -47,24 +55,24 @@
   (spacious-padding-mode 1))
 
 (setq display-buffer-alist
-    '(("\\*compilation\\*"
-       (display-buffer-reuse-mode-window
+      '(("\\*compilation\\*"
+         (display-buffer-reuse-mode-window
           display-buffer-below-selected)
-       (window-height . 12)
-       (body-function . select-window))
+         (window-height . 12)
+         (body-function . select-window))
 
-      ("magit: "
+        ("magit: "
          (display-buffer-same-window))
 
-      ((derived-mode . help-mode)
+        ((derived-mode . help-mode)
          nil
          (body-function . select-window))
 
-      ((derived-mode . occur-mode)
+        ((derived-mode . help-mode)
          nil
          (body-function . select-window))
 
-      ("\\*Man"
+        ("\\*Man"
          nil
          (body-function . select-window))))
 
@@ -118,11 +126,13 @@
 (use-package variable-pitch :hook (gptel-mode help-mode))
 
 (use-package transient :ensure t)
+(setq completions-preview-minimum-symbol 2)
+(global-completion-preview-mode)
 
 (use-package corfu
   :ensure t
   :custom
-  (corfu-auto t)
+  (corfu-auto nil)
   (corfu-auto-prefix 1)
   (corfu-auto-delay 0.03)
   (corfu-quit-no-match 'separator)

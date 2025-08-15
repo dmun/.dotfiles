@@ -28,7 +28,12 @@
   (dtrt-indent-global-mode))
 
 (use-package undo-fu :ensure t)
+(use-package undo-fu-session
+  :ensure t
+  :config
+  (undo-fu-session-global-mode))
 (use-package undo-tree
+  :disabled t
   :ensure t
   :config
   (setq undo-tree-history-directory-alist '(("." . "~/.config/emacs/undo")))
@@ -52,11 +57,9 @@
   (setq evil-want-C-i-jump t)
   (setq evil-want-C-u-scroll t)
   (setq evil-want-fine-undo nil)
-  (setq evil-undo-system 'undo-tree)
+  (setq evil-undo-system 'undo-fu)
   (setq evil-insert-state-cursor '(box))
-  (setq evil-leader/in-all-states t)
-  :config
-  (evil-set-undo-system 'undo-tree))
+  (setq evil-leader/in-all-states t))
 
 (use-package evil-collection :after evil
   :ensure t
@@ -86,11 +89,12 @@
   (kbd "SPC") 'evil-leader)
 
 (evil-define-key 'insert 'global
+  (kbd "C-SPC") 'completion-at-point
   (kbd "C-w") 'evil-delete-backward-word)
 
 (evil-define-key 'normal 'global
-  "u" 'undo
-  (kbd "C-r") 'redo
+  ;; "u" 'undo
+  ;; (kbd "C-r") 'redo
   (kbd "<escape>") 'my/evil-save-nohl
   "j" 'evil-next-visual-line
   "k" 'evil-previous-visual-line
@@ -174,3 +178,22 @@
 (advice-add 'newline :after (lambda (&rest args) (indent-according-to-mode)))
 (advice-add 'evil-open-below :after (lambda (&rest args) (indent-according-to-mode)))
 (advice-add 'evil-open-above :after (lambda (&rest args) (indent-according-to-mode)))
+
+(defvar my/autosave-timer nil)
+(defvar my/autosave-delay 0.2)
+
+(defun my/auto-save (&rest args)
+  (interactive)
+  (when (and buffer-file-name (buffer-modified-p))
+    (when my/autosave-timer
+      (cancel-timer my/autosave-timer))
+    (setq my/autosave-timer
+          (run-with-timer my/autosave-delay nil
+                          (lambda ()
+                            (when (and buffer-file-name (evil-normal-state-p))
+                              (let ((inhibit-message t))
+                                (evil-update)))
+                            (setq my/autosave-timer nil))))))
+
+(add-hook 'evil-insert-state-exit-hook #'my/auto-save)
+(add-hook 'after-change-functions #'my/auto-save)
