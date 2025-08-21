@@ -81,6 +81,7 @@ alias lg=lazygit
 alias pac='sudo pacman -S'
 alias par='paru -S'
 alias ls="ls --color=auto"
+alias gvim="nvim --listen /tmp/godothost"
 
 alias pacs="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 alias pacr="pacman -Qeq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"

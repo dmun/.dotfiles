@@ -1,4 +1,4 @@
-(setq treesit-font-lock-level 4)
+(setq treesit-font-lock-level 2)
 (use-package treesit-auto
   :ensure t
   :config
