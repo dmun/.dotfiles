@@ -13,7 +13,7 @@
   "margin-left": 0,
 
   "modules-left": ["hyprland/workspaces"],
-  // "modules-center": ["niri/window"],
+  // "modules-center": ["hyprland/workspaces"],
   // "modules-right": ["tray", "cpu", "memory", "network", "pulseaudio"],
   "modules-right": ["tray", "custom/gpu-recorder", "pulseaudio", "clock"],
 
@@ -93,7 +93,7 @@
   },
 
   "custom/gpu-recorder": {
-    "exec": "systemctl --user is-active gpu-screen-recorder.service >/dev/null && echo 'REC' || echo 'OFF'",
+    "exec": "systemctl --user is-active gpu-screen-recorder.service >/dev/null && echo 'GSR ON' || echo 'GSR OFF'",
     "interval": 5,
     "on-click": "systemctl --user is-active gpu-screen-recorder.service >/dev/null && systemctl --user stop gpu-screen-recorder.service || systemctl --user start gpu-screen-recorder.service",
   },
