@@ -38,5 +38,9 @@ window-padding-balance = false
 confirm-close-surface = false
 quit-after-last-window-closed = true
 
+adw-toolbar-style = flat
+gtk-adwaita = true
+gtk-wide-tabs = true
+gtk-custom-css = ~/.config/ghostty/gtk-custom.css
+
 config-file = keymaps
-keybind = shift+enter=text:\n
