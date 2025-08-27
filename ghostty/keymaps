@@ -120,3 +120,5 @@ keybind = cmd+shift+{=esc:{
 keybind = cmd+shift+}=esc:}
 keybind = cmd+shift+?=esc:?
 keybind = cmd+shift+\=esc:|
+keybind = ctrl+equal=increase_font_size:2
+keybind = ctrl+minus=decrease_font_size:2
