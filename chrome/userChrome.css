@@ -3,15 +3,13 @@
   --tab-border-radius: 10px !important;
   --browser-padding: 6px;
   --tabstrip-min-height: 28px !important;
---urlbar-container-height: 28px !important;
+  --urlbar-container-height: 28px !important;
   --inactive-titlebar-opacity: 1 !important;
 }
 
 .titlebar-spacer {
   width: 0px !important;
 }
-
-
 
 #nav-bar-customization-target toolbarbutton image {
   width: 30px !important;
@@ -57,8 +55,8 @@
 }
 
 .tab-close-button {
-/*   position: absolute !important; */
-/*   display: none !important; */
+  /*   position: absolute !important; */
+  /*   display: none !important; */
   border-radius: 6px !important;
   opacity: 0 !important;
   transition: opacity 0.1s ease-in-out;
@@ -82,14 +80,13 @@
   letter-spacing: 0.005em !important;
 }
 .tabbrowser-tab {
-  font-size: 1.1em !important;
+  font-size: 1em !important;
   overflow: visible !important;
 }
 .tab-background {
   border-radius: var(--tab-border-radius);
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-  margin-block: 0 !important;
+
+  margin-block: 4px !important;
   border: 0 !important;
   position: relative !important;
   transition: none !important;
@@ -140,16 +137,17 @@
       var(--lwt-selected-tab-background-color, var(--toolbar-bgcolor))
     );
     outline: none !important;
-    margin-top: 4px !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
-
+    margin-bottom: 0px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
 
   /* Tab hover background colour. */
   .tabbrowser-tab:hover &:not([selected], [multiselected]) {
     --uc-tab-corner-bg: transparent !important;
-    border-radius: var(--tab-border-radius) !important;
-/*     margin-block: 4px !important; */
+    /*     border-radius: var(--tab-border-radius) !important; */
+    /*     margin-block: 4px !important; */
   }
 
   /* When tabs are selected but not active, they should have a partially
@@ -157,35 +155,32 @@
   #tabbrowser-tabs &[multiselected]:not([selected]) {
     box-shadow: none !important;
     opacity: 0.7 !important;
+    border-radius: 8px !important;
   }
 
   tab[dragtarget] & {
-/*     --uc-tab-corner-bg: transparent !important; */
-/*     border-radius: var(--tab-border-radius) !important; */
     margin-block: 4px !important;
-
-    /*     drop-shadow: none !important; */
   }
 }
 
 /* .tabbrowser-tab, #tabbrowser-arrowscrollbox, #tabbrowser-tabs, #TabsToolbar-customization-target, .toolbar-items, */
 tab:first-of-type .tab-stack {
-  padding-left: 8px !important;
+  padding-left: 12px !important;
   overflow: visible !important;
+}
+#tabbrowser-arrowscrollbox {
+  margin-left: 12px !important;
 }
 #urlbar-background {
   transition: all !important;
-  
 }
 #urlbar {
-
 }
 #urlbar:not([focused]) #urlbar-background {
   background-color: transparent !important;
   border: none !important;
 }
-#urlbar[focused] #urlbar-background {  
-  
+#urlbar[focused] #urlbar-background {
   outline: none !important;
   border-radius: 8px !important;
 }
@@ -194,26 +189,24 @@ tab:first-of-type .tab-stack {
   box-shadow: none !important;
 }
 
-
 #urlbar[breakout-extend] #urlbar-background {
   border-radius: 18px !important;
-/*   padding: 16px !important; */
-/*   position: absolute !important; */
+  /*   padding: 16px !important; */
+  /*   position: absolute !important; */
   top: -8px !important;
   bottom: -4px !important;
   left: -16px !important;
   right: -16px !important;
-/*   width: 100% !important; */
-/*   margin: 16px !important; */
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
-                0 2px 4px rgba(0,0,0,0.07), 
-                0 4px 8px rgba(0,0,0,0.07), 
-                0 8px 16px rgba(0,0,0,0.07),
-                0 16px 32px rgba(0,0,0,0.07), 
-                0 32px 64px rgba(0,0,0,0.07);
+  /*   width: 100% !important; */
+  /*   margin: 16px !important; */
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.07),
+    0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07),
+    0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07),
+    0 32px 64px rgba(0, 0, 0, 0.07);
 }
-
-
 
 #sidebar-button,
 #home-button,
@@ -233,42 +226,42 @@ tab:first-of-type .tab-stack {
 }
 
 #urlbar-container {
-/* --urlbar-container-height: 36px !important; */
-  
+  /* --urlbar-container-height: 36px !important; */
 }
 
 .urlbarView {
-/*   display: block !important; */
-/*   background-color: white !important; */
+  /*   display: block !important; */
+  /*   background-color: white !important; */
   left: -16px !important;
   right: -16px !important;
   width: calc(100% + 20px) !important;
-/*   padding: 18px !important; */
+  /*   padding: 18px !important; */
 }
 .urlbarView-row {
   border-radius: 10px !important;
-  
-/*   padding: 18px !important; */
+
+  /*   padding: 18px !important; */
 }
 #urlbar-input {
   font-size: 0.9em !important;
 }
 
 .urlbarView-row-inner {
-/*   display: flex !important; */
-/*   flex-wrap: nowrap !important; */
-/*   overflow: clip !important; */
-/*   flex-direction: row !important; */
+  /*   display: flex !important; */
+  /*   flex-wrap: nowrap !important; */
+  /*   overflow: clip !important; */
+  /*   flex-direction: row !important; */
   border-radius: 12px !important;
-  
+
   & > .urlbarView-no-wrap {
-/*   flex-basis: 0 !important; */
-    
+    /*   flex-basis: 0 !important; */
   }
 }
 
 /* Set tab minimum width - Adjust '8px' value to suit */
-:root { --set-tab-min-width: 8px; }
+:root {
+  --set-tab-min-width: 8px;
+}
 
 .tabbrowser-tab[fadein]:not([selected]):not([pinned]) {
   min-width: var(--set-tab-min-width) !important;
@@ -276,8 +269,8 @@ tab:first-of-type .tab-stack {
 
 /* Adjust padding for better centering and less wasted space */
 .tabbrowser-tab[fadein]:not([selected]):not([pinned]) .tab-content {
-/*   padding-left: calc((var(--set-tab-min-width) - 3px)/2) !important; */
-/*   padding-right: calc((var(--set-tab-min-width) - 3px)/2) !important; */
+  /*   padding-left: calc((var(--set-tab-min-width) - 3px)/2) !important; */
+  /*   padding-right: calc((var(--set-tab-min-width) - 3px)/2) !important; */
 }
 
 /* Set Active tab width - Adjust '180px' value to suit */
