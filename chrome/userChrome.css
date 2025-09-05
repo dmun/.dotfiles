@@ -9,7 +9,7 @@
   --urlbar-container-height: 40px !important;
   --inactive-titlebar-opacity: 1 !important;
   --sidebar-bgcolor: white !important;
-
+  --uc-tab-corner-bg: red !important;
   
   --browser-bgcolor: hsla(210, 30%, 80%, 1.0) !important;
   --tab-selected-bgcolor: color-mix(in oklab, rgba(240, 240, 240, 0.2), var(--sidebar-bgcolor) 100%) !important;
@@ -70,7 +70,7 @@ body {
 :root:not([sizemode="fullscreen"]) tabbox {
   margin: var(--browser-padding) !important;
   margin-top: 0 !important;
-  margin-left: 0 !important;
+/*   margin-left: 0 !important; */
   outline: none !important;
 
   clip-path: inset(0 -8px -8px -8px) !important;
@@ -98,10 +98,10 @@ body {
 /*   outline: 1px solid white !important; */
 }
 
-#nav-bar-customization-target {
+/* #nav-bar-customization-target {
   height: var(--urlbar-container-height) !important;
   top: 6px;
-  left: var(--sidebar-width);
+  left: 6px;
   right: 6px;
   background-color: var(--toolbar-bgcolor);
   position: absolute;
@@ -117,7 +117,7 @@ body {
   toolbarbutton {
     margin-left: 2px !important;
   }
-}
+} */
 
 #sidebar-button {
   display: none !important;
@@ -135,7 +135,7 @@ body {
 }
 
 #sidebar-main {
-  width: var(--sidebar-width) !important;
+/*   width: var(--sidebar-width) !important; */
 }
 
 splitter {
@@ -149,6 +149,56 @@ splitter {
   left: calc(var(--sidebar-width) - 44px) !important;
 }
 
+#tabbrowser-tabs[orient="horizontal"] {
+  padding: 0px !important;
+  font-size: 13px !important;
+  font-family: "Inter", system-ui !important;
+  font-weight: 400 !important;
+
+  #tabbrowser-arrowscrollbox-periphery {
+    margin-block: 2px !important;
+  }
+
+  .tab-background {
+/*     margin-inline: 8px !important; */
+/*     margin-block: 2px !important; */
+    margin-bottom: 0px !important;
+    border-radius: 10px 10px 0px 0px !important;
+/*     height: 36px; */
+  }
+  tab:hover .tab-background {
+    background-color: var(--tab-hover-bgcolor) !important;
+  }
+  .tab-background[selected] {
+    box-shadow: 0px 1px 3px 1px var(--shadow-color) !important;
+    border-top: 1px solid var(--tab-selected-outline-top-color);
+    outline: none !important;
+/*     background-color: var(--sidebar-background-color) !important;  */
+  }
+
+  .tabbrowser-tab {
+    padding-block: 0px !important;
+/*     filter: blur(4px) !important; */
+    margin: 0px !important;
+  }
+  
+  .tab-audio-button {
+/*     position: fixed; */
+/*     right: 12px; */
+    margin-left: -5px !important;
+  }
+
+}
+
+#nav-bar {
+  margin-inline: 6px !important;
+      border-radius: 10px 10px 0px 0px !important;
+    box-shadow: var(--browser-shadow) !important;
+border-bottom: 1px solid var(--chrome-content-separator-color) !important;
+}
+#navigator-toolbox {
+  border: none !important;
+}
 #tabbrowser-tabs[orient="vertical"] {
   padding: 0px !important;
   font-size: 13px !important;
@@ -165,6 +215,7 @@ splitter {
     border-radius: 10px !important;
     height: 36px;
   }
+
   tab:hover .tab-background {
     background-color: var(--tab-hover-bgcolor) !important;
   }
@@ -177,7 +228,7 @@ splitter {
   .tabbrowser-tab {
     padding-block: 0px !important;
 /*     filter: blur(4px) !important; */
-    
+    margin: 0px !important;
   }
   
   .tab-audio-button {
