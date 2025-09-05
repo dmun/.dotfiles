@@ -15,6 +15,11 @@
   width: 30px !important;
 }
 
+toolbarbutton {
+  border-radius: 8px !important;
+  /*       aspect-ratio: 1 / 1; */
+}
+
 #browser {
   /*   -moz-appearance: -moz-window-sidebar !important; */
   /*   background-color: var(--browser-bgcolor) !important; */
@@ -49,8 +54,9 @@
 }
 #navigator-toolbox {
   border: none !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.4) !important;
-  border-radius: 8px 8px 0px 0px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+  /*   border-radius: 8px 8px 0px 0px !important; */
   transition: none !important;
 }
 
@@ -82,6 +88,7 @@
 .tabbrowser-tab {
   font-size: 1em !important;
   overflow: visible !important;
+  min-height: 44px !important;
 }
 .tab-background {
   border-radius: var(--tab-border-radius);
@@ -137,10 +144,12 @@
       var(--lwt-selected-tab-background-color, var(--toolbar-bgcolor))
     );
     outline: none !important;
-    margin-bottom: 0px !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+    /*     margin-bottom: 0px !important; */
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+    margin-top: 0 !important;
+    transform: translateY(4px) !important;
   }
 
   /* Tab hover background colour. */
@@ -211,6 +220,7 @@ tab:first-of-type .tab-stack {
 #sidebar-button,
 #home-button,
 /* #identity-icon-box, */
+#identity-icon-label,
 #urlbar-go-button,
 #urlbar-searchmode-switcher,
 #star-button,
@@ -221,7 +231,7 @@ tab:first-of-type .tab-stack {
 
 .notSecure > #identity-icon-box {
   fill: white !important;
-  background-color: red !important;
+  background-color: hsl(0, 90%, 60%) !important;
   border-radius: 6px !important;
 }
 
