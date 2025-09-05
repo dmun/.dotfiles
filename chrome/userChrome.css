@@ -14,16 +14,31 @@
 #nav-bar-customization-target toolbarbutton image {
   width: 30px !important;
 }
-
-toolbarbutton {
-  border-radius: 8px !important;
-  /*       aspect-ratio: 1 / 1; */
+body,
+html,
+.browserContainer,
+#mainPopupSet,
+#main-window,
+#tabbrowser-tabbox,
+#tabbrowser-tabpanels {
+  background-color: #111111 !important;
 }
+
 
 #browser {
   /*   -moz-appearance: -moz-window-sidebar !important; */
   /*   background-color: var(--browser-bgcolor) !important; */
   background-image: none !important;
+}
+
+#PersonalToolbar {
+  margin-inline: var(--browser-padding) !important;
+  toolbarbutton {
+  border-radius: 8px !important;
+    padding-inline: 8px !important;
+    padding-block: 4px !important;
+    /*       aspect-ratio: 1 / 1; */
+  }
 }
 
 :root:not([sizemode="fullscreen"]) tabbox {
@@ -50,14 +65,14 @@ toolbarbutton {
   border-radius: 8px 8px 0px 0px !important;
   box-shadow: var(--browser-shadow) !important;
   border-bottom: 1px solid var(--chrome-content-separator-color) !important;
-  transition: none !important;
+/*   transition: none !important; */
 }
 #navigator-toolbox {
   border: none !important;
   border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
 
   /*   border-radius: 8px 8px 0px 0px !important; */
-  transition: none !important;
+/*   transition: none !important; */
 }
 
 .tab-close-button {
@@ -65,7 +80,7 @@ toolbarbutton {
   /*   display: none !important; */
   border-radius: 6px !important;
   opacity: 0 !important;
-  transition: opacity 0.1s ease-in-out;
+/*   transition: opacity 0.1s ease-in-out; */
 }
 
 .tabbrowser-tab:hover .tab-close-button {
@@ -96,7 +111,7 @@ toolbarbutton {
   margin-block: 4px !important;
   border: 0 !important;
   position: relative !important;
-  transition: none !important;
+/*   transition: none !important; */
   opacity: 1 !important;
   --uc-tab-corner-bg: transparent;
   --uc-tab-corner-outline: transparent;

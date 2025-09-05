@@ -1,0 +1,13 @@
+/* Edge-Frfox - content/newtab.css */
+
+/*
+  MARK: Default colours
+*/
+@-moz-document url-prefix("about:newtab"),
+url-prefix("about:home"),
+url-prefix("about:preferences"),
+url-prefix("about:firefoxview") {
+  body {
+    background-color: #111111 !important;
+  }
+}
