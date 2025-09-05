@@ -1,7 +1,20 @@
 :root {
   --tab-block-margin: 10px;
-  --tab-border-radius: 12px !important;
+  --tab-border-radius: 10px !important;
   --browser-padding: 6px;
+  --tabstrip-min-height: 28px !important;
+--urlbar-container-height: 28px !important;
+  --inactive-titlebar-opacity: 1 !important;
+}
+
+.titlebar-spacer {
+  width: 0px !important;
+}
+
+
+
+#nav-bar-customization-target toolbarbutton image {
+  width: 30px !important;
 }
 
 #browser {
@@ -25,13 +38,13 @@
 }
 
 :root:not([sizemode="fullscreen"]) tabpanels {
-  clip-path: inset(0 0 0 0 round 0px 0px 8px 8px) !important;
+  clip-path: inset(0 0 0 0 round 0px 0px 6px 6px) !important;
 }
 
 #nav-bar {
   /*   position: initial !important; */
   margin-inline: var(--browser-padding) !important;
-  border-radius: 10px 10px 0px 0px !important;
+  border-radius: 8px 8px 0px 0px !important;
   box-shadow: var(--browser-shadow) !important;
   border-bottom: 1px solid var(--chrome-content-separator-color) !important;
   transition: none !important;
@@ -44,7 +57,9 @@
 }
 
 .tab-close-button {
-  border-radius: 8px !important;
+/*   position: absolute !important; */
+/*   display: none !important; */
+  border-radius: 6px !important;
   opacity: 0 !important;
   transition: opacity 0.1s ease-in-out;
 }
@@ -67,6 +82,7 @@
   letter-spacing: 0.005em !important;
 }
 .tabbrowser-tab {
+  font-size: 1.1em !important;
   overflow: visible !important;
 }
 .tab-background {
@@ -77,6 +93,7 @@
   border: 0 !important;
   position: relative !important;
   transition: none !important;
+  opacity: 1 !important;
   --uc-tab-corner-bg: transparent;
   --uc-tab-corner-outline: transparent;
 
@@ -132,7 +149,7 @@
   .tabbrowser-tab:hover &:not([selected], [multiselected]) {
     --uc-tab-corner-bg: transparent !important;
     border-radius: var(--tab-border-radius) !important;
-    margin-block: 4px !important;
+/*     margin-block: 4px !important; */
   }
 
   /* When tabs are selected but not active, they should have a partially
@@ -143,15 +160,128 @@
   }
 
   tab[dragtarget] & {
-    --uc-tab-corner-bg: transparent !important;
-    border-radius: var(--tab-border-radius) !important;
+/*     --uc-tab-corner-bg: transparent !important; */
+/*     border-radius: var(--tab-border-radius) !important; */
     margin-block: 4px !important;
 
     /*     drop-shadow: none !important; */
   }
 }
 
+/* .tabbrowser-tab, #tabbrowser-arrowscrollbox, #tabbrowser-tabs, #TabsToolbar-customization-target, .toolbar-items, */
+tab:first-of-type .tab-stack {
+  padding-left: 8px !important;
+  overflow: visible !important;
+}
+#urlbar-background {
+  transition: all !important;
+  
+}
+#urlbar {
+
+}
 #urlbar:not([focused]) #urlbar-background {
   background-color: transparent !important;
   border: none !important;
+}
+#urlbar[focused] #urlbar-background {  
+  
+  outline: none !important;
+  border-radius: 8px !important;
+}
+#urlbar:not([breakout-extend]) #urlbar-background {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+
+#urlbar[breakout-extend] #urlbar-background {
+  border-radius: 18px !important;
+/*   padding: 16px !important; */
+/*   position: absolute !important; */
+  top: -8px !important;
+  bottom: -4px !important;
+  left: -16px !important;
+  right: -16px !important;
+/*   width: 100% !important; */
+/*   margin: 16px !important; */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+                0 2px 4px rgba(0,0,0,0.07), 
+                0 4px 8px rgba(0,0,0,0.07), 
+                0 8px 16px rgba(0,0,0,0.07),
+                0 16px 32px rgba(0,0,0,0.07), 
+                0 32px 64px rgba(0,0,0,0.07);
+}
+
+
+
+#sidebar-button,
+#home-button,
+/* #identity-icon-box, */
+#urlbar-go-button,
+#urlbar-searchmode-switcher,
+#star-button,
+#tracking-protection-icon-container,
+.verifiedDomain {
+  display: none !important;
+}
+
+.notSecure > #identity-icon-box {
+  fill: white !important;
+  background-color: red !important;
+  border-radius: 6px !important;
+}
+
+#urlbar-container {
+/* --urlbar-container-height: 36px !important; */
+  
+}
+
+.urlbarView {
+/*   display: block !important; */
+/*   background-color: white !important; */
+  left: -16px !important;
+  right: -16px !important;
+  width: calc(100% + 20px) !important;
+/*   padding: 18px !important; */
+}
+.urlbarView-row {
+  border-radius: 10px !important;
+  
+/*   padding: 18px !important; */
+}
+#urlbar-input {
+  font-size: 0.9em !important;
+}
+
+.urlbarView-row-inner {
+/*   display: flex !important; */
+/*   flex-wrap: nowrap !important; */
+/*   overflow: clip !important; */
+/*   flex-direction: row !important; */
+  border-radius: 12px !important;
+  
+  & > .urlbarView-no-wrap {
+/*   flex-basis: 0 !important; */
+    
+  }
+}
+
+/* Set tab minimum width - Adjust '8px' value to suit */
+:root { --set-tab-min-width: 8px; }
+
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) {
+  min-width: var(--set-tab-min-width) !important;
+}
+
+/* Adjust padding for better centering and less wasted space */
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) .tab-content {
+/*   padding-left: calc((var(--set-tab-min-width) - 3px)/2) !important; */
+/*   padding-right: calc((var(--set-tab-min-width) - 3px)/2) !important; */
+}
+
+/* Set Active tab width - Adjust '180px' value to suit */
+/* If wider Active tab not required set 'min-width' as 'var(--set-tab-min-width)' */
+.tabbrowser-tab[selected][fadein]:not([pinned]) {
+  min-width: 0px !important;
 }
