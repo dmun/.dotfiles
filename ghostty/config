@@ -26,7 +26,7 @@ mouse-hide-while-typing
 
 window-vsync = false
 macos-titlebar-style = native
-window-decoration = true
+# window-decoration = true
 window-padding-y = 2,0
 window-padding-x = 2,0
 window-padding-balance = false
