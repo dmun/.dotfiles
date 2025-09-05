@@ -38,6 +38,8 @@
 }
 #navigator-toolbox {
   border: none !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 8px 8px 0px 0px !important;
   transition: none !important;
 }
 
@@ -122,6 +124,8 @@
     );
     outline: none !important;
     margin-top: 4px !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+
   }
 
   /* Tab hover background colour. */
@@ -145,4 +149,9 @@
 
     /*     drop-shadow: none !important; */
   }
+}
+
+#urlbar:not([focused]) #urlbar-background {
+  background-color: transparent !important;
+  border: none !important;
 }
