@@ -5,6 +5,27 @@
   --tabstrip-min-height: 28px !important;
   --urlbar-container-height: 28px !important;
   --inactive-titlebar-opacity: 1 !important;
+  --browser-bgcolor: hsl(210 5% 95%) !important;
+  
+  #tabbrowser-tabs {
+    background-color: var(--browser-bgcolor) !important;
+    color: black;
+    --toolbarbutton-icon-fill: black;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --browser-bgcolor: hsl(210 3% 20%) !important;
+  }
+  #tabbrowser-tabs {
+    color: white !important;
+    --toolbarbutton-icon-fill: white !important;
+  }
+}
+
+.browser-toolbox-background {
+  background-color: var(--browser-bgcolor) !important;
 }
 
 .titlebar-spacer {
@@ -14,24 +35,22 @@
 #nav-bar-customization-target toolbarbutton image {
   width: 30px !important;
 }
-body,
-html,
-.browserContainer,
-#mainPopupSet,
-#main-window,
-#tabbrowser-tabbox,
-#tabbrowser-tabpanels {
-  background-color: #111111 !important;
-}
+
+/* #tabbrowser-tabs {
+  background-color: var(--browser-bgcolor) !important;
+  color: white !important;
+  --toolbarbutton-icon-fill: white !important;
+} */
 
 
 #browser {
   /*   -moz-appearance: -moz-window-sidebar !important; */
-  /*   background-color: var(--browser-bgcolor) !important; */
-  background-image: none !important;
+/*     background-color: var(--browser-bgcolor) !important; */
+/*   background-color: var(--toolbar-bgcolor) !important; */
+/*   background-image: none !important; */
 }
 
-#PersonalToolbar {
+/* #PersonalToolbar {
   margin-inline: var(--browser-padding) !important;
   toolbarbutton {
   border-radius: 8px !important;
@@ -39,7 +58,7 @@ html,
     padding-block: 4px !important;
     /*       aspect-ratio: 1 / 1; */
   }
-}
+} */
 
 :root:not([sizemode="fullscreen"]) tabbox {
   margin: var(--browser-padding) !important;
@@ -61,8 +80,8 @@ html,
 
 #nav-bar {
   /*   position: initial !important; */
-  margin-inline: var(--browser-padding) !important;
-  border-radius: 8px 8px 0px 0px !important;
+/*   margin-inline: var(--browser-padding) !important; */
+  border-radius: 10px 10px 0px 0px !important;
   box-shadow: var(--browser-shadow) !important;
   border-bottom: 1px solid var(--chrome-content-separator-color) !important;
 /*   transition: none !important; */
@@ -160,7 +179,7 @@ html,
     );
     outline: none !important;
     /*     margin-bottom: 0px !important; */
-    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+/*     border-top: 1px solid rgba(255, 255, 255, 0.2) !important; */
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
     margin-top: 0 !important;
