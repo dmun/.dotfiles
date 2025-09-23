@@ -15,7 +15,7 @@ font-feature = -calt
 # cursor-text = #000000
 cursor-style = block
 cursor-style-blink = false
-adjust-cell-height = 5%
+adjust-cell-height = 0%
 adjust-cursor-height = 10%
 adjust-cursor-thickness = 6
 adjust-box-thickness = -1
@@ -28,10 +28,10 @@ window-vsync = false
 macos-titlebar-style = native
 # window-decoration = true
 window-padding-y = 2,0
-window-padding-x = 2,0
+window-padding-x = 4,0
 window-padding-balance = false
 # window-padding-color = extend-always
-# window-padding-color = extend
+window-padding-color = extend
 # window-colorspace = display-p3
 # window-step-resize
 
