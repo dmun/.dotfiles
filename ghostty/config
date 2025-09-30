@@ -3,7 +3,7 @@ shell-integration = fish
 shell-integration-features = no-cursor
 
 theme = ayu
-background = 16181A
+background = black
 
 font-family = JetBrains Mono
 font-size = 14
@@ -15,8 +15,8 @@ font-feature = -calt
 # cursor-text = #000000
 cursor-style = block
 cursor-style-blink = false
-adjust-cell-height = 0%
-adjust-cursor-height = 10%
+adjust-cell-height = 5%
+adjust-cursor-height = 20%
 adjust-cursor-thickness = 6
 adjust-box-thickness = -1
 adjust-underline-thickness = 0
