@@ -3,6 +3,7 @@ zoxide init fish | source
 
 # aliases
 alias v=nvim
+alias t="tmux a || tmux"
 alias lg=lazygit
 alias la="ls -a"
 alias ll="ls -la"
