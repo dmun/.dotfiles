@@ -30,8 +30,8 @@ input * {
     repeat_rate 90
 }
 
-gaps inner 0
-gaps outer 0
+gaps inner 12
+gaps outer -12
 
 ### Output configuration
 #
@@ -99,7 +99,7 @@ gaps outer 0
     bindsym $mod+Shift+c reload
 
     # Reload the configuration file
-    bindsym $mod+c exec hyprpick -a
+    bindsym $mod+Control+c exec wl-color-picker
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -108,8 +108,8 @@ gaps outer 0
 #
     # Move your focus around
     bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
+    bindsym $mod+$down focus next
+    bindsym $mod+$up focus prev
     bindsym $mod+$right focus right
 
     # Move the focused window with the same, but add Shift
@@ -147,6 +147,8 @@ gaps outer 0
 #
 # Layout stuff:
 #
+    workspace_layout tabbed
+
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -156,14 +158,14 @@ gaps outer 0
     # Switch the current container between different layout styles
     # bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+s layout toggle split
+    bindsym $mod+z layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+Shift+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+a floating toggle
-    bindsym $mod+Shift+s sticky toggle
+    bindsym $mod+Shift+a sticky toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+tab focus mode_toggle
@@ -177,11 +179,12 @@ gaps outer 0
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+Shift+s move scratchpad
 
+    bindsym Mod4+s exec grim -g "$(slurp)" - | wl-copy
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    bindsym $mod+s scratchpad show
 #
 # Resizing containers:
 #
@@ -225,12 +228,12 @@ bindsym $mod+Shift+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position bottom
+    position top
     status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
 }
 
 hide_edge_borders --i3 smart
 smart_gaps on
-default_border pixel 2
+default_border pixel 1
 
 include /etc/sway/config.d/*
