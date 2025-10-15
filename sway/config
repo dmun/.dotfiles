@@ -22,6 +22,8 @@ output DP-2 mode 1920x1080@143.855Hz position 0,0
 output DP-2 allow_tearing yes
 output DP-2 max_render_time off
 
+# font pango:monospace 12
+
 input * {
     pointer_accel 0.5
     accel_profile flat
@@ -40,7 +42,7 @@ gaps outer -12
 #
 # Example configuration:
 #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+  # output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -95,6 +97,8 @@ gaps outer -12
     # mouse button for dragging.
     floating_modifier $mod normal
 
+    bindsym $mod+F10 exec pkill -SIGUSR1 -f gpu-screen-recorder
+
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
@@ -107,10 +111,11 @@ gaps outer -12
 # Moving around:
 #
     # Move your focus around
+    # bindsym $mod+tab focus next
     bindsym $mod+$left focus left
-    bindsym $mod+$down focus next
-    bindsym $mod+$up focus prev
     bindsym $mod+$right focus right
+    bindsym $mod+$down focus next sibling
+    bindsym $mod+$up focus prev sibling
 
     # Move the focused window with the same, but add Shift
     bindsym Control+$mod+$left move left
@@ -164,14 +169,14 @@ gaps outer -12
     bindsym $mod+Shift+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+a floating toggle
-    bindsym $mod+Shift+a sticky toggle
+    bindsym $mod+x floating toggle
+    bindsym $mod+Shift+x sticky toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+tab focus mode_toggle
 
     # Move focus to the parent container
-    # bindsym $mod+a focus parent
+    bindsym $mod+a focus parent
 #
 # Scratchpad:
 #
@@ -228,7 +233,7 @@ bindsym $mod+Shift+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    position bottom
     status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
 }
 
