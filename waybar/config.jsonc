@@ -1,6 +1,7 @@
 {
-  "layer": "top",
-  "position": "bottom",
+  "output": "DP-2",
+  "layer": "bottom",
+  "position": "top",
   "spacing": 0,
   "height": 0,
   "passthrough": false,
@@ -12,10 +13,10 @@
   "margin-bottom": 0,
   "margin-left": 0,
 
-  "modules-left": ["hyprland/workspaces"],
-  // "modules-center": ["hyprland/workspaces"],
+  "modules-left": ["ext/workspaces"],
+  "modules-center": ["clock"],
   // "modules-right": ["tray", "cpu", "memory", "network", "pulseaudio"],
-  "modules-right": ["tray", "custom/gpu-recorder", "pulseaudio", "clock"],
+  "modules-right": ["tray", "custom/gpu-recorder", "pulseaudio"],
 
   "hyprland/window": {
     "format": "{initialTitle}",
@@ -25,45 +26,14 @@
     "format": " ",
   },
 
-  "hyprland/workspaces": {
-    "active-only": false,
-    "all-outputs": true,
-    "format": "{icon}",
-    "show-special": false,
-    "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1",
-    "persistent-workspaces": {
-      "*": 5,
-    }
-  },
-
   "tray": {
     "spacing": 4,
     "tooltip": false,
   },
 
   "clock": {
-    "format": "{:%a %b %d %H:%M}",
+    // "format": "{:%a %b %e %H:%M}",
     "tooltip": false,
-  },
-
-  "cpu": {
-    "format": "cpu {usage}%",
-    "interval": 2,
-
-    "states": {
-      "critical": 90,
-    },
-  },
-
-  "memory": {
-    "format": "mem {percentage}%",
-    "interval": 2,
-
-    "states": {
-      "critical": 80,
-    },
   },
 
   "network": {
@@ -84,11 +54,7 @@
     "on-click": "pactl -- set-sink-mute 0 toggle",
     "tooltip": false,
     "format-icons": {
-      "default": [
-        "󰕿",
-        "󰖀",
-        "󰕾",
-      ],
+      "default": ["󰕿", "󰖀", "󰕾"],
     },
   },
 
@@ -96,5 +62,11 @@
     "exec": "systemctl --user is-active gpu-screen-recorder.service >/dev/null && echo 'GSR ON' || echo 'GSR OFF'",
     "interval": 5,
     "on-click": "systemctl --user is-active gpu-screen-recorder.service >/dev/null && systemctl --user stop gpu-screen-recorder.service || systemctl --user start gpu-screen-recorder.service",
+  },
+
+  "ext/workspaces": {
+    "format": "{name}",
+    "sort-by-number": true,
+    "on-click": "activate",
   },
 }

@@ -1,19 +1,21 @@
-@define-color bg #1c1e21;
-@define-color bg_alt #DBDBDB;
+@define-color bg #000000;
+@define-color bg_alt #ffffff;
 @define-color border #3e74b2;
-@define-color fg #FDFFDC;
+@define-color fg #ffffff;
 
 * {
   /* all: initial; */
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 15px;
+  font-family: "monospace";
+  font-size: 14px;
+  font-weight: normal;
 }
 
 window#waybar {
   background: @bg;
+  /* border: 2px solid black; */
 }
 
 #clock,
@@ -23,23 +25,29 @@ memory,
 #network,
 #window,
 #custom-gpu-recorder,
-#pulseaudio {
-  margin: 0px 4px;
-  padding: 0px 4px;
-  min-width: 96px;
-  color: @fg;
-}
-
+#pulseaudio,
+#workspaces,
 #tray {
-  margin: 0;
+  margin: 0px 8px;
+  padding: 0px 0px;
+  min-width: 64px;
+  color: @fg;
+  /* background: @bg; */
+  /* border: 2px solid black; */
 }
 
-#custom-os-icon {
-  background-image: url("/home/david/Downloads/penguin.png");
-  background-repeat: no-repeat;
-  background-size: 28px;
-  min-width: 24px;
-  /* margin: 1px 12px 0px 24px; */
+/* override */
+#workspaces {
+  margin: 0px;
+}
+
+.modules-right,
+.modules-left {
+  margin: 0px 0px;
+  padding: 0px 0px;
+  /* background: @bg; */
+  background: transparent;
+  /* border: 2px solid black; */
 }
 
 #window {
@@ -54,18 +62,20 @@ memory,
 #workspaces button {
   transition: 0;
   color: @fg;
-  padding: 4px 12px 4px 12px;
+  padding: 4px 8px;
+  margin: 0px 0px;
+  /* background: @bg; */
 }
 
 #workspaces button.active {
-  color: black;
+  color: @bg;
+  background: @bg_alt;
   font-weight: bold;
-  background-color: @bg_alt;
 }
 
 #workspaces button:hover {
-  color: black;
-  background-color: @bg_alt;
+  color: @bg;
+  background: @bg_alt;
 }
 
 #workspaces button.urgent {
