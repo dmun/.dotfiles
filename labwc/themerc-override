@@ -1,0 +1,27 @@
+window.label.text.justify: left
+
+border.width: 2
+border.color: black
+
+menu.border.width: 2
+menu.border.color: white
+
+window.titlebar.padding.width: 10
+window.titlebar.padding.height: 4
+
+window.active.title.bg: Solid
+window.active.title.bg.color: #DCDCDC
+window.active.label.text.color: black
+window.inactive.title.bg: Solid
+window.inactive.title.bg.color: #101010
+window.inactive.label.text.color: #aaaaaa
+window.active.border.color: #DCDCDC
+window.inactive.border.color: #101010
+
+window.active.button.iconify.unpressed.image.color: #101010
+window.active.button.max.unpressed.image.color: #101010
+window.active.button.close.unpressed.image.color: #101010
+
+window.inactive.button.iconify.unpressed.image.color: #444444
+window.inactive.button.max.unpressed.image.color: #444444
+window.inactive.button.close.unpressed.image.color: #444444
