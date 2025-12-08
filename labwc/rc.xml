@@ -5,7 +5,7 @@
   <core>
     <decoration>server</decoration>
     <gap>0</gap>
-    <adaptiveSync>yes</adaptiveSync>
+    <adaptiveSync>no</adaptiveSync>
     <allowTearing>fullscreenForced</allowTearing>
     <autoEnableOutputs>yes</autoEnableOutputs>
     <reuseOutputMode>no</reuseOutputMode>
@@ -87,7 +87,7 @@
 
   <focus>
     <followMouse>yes</followMouse>
-    <followMouseRequiresMovement>yes</followMouseRequiresMovement>
+    <followMouseRequiresMovement>no</followMouseRequiresMovement>
     <raiseOnFocus>no</raiseOnFocus>
   </focus>
 

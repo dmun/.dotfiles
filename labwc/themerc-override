@@ -13,10 +13,10 @@ window.active.title.bg: Solid
 window.active.title.bg.color: #DCDCDC
 window.active.label.text.color: black
 window.inactive.title.bg: Solid
-window.inactive.title.bg.color: #101010
+window.inactive.title.bg.color: #121212
 window.inactive.label.text.color: #aaaaaa
 window.active.border.color: #DCDCDC
-window.inactive.border.color: #101010
+window.inactive.border.color: #121212
 
 window.active.button.iconify.unpressed.image.color: #101010
 window.active.button.max.unpressed.image.color: #101010
