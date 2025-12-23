@@ -17,3 +17,5 @@
 (use-package dired-hide-details :hook dired-mode)
 (use-package nerd-icons-dired :ensure t :hook dired-mode)
 (add-hook 'proced-mode-hook (lambda () (proced-toggle-auto-update 1)))
+
+(keymap-global-set "C-x C-o" #'recentf)

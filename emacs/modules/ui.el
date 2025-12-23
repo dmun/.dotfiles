@@ -1,13 +1,13 @@
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
 
 (custom-set-faces
- '(default ((t :family "Iosevka SS14" :height 180)))
- '(fixed-pitch ((t :family "Iosevka SS14")))
+ '(default ((t :family "Aporetic Sans Mono" :height 160)))
+ '(fixed-pitch ((t :family "Aporetic Sans Mono")))
  '(variable-pitch ((t :family "Aporetic Serif")))
  '(line-number ((t :background nil)))
  '(line-number-current-line ((t :background nil)))
- '(fringe ((t :background nil)))
- '(default ((t :foreground "white"))))
+ '(fringe ((t :background nil))))
+ ;; '(default ((t :foreground "white"))))
  ;; '(corfu-border ((t :background nil))))
 
 (defun my/custom-faces ()
@@ -46,7 +46,7 @@
           (7 default 1.0)
           (t default 1.0)))
   (setq modus-themes-mode-line '(accented borderless padded))
-  (load-theme 'ef-autumn t))
+  (load-theme 'modus-operandi t))
 
 (global-display-line-numbers-mode -1)
 (use-package display-line-numbers
@@ -104,8 +104,6 @@
 (use-package consult :ensure t)
 (use-package vertico
   :ensure t
-  :bind (:map vertico-map
-         ("C-w" . 'evil-delete-backward-word))
   :config
   (setq vertico-preselect 'first)
   (vertico-mode))
