@@ -1,13 +1,13 @@
 window.label.text.justify: left
 
-border.width: 2
+border.width: 1
 border.color: black
 
-menu.border.width: 2
+menu.border.width: 1
 menu.border.color: white
 
 window.titlebar.padding.width: 10
-window.titlebar.padding.height: 4
+window.titlebar.padding.height: 3
 
 window.active.title.bg: Solid
 window.active.title.bg.color: #DCDCDC

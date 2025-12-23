@@ -4,7 +4,7 @@
 
   <core>
     <decoration>server</decoration>
-    <gap>0</gap>
+    <gap>18</gap>
     <adaptiveSync>no</adaptiveSync>
     <allowTearing>fullscreenForced</allowTearing>
     <autoEnableOutputs>yes</autoEnableOutputs>
@@ -28,35 +28,35 @@
     <cornerRadius>0</cornerRadius>
     <keepBorder>yes</keepBorder>
     <maximizedDecoration>titlebar</maximizedDecoration>
-    <dropShadows>yes</dropShadows>
+    <dropShadows>no</dropShadows>
     <dropShadowsOnTiled>no</dropShadowsOnTiled>
     <font place="ActiveWindow">
-      <name>monospace</name>
-      <size>11</size>
+      <name>Terminus</name>
+      <size>9</size>
       <slant>normal</slant>
-      <weight>bold</weight>
+      <weight>normal</weight>
     </font>
     <font place="InactiveWindow">
-      <name>monospace</name>
-      <size>11</size>
+      <name>Terminus</name>
+      <size>9</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="MenuHeader">
-      <name>monospace</name>
-      <size>11</size>
+      <name>Terminus</name>
+      <size>9</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="MenuItem">
-      <name>monospace</name>
-      <size>11</size>
+      <name>Terminus</name>
+      <size>9</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="OnScreenDisplay">
-      <name>monospace</name>
-      <size>11</size>
+      <name>Terminus</name>
+      <size>9</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
@@ -86,8 +86,8 @@
   </resize>
 
   <focus>
-    <followMouse>yes</followMouse>
-    <followMouseRequiresMovement>no</followMouseRequiresMovement>
+    <followMouse>no</followMouse>
+    <followMouseRequiresMovement>yes</followMouseRequiresMovement>
     <raiseOnFocus>no</raiseOnFocus>
   </focus>
 
@@ -104,10 +104,10 @@
   <desktops>
     <popupTime>1000</popupTime>
     <names>
-      <name>one</name>
-      <name>two</name>
-      <name>three</name>
-      <name>four</name>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
     </names>
   </desktops>
 
@@ -177,8 +177,8 @@
       <action name="ToggleFullscreen" />
     </keybind>
 
-    <keybind key="A-w">
-      <action name="Execute" command="killall -SIGUSR2 waybar" />
+    <keybind key="W-S-s">
+      <action name="Execute" command="sh -c 'grim -g &quot;$(slurp)&quot; - | wl-copy'" />
     </keybind>
 
     <keybind key="W-1">
@@ -213,6 +213,10 @@
 
     <keybind key="W-c">
       <action name="Execute" command="hyprpicker -a" />
+    </keybind>
+
+    <keybind key="W-z">
+      <action name="Execute" command="pkill -SIGUSR1 -f gpu-screen-recorder" />
     </keybind>
   </keyboard>
 
@@ -402,9 +406,6 @@
 
   <windowRules>
     <windowRule identifier="brave-browser">
-      <action name="SetDecorations" decorations="border" />
-    </windowRule>
-    <windowRule identifier="discord">
       <action name="SetDecorations" decorations="border" />
     </windowRule>
   </windowRules>

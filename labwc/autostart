@@ -2,14 +2,15 @@
 # swaybg -c '#113344' >/dev/null 2>&1 &
 waypaper --restore
 
+# statusbar
+# waybar >/dev/null 2>&1 &
+quickshell >/dev/null 2>&1 &
+
 # outputs
 kanshi >/dev/null 2>&1 &
 
-# statusbar
-waybar >/dev/null 2>&1 &
-
 # notifications
-mako >/dev/null 2>&1 &
+# mako >/dev/null 2>&1 &
 
 # lock screen
 swayidle -w \
