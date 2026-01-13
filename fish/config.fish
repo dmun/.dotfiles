@@ -15,6 +15,11 @@ alias alt="sudo alternatives --config"
 alias bs="brew search"
 alias bi="brew install"
 
+alias pac="sudo pacman -S"
+alias pacs="pacman -Ss"
+alias par="paru -S"
+alias pars="paru -Ss"
+
 # functions
 function cs
     curl cheat.sh/$argv
@@ -24,7 +29,6 @@ end
 set -x ESCDELAY 1
 set -x EDITOR nvim
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
-# set -x FZF_DEFAULT_OPTS '--color=bg+:#39424D'
 set -x FZF_DEFAULT_OPTS '--no-separator'
 
 set -x FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS'
@@ -48,3 +52,12 @@ set -x FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS'
 set -x _ZO_FZF_OPTS $FZF_DEFAULT_OPTS
 
 set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+
+if status is-interactive
+and not set -q TMUX
+    if tmux has-session > /dev/null 2>&1
+        exec tmux attach
+    else
+        exec tmux
+    end
+end

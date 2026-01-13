@@ -1,86 +1,43 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
 set $mod Mod1
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
 set $term foot
-# Your preferred application launcher
 set $menu fuzzel
 
 output DP-2 mode 1920x1080@143.855Hz position 0,0
-output DP-2 allow_tearing yes
-output DP-2 max_render_time off
-
-# font pango:monospace 12
+# output DP-2 mode 1920x1080@119.982Hz position 0,0
+output * allow_tearing yes
+output * max_render_time off
 
 input * {
-    pointer_accel 0.5
+    pointer_accel 0
     accel_profile flat
 
-    repeat_delay 180
-    repeat_rate 90
+    repeat_delay 200
+    repeat_rate 60
 }
 
 gaps inner 12
-gaps outer -12
+gaps outer 0
 
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-  # output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-
-### Idle configuration
-#
-# Example configuration:
-#
+# exec swaybg -c '#113344' >/dev/null 2>&1 &
+exec waypaper --restore
+exec kanshi
 # exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+# 	timeout 300 'swaylock -f -c 000000' \
+# 	timeout 600 'wlopm --off \*' \
+# 	resume 'wlopm --on \*' \
+# 	before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
 
 ### Input configuration
-#
-# Example configuration:
-#
-#   input type:touchpad {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-#   input type:keyboard {
-#       xkb_layout "eu"
-#   }
-#
-# You can also configure each device individually.
-# Read `man 5 sway-input` for more information about this section.
+   input type:keyboard {
+       xkb_layout "us"
+       # xkb_variant "colemak_dh"
+   }
 
 ### Key bindings
-#
-# Basics:
-#
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -95,9 +52,9 @@ gaps outer -12
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
-    floating_modifier $mod normal
+    floating_modifier Mod4 normal
 
-    bindsym $mod+F10 exec pkill -SIGUSR1 -f gpu-screen-recorder
+    bindsym Mod4+z exec pkill -SIGUSR1 -f gpu-screen-recorder
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -111,7 +68,8 @@ gaps outer -12
 # Moving around:
 #
     # Move your focus around
-    # bindsym $mod+tab focus next
+    bindsym Mod4+q focus next sibling
+    bindsym Mod4+tab focus prev sibling
     bindsym $mod+$left focus left
     bindsym $mod+$right focus right
     bindsym $mod+$down focus next sibling
@@ -169,7 +127,7 @@ gaps outer -12
     bindsym $mod+Shift+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+x floating toggle
+    bindsym Mod4+a floating toggle
     bindsym $mod+Shift+x sticky toggle
 
     # Swap focus between the tiling area and the floating area
@@ -232,13 +190,30 @@ bindsym $mod+Shift+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position bottom
-    status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
-}
+# bar {
+#     position bottom
+#     status_command while date +'%Y-%m-%d %H:%M'; do sleep 1; done
+# }
+
+# Class                  Border    Background Text      Indicator Child_border
+client.focused           #ffffff   #ffffff    #000000   #000000   #ffffff
+client.focused_inactive  #ffffff   #bbbbbb    #000000   #000000   #000000
+client.unfocused         #ffffff   #bbbbbb    #000000   #000000   #000000
+client.urgent            #ffffff   #bbbbbb    #ff0000   #000000   #000000
 
 hide_edge_borders --i3 smart
-smart_gaps on
+smart_borders false
+smart_gaps inverse_outer
 default_border pixel 1
+titlebar_border_thickness 1
+
+gaps horizontal 240
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_type="menu"] floating enable
 
 include /etc/sway/config.d/*

@@ -1,7 +1,7 @@
 {
   "output": "DP-2",
   "layer": "bottom",
-  "position": "top",
+  "position": "bottom",
   "spacing": 0,
   "height": 0,
   "passthrough": false,

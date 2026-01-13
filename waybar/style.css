@@ -1,21 +1,21 @@
 @define-color bg #000000;
-@define-color bg_alt #ffffff;
+@define-color bg_alt #555555;
 @define-color border #3e74b2;
 @define-color fg #ffffff;
+@define-color fg_alt #54585B;
 
 * {
   /* all: initial; */
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: "monospace";
-  font-size: 14px;
+  font-family: "Monocraft";
+  font-size: 11px;
   font-weight: normal;
 }
 
 window#waybar {
   background: @bg;
-  /* border: 2px solid black; */
 }
 
 #clock,
@@ -28,7 +28,7 @@ memory,
 #pulseaudio,
 #workspaces,
 #tray {
-  margin: 0px 8px;
+  margin: 8px 8px;
   padding: 0px 0px;
   min-width: 64px;
   color: @fg;
@@ -50,10 +50,6 @@ memory,
   /* border: 2px solid black; */
 }
 
-#window {
-  font-weight: bold;
-}
-
 #pulseaudio:hover {
   color: white;
   background-color: black;
@@ -61,15 +57,21 @@ memory,
 
 #workspaces button {
   transition: 0;
-  color: @fg;
+  padding: 4px 8px;
+  margin: 0px 0px;
+}
+
+#workspaces button {
+  transition: 0;
+  color: @fg_alt;
   padding: 4px 8px;
   margin: 0px 0px;
   /* background: @bg; */
 }
 
-#workspaces button.active {
-  color: @bg;
-  background: @bg_alt;
+#workspaces button.active label {
+  color: @fg;
+  /* background: @bg; */
   font-weight: bold;
 }
 

@@ -28,41 +28,41 @@
     <cornerRadius>0</cornerRadius>
     <keepBorder>yes</keepBorder>
     <maximizedDecoration>titlebar</maximizedDecoration>
-    <dropShadows>no</dropShadows>
-    <dropShadowsOnTiled>no</dropShadowsOnTiled>
+    <dropShadows>yes</dropShadows>
+    <dropShadowsOnTiled>yes</dropShadowsOnTiled>
     <font place="ActiveWindow">
-      <name>Terminus</name>
-      <size>9</size>
+      <name>sans</name>
+      <size>10</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="InactiveWindow">
-      <name>Terminus</name>
-      <size>9</size>
+      <name>sans</name>
+      <size>10</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="MenuHeader">
-      <name>Terminus</name>
-      <size>9</size>
+      <name>sans</name>
+      <size>10</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="MenuItem">
-      <name>Terminus</name>
-      <size>9</size>
+      <name>sans</name>
+      <size>10</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="OnScreenDisplay">
-      <name>Terminus</name>
-      <size>9</size>
+      <name>sans</name>
+      <size>10</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
   </theme>
 
-  <windowSwitcher show="yes" style="classic" preview="yes" outlines="yes" allWorkspaces="no">
+  <windowSwitcher show="no" style="thumbnail" preview="yes" outlines="yes" allWorkspaces="no">
     <fields>
       <field content="icon" width="5%" />
       <field content="state" width="3%" />
@@ -81,8 +81,8 @@
   <resize>
     <popupShow>Always</popupShow>
     <drawContents>yes</drawContents>
-    <minimumArea>16</minimumArea>
-    <cornerRange>16</cornerRange>
+    <minimumArea>12</minimumArea>
+    <cornerRange>12</cornerRange>
   </resize>
 
   <focus>
@@ -112,7 +112,7 @@
   </desktops>
 
   <regions>
-    <region name="center" x="12%" y="0%" height="100%"  width="76%"  />
+    <region name="center" x="33%" y="0%" height="100%"  width="67%"  />
   </regions>
 
   <keyboard>
@@ -137,21 +137,22 @@
     <keybind key="W-a">
       <action name="ToggleMaximize" />
     </keybind>
-    <keybind key="W-Left">
+    <keybind key="C-A-h">
       <action name="SnapToEdge" direction="left" combine="yes" />
     </keybind>
-    <keybind key="W-Right">
+    <keybind key="C-A-l">
       <action name="SnapToEdge" direction="right" combine="yes" />
     </keybind>
-    <keybind key="W-Up">
+    <keybind key="C-A-k">
       <action name="SnapToEdge" direction="up" combine="yes" />
     </keybind>
-    <keybind key="W-Down">
+    <keybind key="C-A-j">
       <action name="SnapToEdge" direction="down" combine="yes" />
     </keybind>
     <keybind key="A-Space">
       <!-- <action name="ShowMenu" menu="client-menu" atCursor="no" /> -->
-      <action name="Execute" command="fuzzel" />
+      <!-- <action name="Execute" command="fuzzel" /> -->
+      <action name="Execute" command="vicinae open" />
     </keybind>
     <keybind key="XF86_AudioLowerVolume">
       <action name="Execute" command="amixer sset Master 5%-" />
@@ -405,7 +406,7 @@
   </libinput>
 
   <windowRules>
-    <windowRule identifier="brave-browser">
+    <windowRule identifier="helium">
       <action name="SetDecorations" decorations="border" />
     </windowRule>
   </windowRules>

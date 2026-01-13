@@ -1,20 +1,23 @@
 # wallpaper
-# swaybg -c '#113344' >/dev/null 2>&1 &
-waypaper --restore
+swaybg -c '#1c2630' >/dev/null 2>&1 &
+# waypaper --restore
+
+# outputs
+kanshi >/dev/null 2>&1 &
 
 # statusbar
 # waybar >/dev/null 2>&1 &
 quickshell >/dev/null 2>&1 &
 
-# outputs
-kanshi >/dev/null 2>&1 &
-
 # notifications
 # mako >/dev/null 2>&1 &
 
+# app launcher
+vicinae server --replace >/dev/null 2>&1 &
+
 # lock screen
-swayidle -w \
-	timeout 300 'swaylock -f -c 000000' \
-	timeout 600 'wlopm --off \*' \
-	resume 'wlopm --on \*' \
-	before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &
+# swayidle -w \
+# 	timeout 300 'swaylock -f -c 000000' \
+# 	timeout 600 'wlopm --off \*' \
+# 	resume 'wlopm --on \*' \
+# 	before-sleep 'swaylock -f -c 000000' >/dev/null 2>&1 &

@@ -1,13 +1,13 @@
 notARepository: skip
 promptToReturnFromSubprocess: false
 gui:
-    border: 'single'
-    showListFooter: true
-    showBottomLine: false
-    showPanelJumps: false
+  border: 'single'
+  showListFooter: true
+  showBottomLine: false
+  showPanelJumps: false
 git:
-  paging:
-    colorArg: always
-    pager: diff-so-fancy
+  pagers:
+    - colorArg: always
+      pager: diff-so-fancy
 os:
-    editPreset: 'nvim'
+  editPreset: 'nvim'
