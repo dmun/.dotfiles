@@ -1,4 +1,4 @@
-command = fish
+command = /opt/homebrew/bin/fish
 shell-integration = fish
 shell-integration-features = no-cursor
 
@@ -15,23 +15,23 @@ font-feature = -calt
 # cursor-text = #000000
 cursor-style = block
 cursor-style-blink = false
-adjust-cell-height = 5%
+adjust-cell-height = 20%
 adjust-cursor-height = 20%
-adjust-cursor-thickness = 6
-adjust-box-thickness = -1
+adjust-cursor-thickness = 4
+adjust-box-thickness = 1
 adjust-underline-thickness = 0
 bold-is-bright = true
 cursor-invert-fg-bg
 mouse-hide-while-typing
 
 window-vsync = false
-macos-titlebar-style = native
-# window-decoration = true
-window-padding-y = 2,0
-window-padding-x = 4,0
-window-padding-balance = false
-# window-padding-color = extend-always
-window-padding-color = extend
+macos-titlebar-style = hidden
+window-decoration = true
+window-padding-y = 8,0
+window-padding-x = 12,2
+window-padding-balance = true
+window-padding-color = extend-always
+# window-padding-color = extend
 # window-colorspace = display-p3
 # window-step-resize
 
@@ -42,4 +42,4 @@ adw-toolbar-style = flat
 gtk-wide-tabs = true
 gtk-custom-css = ~/.config/ghostty/gtk-custom.css
 
-# config-file = keymaps
+config-file = keymaps
