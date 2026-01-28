@@ -31,7 +31,10 @@
 
 (use-package show-font :ensure t)
 
-(use-package ef-themes :ensure t
+(use-package ef-themes
+  :straight (:type git :host github :repo "protesilaos/ef-themes")
+  :ensure t
+  :demand t
   :config
   (setq ef-themes-mixed-fonts t)
   (setq ef-themes-variable-pitch-ui t)
@@ -46,7 +49,7 @@
           (7 default 1.0)
           (t default 1.0)))
   (setq modus-themes-mode-line '(accented borderless padded))
-  (load-theme 'modus-operandi t))
+  (load-theme 'ef-maris-dark t))
 
 (global-display-line-numbers-mode -1)
 (use-package display-line-numbers
@@ -54,7 +57,7 @@
   :hook (prog-mode conf-mode))
 
 (use-package spacious-padding
-  :disabled
+  ;; :disabled
   :ensure t
   :config
   (spacious-padding-mode 1))

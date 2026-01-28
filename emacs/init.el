@@ -44,6 +44,6 @@
 (load-module terminal)
 (load-module editor)
 (load-module files)
-(load-module llm)
+;; (load-module llm)
 (load-module org)
-(load-module languages)
+;; (load-module languages)
