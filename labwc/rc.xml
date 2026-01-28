@@ -4,7 +4,7 @@
 
   <core>
     <decoration>server</decoration>
-    <gap>18</gap>
+    <gap>0</gap>
     <adaptiveSync>no</adaptiveSync>
     <allowTearing>fullscreenForced</allowTearing>
     <autoEnableOutputs>yes</autoEnableOutputs>
@@ -25,38 +25,38 @@
       <layout>:iconify,max,close</layout>
       <showTitle>yes</showTitle>
     </titlebar>
-    <cornerRadius>0</cornerRadius>
+    <cornerRadius>16</cornerRadius>
     <keepBorder>yes</keepBorder>
     <maximizedDecoration>titlebar</maximizedDecoration>
     <dropShadows>yes</dropShadows>
     <dropShadowsOnTiled>yes</dropShadowsOnTiled>
     <font place="ActiveWindow">
       <name>sans</name>
-      <size>10</size>
+      <size>11</size>
       <slant>normal</slant>
-      <weight>normal</weight>
+      <weight>bold</weight>
     </font>
     <font place="InactiveWindow">
       <name>sans</name>
-      <size>10</size>
+      <size>11</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="MenuHeader">
       <name>sans</name>
-      <size>10</size>
+      <size>11</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="MenuItem">
       <name>sans</name>
-      <size>10</size>
+      <size>11</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
     <font place="OnScreenDisplay">
       <name>sans</name>
-      <size>10</size>
+      <size>11</size>
       <slant>normal</slant>
       <weight>normal</weight>
     </font>
@@ -72,8 +72,8 @@
   </windowSwitcher>
 
   <resistance>
-    <screenEdgeStrength>20</screenEdgeStrength>
-    <windowEdgeStrength>20</windowEdgeStrength>
+    <screenEdgeStrength>200</screenEdgeStrength>
+    <windowEdgeStrength>200</windowEdgeStrength>
     <unSnapThreshold>20</unSnapThreshold>
     <unMaximizeThreshold>150</unMaximizeThreshold>
   </resistance>

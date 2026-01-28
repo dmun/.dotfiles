@@ -1,6 +1,6 @@
 # wallpaper
-swaybg -c '#1c2630' >/dev/null 2>&1 &
-# waypaper --restore
+# swaybg -c '#1c2630' >/dev/null 2>&1 &
+waypaper --restore
 
 # outputs
 kanshi >/dev/null 2>&1 &
