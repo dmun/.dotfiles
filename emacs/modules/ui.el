@@ -32,7 +32,6 @@
 (use-package show-font :ensure t)
 
 (use-package ef-themes
-  :straight (:type git :host github :repo "protesilaos/ef-themes")
   :ensure t
   :demand t
   :config

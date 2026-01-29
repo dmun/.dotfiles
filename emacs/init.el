@@ -17,6 +17,7 @@
                   (menu-bar-lines . 0)
                   (tool-bar-lines . 0))))
 
+(setq mac-command-modifier 'meta)
 (use-package exec-path-from-shell :ensure t)
 (setq-default tab-width 8)
 (setq-default indent-tabs-mode nil)
