@@ -106,6 +106,8 @@
 (use-package consult :ensure t)
 (use-package vertico
   :ensure t
+  :bind (:map vertico-map
+         ("C-w" . 'evil-delete-backward-word))
   :config
   (setq vertico-preselect 'first)
   (vertico-mode))
@@ -152,3 +154,6 @@
   (corfu-popupinfo-mode)
   (corfu-history-mode)
   :hook (evil-insert-exit . corfu-quit))
+
+(use-package diff-hl
+  :ensure t)

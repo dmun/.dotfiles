@@ -59,3 +59,6 @@
           (lambda ()
             (modify-syntax-entry ?_ "w")
             (modify-syntax-entry ?- "w")))
+
+(use-package nix-mode
+  :ensure t)

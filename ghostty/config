@@ -3,10 +3,11 @@
 shell-integration-features = no-cursor
 
 # theme = ayu
-background = #1d1d21
+# background = #1d1d21
+background = black
 
-font-family = JetBrains Mono
-font-size = 14
+font-family = Aporetic Sans Mono
+font-size = 18
 font-thicken
 font-thicken-strength = 255
 font-feature = -calt
@@ -25,10 +26,10 @@ cursor-invert-fg-bg
 mouse-hide-while-typing
 
 window-vsync = false
-macos-titlebar-style = native
-window-decoration = client
-window-padding-y = 2,0
-window-padding-x = 4,0
+# macos-titlebar-style = hidden
+window-decoration = true
+window-padding-y = 8,0
+window-padding-x = 12,2
 window-padding-balance = false
 # window-padding-color = extend-always
 # window-padding-color = extend
@@ -40,7 +41,7 @@ quit-after-last-window-closed = true
 
 # adw-toolbar-style = flat
 gtk-wide-tabs = false
-gtk-titlebar-style = tabs
+# gtk-titlebar-style = tabs
 gtk-single-instance = true
 # gtk-custom-css = ~/.config/ghostty/gtk-custom.css
 

@@ -42,6 +42,7 @@
 
 (load-module ui)
 (load-module terminal)
+(load-module evil)
 (load-module editor)
 (load-module files)
 ;; (load-module llm)
