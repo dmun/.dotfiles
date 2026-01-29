@@ -17,6 +17,9 @@
                   (menu-bar-lines . 0)
                   (tool-bar-lines . 0))))
 
+(when (eq system-type 'darwin)
+  (setq insert-directory-program "/opt/homebrew/bin/gls"))
+
 (use-package exec-path-from-shell :ensure t)
 (setq-default tab-width 8)
 (setq-default indent-tabs-mode nil)

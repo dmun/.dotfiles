@@ -30,7 +30,7 @@
 ;; (set-fringe-style 0)
 
 (use-package show-font :ensure t)
-
+(use-package doom-themes :ensure t)
 (use-package ef-themes
   :ensure t
   :demand t
@@ -48,15 +48,19 @@
           (7 default 1.0)
           (t default 1.0)))
   (setq modus-themes-mode-line '(accented borderless padded))
-  (load-theme 'ef-maris-dark t))
+  (load-theme 'doom-tomorrow-night t))
 
 (global-display-line-numbers-mode -1)
 (use-package display-line-numbers
   :disabled
   :hook (prog-mode conf-mode))
 
+(use-package solaire-mode
+  :ensure t
+  :config (solaire-global-mode +1))
+
 (use-package spacious-padding
-  ;; :disabled
+  :disabled
   :ensure t
   :config
   (spacious-padding-mode 1))
