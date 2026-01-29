@@ -58,6 +58,6 @@ and not set -q TMUX
     if tmux has-session > /dev/null 2>&1
         exec tmux attach
     else
-        exec tmux
+        SHELL=(which fish) exec tmux
     end
 end
