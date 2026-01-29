@@ -56,11 +56,12 @@
   :hook (prog-mode conf-mode))
 
 (use-package solaire-mode
+  :disabled
   :ensure t
   :config (solaire-global-mode +1))
 
 (use-package spacious-padding
-  :disabled
+  ;; :disabled
   :ensure t
   :config
   (spacious-padding-mode 1))
