@@ -1,0 +1,9 @@
+*
+!.gitignore
+!init.el
+!early-init.el
+!init-elpaca.el
+!modules
+!modules/**
+!themes/
+!themes/**

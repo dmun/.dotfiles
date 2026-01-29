@@ -15,6 +15,9 @@ quickshell >/dev/null 2>&1 &
 # app launcher
 vicinae server --replace >/dev/null 2>&1 &
 
+# cloud
+seaf-cli start >/dev/null 2>&1 &
+
 # lock screen
 # swayidle -w \
 # 	timeout 300 'swaylock -f -c 000000' \
