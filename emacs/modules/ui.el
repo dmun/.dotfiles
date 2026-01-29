@@ -1,7 +1,7 @@
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
 
 (custom-set-faces
- '(default ((t :family "Aporetic Sans Mono" :height 160)))
+ '(default ((t :family "Aporetic Sans Mono" :height 180)))
  '(fixed-pitch ((t :family "Aporetic Sans Mono")))
  '(variable-pitch ((t :family "Aporetic Serif")))
  '(line-number ((t :background nil)))
