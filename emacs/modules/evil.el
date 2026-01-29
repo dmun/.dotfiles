@@ -1,3 +1,8 @@
+(setq scroll-conservatively 101)
+(setq scroll-step 1)
+(setq scroll-margin 5)
+(setq maximum-scroll-margin 0)
+
 (defvar my/evil-mc-blacklisted-commands
   '(evil-search-next
     evil-search-previous

@@ -1,7 +1,7 @@
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
 
 (custom-set-faces
- '(default ((t :family "Aporetic Sans Mono" :height 180)))
+ '(default ((t :family "Aporetic Sans Mono" :height 200)))
  '(fixed-pitch ((t :family "Aporetic Sans Mono")))
  '(variable-pitch ((t :family "Aporetic Serif")))
  '(line-number ((t :background nil)))
@@ -69,6 +69,9 @@
          (body-function . select-window))
 
         ("magit: "
+         (display-buffer-same-window))
+
+        ("\\*Org Agenda\\*"
          (display-buffer-same-window))
 
         ((derived-mode . help-mode)
