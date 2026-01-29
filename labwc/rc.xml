@@ -62,7 +62,7 @@
     </font>
   </theme>
 
-  <windowSwitcher show="no" style="thumbnail" preview="yes" outlines="yes" allWorkspaces="no">
+  <windowSwitcher show="yes" style="thumbnail" preview="yes" outlines="yes" allWorkspaces="no">
     <fields>
       <field content="icon" width="5%" />
       <field content="state" width="3%" />
