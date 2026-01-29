@@ -1,5 +1,5 @@
-# command = fish
-# shell-integration = fish
+command = /opt/homebrew/bin/fish
+shell-integration = fish
 shell-integration-features = no-cursor
 
 # theme = ayu
@@ -17,7 +17,7 @@ font-feature = -calt
 cursor-style = block
 cursor-style-blink = false
 adjust-cell-height = 15%
-# adjust-cursor-height = 0%
+adjust-cursor-height = 15%
 adjust-cursor-thickness = 6
 adjust-box-thickness = -1
 adjust-underline-thickness = 0
@@ -28,7 +28,7 @@ mouse-hide-while-typing
 window-vsync = false
 # macos-titlebar-style = hidden
 window-decoration = true
-window-padding-y = 8,0
+window-padding-y = 8,4
 window-padding-x = 12,2
 window-padding-balance = false
 # window-padding-color = extend-always

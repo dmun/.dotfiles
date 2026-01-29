@@ -48,7 +48,7 @@
           (7 default 1.0)
           (t default 1.0)))
   (setq modus-themes-mode-line '(accented borderless padded))
-  (load-theme 'doom-tomorrow-night t))
+  (load-theme 'ef-maris-dark t))
 
 (global-display-line-numbers-mode -1)
 (use-package display-line-numbers
