@@ -38,7 +38,10 @@
     (move-beginning-of-line 1)
     (forward-char column)))
 
+(setq mac-command-modifier 'meta)
 (global-set-key (kbd "C-,") 'rc/duplicate-line)
+(global-set-key (kbd "M-n") 'scroll-up-command)
+(global-set-key (kbd "M-p") 'scroll-down-command)
 
 (use-package multiple-cursors
   :ensure t
