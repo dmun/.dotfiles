@@ -219,6 +219,10 @@
     <keybind key="W-z">
       <action name="Execute" command="pkill -SIGUSR1 -f gpu-screen-recorder" />
     </keybind>
+
+    <keybind key="W-x">
+      <action name="Execute" command="pkill -SIGRTMIN -f gpu-screen-recorder" />
+    </keybind>
   </keyboard>
 
   <mouse>
